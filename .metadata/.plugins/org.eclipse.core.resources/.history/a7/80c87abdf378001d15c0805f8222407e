@@ -1,0 +1,16 @@
+package ClassesUml;
+
+public class Venda {
+
+	private int idVenda;
+	private Vendedor vendedor;
+	private Veiculo veiculo;
+	
+	
+	public Venda(int idVenda, Vendedor vendedor, Veiculoveiculo) {
+		
+	}
+	
+	
+	
+}

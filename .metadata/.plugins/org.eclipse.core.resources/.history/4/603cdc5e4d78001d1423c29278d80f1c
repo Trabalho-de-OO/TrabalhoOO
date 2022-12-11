@@ -1,0 +1,44 @@
+package ClassesUml;
+
+public class Vendedor extends Cliente {
+
+	private long valNegociacao;
+	private Veiculo veiculo;
+
+
+
+	public Vendedor(Long valNegociacao, Veiculo veiculoAnunciado) {
+
+		this.valNegociacao = valNegociacao;
+		this.veiculo = veiculo;
+	}
+
+
+	//get e set valNegociacao	
+	public long getValNegociacao() {
+		return valNegociacao;
+	}
+	public void setValNegociacao(long valNegociacao) {
+		this.valNegociacao = valNegociacao;
+	}
+
+	//get e set veiculo
+	public Veiculo getVeiculo() {
+		return veiculo;
+	}
+
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
+	}
+
+	
+	public void cadastrarVeiculo() {
+		
+	}
+	public void negociar() {
+		
+	}
+	
+}
+
+

@@ -1,0 +1,54 @@
+package ClassesUml;
+
+public class Comprador extends Cliente{
+
+	private double valorCompra;
+	private String veiculoDesejado;
+	
+	public Comprador(String nome, String email, int telefone, long cpf) {
+		super(nome, email, telefone, cpf);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Comprador(String nome, String email, int telefone, long cpf, double valorCompra, String veiculoDesejado) {
+		super(nome, email, telefone, cpf);
+		this.valorCompra = valorCompra;
+		this.veiculoDesejado = veiculoDesejado;
+	}
+
+	public double getValorCompra() {
+		return valorCompra;
+	}
+
+	public void setValorCompra(double valorCompra) {
+		this.valorCompra = valorCompra;
+	}
+
+	public String getVeiculoDesejado() {
+		return veiculoDesejado;
+	}
+
+	public void setVeiculoDesejado(String veiculoDesejado) {
+		this.veiculoDesejado = veiculoDesejado;
+	}
+	
+	
+	public void financiarVeiculo() {
+		
+	}
+	public void buscarPedido() {
+		
+	}
+	public void listarPreco() {
+		
+	}
+	public void listarMarca() {
+		
+	}
+	public void negociar() {
+		
+	}
+		
+		
+
+}
