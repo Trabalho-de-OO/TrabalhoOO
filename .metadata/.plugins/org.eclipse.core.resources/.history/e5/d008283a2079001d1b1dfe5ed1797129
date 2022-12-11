@@ -1,0 +1,18 @@
+package Main;
+
+import ClassesUml.Vendedor;
+
+public class Main {
+
+	public static void main(String[]args) {
+		
+		Vendedor a = new Vendedor();
+		
+		a.setNome("JAO");
+		
+		System.out.print(a);
+		
+	}
+	
+	
+}

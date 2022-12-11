@@ -1,18 +1,24 @@
 package ClassesUml;
-
 public class Vendedor extends Pessoa{
-
-	private float valorNeg;
-	//atributo heranca
-	public Vendedor(String nome, String email, int telefone, String cpf, String endereco, float valorNeg) {
-		super(nome, email, telefone, cpf, endereco);
-		this.valorNeg = valorNeg;
+	//atributos vendedor
+	private int comissao;
+	public Vendedor() {
+		super();
 	}
-	public float getValorNeg() {
-		return valorNeg;
+	public Vendedor(String nome, String email, int telefone, String cpf, String endereco,int comissao) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.telefone = telefone;
+		this.cpf = cpf;
+		this.endereco = endereco;
+		this.comissao = comissao;
 	}
-	public void setValorNeg(float valorNeg) {
-		this.valorNeg = valorNeg;
+	public int getComissao() {
+		return comissao;
+	}
+	public void setComissao(int comissao) {
+		this.comissao = comissao;
 	}
 }
 

@@ -1,22 +1,16 @@
 package ClassesUml;
 
-public class Pessoa {
+public abstract class Pessoa {
 	//atributos
-	private String nome ;
-	private String email;
-	private int telefone;
-	private String cpf;
-	private String endereco;
-	//construtor
-	public Pessoa(String nome, String email, int telefone, String cpf, String endereco) {
+	protected String nome ;
+	protected String email;
+	protected int telefone;
+	protected String cpf;
+	protected String endereco;
+
+	public Pessoa() {
 		super();
-		this.nome = nome;
-		this.email = email;
-		this.telefone = telefone;
-		this.cpf = cpf;
-		this.endereco = endereco;		
 	}
-	
 	//get e set nome 
 	public String getNome() {
 		return nome;

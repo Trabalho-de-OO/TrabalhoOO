@@ -1,0 +1,23 @@
+package ClassesUml;
+
+public class Comprador extends Pessoa {
+	private double saldo;
+	private String veiculoDesejado;
+	
+	public Comprador() {
+		super();
+	}
+	public Comprador(String nome, String email, int telefone, String cpf, String endereco) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.telefone = telefone;
+		this.cpf = cpf;
+		this.endereco = endereco;
+	}
+
+	
+	
+	
+	
+}

@@ -1,0 +1,25 @@
+package ClassesUml;
+
+public class Vendedor extends Pessoa{
+	//atributos vendedor
+	private int comissao;
+
+	public Vendedor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	
+	
+	public int getComissao() {
+		return comissao;
+	}
+
+	public void setComissao(int comissao) {
+		this.comissao = comissao;
+	}
+	
+
+}
+
