@@ -30,4 +30,15 @@ public class Comprador extends Pessoa {
 	public void setVeiculoDesejado(String veiculoDesejado) {
 		this.veiculoDesejado = veiculoDesejado;
 	}
+	public String toString() {
+	return "Nome :" + nome + 
+"|" + "Email :" + email + 
+"|" + "Numero de Telefone :"+ telefone + 
+"|" + "CPF : " + cpf + 
+"|" + "Endereco :" + endereco +
+"|" + "Valor Saldo :" + saldo +
+"|" + "Carro Desejado :" + veiculoDesejado;
+
 }
+}
+

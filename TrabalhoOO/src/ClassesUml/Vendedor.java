@@ -2,6 +2,7 @@ package ClassesUml;
 public class Vendedor extends Pessoa{
 	//atributos vendedor
 	private int comissao;
+
 	public Vendedor() {
 		super();
 	}
@@ -20,5 +21,19 @@ public class Vendedor extends Pessoa{
 	public void setComissao(int comissao) {
 		this.comissao = comissao;
 	}
+	@Override
+
+	public String toString() {
+		return "Nome :" + nome + 
+"|" + "Email :" + email + 
+"|" + "Numero de Telefone :"+ telefone + 
+"|" + "CPF : " + cpf + 
+"|" + "Endereco :" + endereco +
+"|" + "Valor Comissao: " + comissao; 
+
+
+	}
+
 }
+
 

@@ -1,0 +1,21 @@
+package Main;
+
+import ClassesUml.Veiculo;
+
+public class Main {
+
+	public static void main(String[]args) {
+	
+		
+		Veiculo camaro = new Veiculo(2020 ,"Amarelo", 8, 4, 24.0000, "200 km");
+		
+	
+		
+		System.out.print(camaro);
+		
+		
+	}
+	
+	
+}
+	

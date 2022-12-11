@@ -43,7 +43,13 @@ public class Venda {
 		this.veiculo = veiculo;
 	}
 
-
+@Override
+public String toString() {
+	return "IDvenda : " + idVenda +
+			"|" + "DadosVeiculo :" + "|" + veiculo;
+			
+			
+}
 
 
 
