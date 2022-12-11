@@ -3,4 +3,5 @@
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="ClassesUml.Cliente"/>
     <fullyQualifiedTypeName name="ClassesUml.Comprador"/>
+    <fullyQualifiedTypeName name="ClassesUml.Concessionaria"/>
 </qualifiedTypeNameHistroy>

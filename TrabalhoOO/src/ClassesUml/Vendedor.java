@@ -24,7 +24,8 @@ public class Vendedor extends Pessoa{
 	@Override
 
 	public String toString() {
-		return "Nome :" + nome + 
+		return "VENDEDOR" + " " +
+"|"	+"Nome :" + nome + 
 "|" + "Email :" + email + 
 "|" + "Numero de Telefone :"+ telefone + 
 "|" + "CPF : " + cpf + 

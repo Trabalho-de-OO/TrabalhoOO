@@ -7,8 +7,8 @@ public class Veiculo {
 	private int numPortas;
 	private double preco;
 	private String quilometragem;
-	private CategoriaVeiculo categoria;
-	private MarcaVeiculo marca;
+	private String categoria;
+	private String marca;
 	
 	public Veiculo(int ano,String cor,int finalPlaca, int numPortas, Double preco,String quilometragem,String categoria, String marca) {
 		this.ano = ano;
@@ -17,8 +17,8 @@ public class Veiculo {
 		this.numPortas = numPortas;
 		this.preco= preco;
 		this.quilometragem = quilometragem;		
-		this.categoria = new CategoriaVeiculo(categoria);
-		this.marca = new MarcaVeiculo(marca);
+		this.categoria = categoria;
+		this.marca = marca;
 	}
 	public int getAno() {
 		return ano;
@@ -68,24 +68,25 @@ public class Veiculo {
 		this.quilometragem = quilometragem;
 	}
 	
-	public CategoriaVeiculo getCategoria() {
+	public String getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(CategoriaVeiculo categoria) {
+	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
 	
-	public MarcaVeiculo getMarca() {
+	public String getMarca() {
 		return marca;
 	}
 	
-	public void setMarca(MarcaVeiculo marca) {
+	public void setMarca(String marca) {
 		this.marca = marca;
 	}
 @Override
 
 public String toString(){
-	return "Ano :" + ano + 
+	return "VEICULO" + " " +  
+"|"	+ "Ano :" + ano + 
 "|" + "Cor :" + cor + 
 "|" + "Numero final da placa :"+ finalPlaca + 
 "|" + "Numero de Portas :" + numPortas + 
