@@ -1,6 +1,7 @@
 package Modelo;
 
 public class Veiculo {
+	private String nomeVeiculo;
 	private int ano;
 	private String cor;
 	private int finalPlaca;
@@ -10,7 +11,8 @@ public class Veiculo {
 	private String categoria;
 	private String marca;
 	
-	public Veiculo(int ano,String cor,int finalPlaca, int numPortas, Double preco,String quilometragem,String categoria, String marca) {
+	public Veiculo(String nomeVeiculo, int ano,String cor,int finalPlaca, int numPortas, Double preco,String quilometragem,String categoria, String marca) {
+		this.nomeVeiculo = nomeVeiculo;
 		this.ano = ano;
 		this.cor = cor;
 		this.finalPlaca = finalPlaca;
@@ -20,6 +22,14 @@ public class Veiculo {
 		this.categoria = categoria;
 		this.marca = marca;
 	}
+	
+	public String getNomeVeiculo() {
+		return nomeVeiculo;		
+	}
+	public void setNomeVeiculo(String nomeVeiculo) {
+		this.nomeVeiculo = nomeVeiculo;
+	}
+	
 	public int getAno() {
 		return ano;
 	}
@@ -85,7 +95,8 @@ public class Veiculo {
 @Override
 
 public String toString(){
-	return "VEICULO" + " " +  
+	return "VEICULO" + " " +
+"|" + "NomeVeiculo:"+ nomeVeiculo +
 "|"	+ "Ano :" + ano + 
 "|" + "Cor :" + cor + 
 "|" + "Numero final da placa :"+ finalPlaca + 
