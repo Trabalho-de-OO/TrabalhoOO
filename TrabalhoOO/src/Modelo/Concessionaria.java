@@ -10,6 +10,7 @@ public class Concessionaria {
 	private ArrayList<Veiculo> listaVeiculos = new ArrayList<Veiculo>();
 
 
+
 	public Concessionaria(String nome, int capacidade, int numVendedores, String endConcessionaria,
 			ArrayList<Veiculo> listaVeiculos) {
 		super();
@@ -57,7 +58,7 @@ public class Concessionaria {
 	}
 
 
-	
+	//Metodos
 	public void adicionarVeiculo(Veiculo veiculo){
 		listaVeiculos.add(veiculo);
 		

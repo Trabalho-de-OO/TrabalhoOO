@@ -13,12 +13,18 @@ public class Main {
 		Veiculo ferrari = new Veiculo("Ferrari",2020, "Branco", 0, 4, 21.000,
 				"300km", "Esporte", "ferrari");
 		
+		Veiculo golBolinha = new Veiculo("Gol bolinha", 0, null, 0, 0, 0.0, null, null, null);
+		
 		
 		ArrayList<Veiculo> listaVeiculo = new ArrayList<Veiculo>();
 		
 		Concessionaria gamaorc = new Concessionaria("Orca Gama", 200, 10, "Gama-DF", listaVeiculo);
+		
+		
 		gamaorc.adicionarVeiculo(audix6);
 		gamaorc.adicionarVeiculo(ferrari);
+		gamaorc.adicionarVeiculo(golBolinha);
+	
 		
 		System.out.println(gamaorc);
 		/*
