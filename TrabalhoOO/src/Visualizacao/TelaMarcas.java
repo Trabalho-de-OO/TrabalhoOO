@@ -15,9 +15,10 @@ import javax.swing.JLabel;
 
 public class TelaMarcas implements ActionListener {
 	private JFrame telaMarcas;
+	private JComboBox<String> listaCarros;
 	private JLabel titulo ; 
 	private JButton botaoBuscar;
-	private JComboBox<String> listaCarros;
+	
 
 	public TelaMarcas (){
 		telaMarcas = new JFrame();

@@ -17,9 +17,10 @@ import javax.swing.JTextField;
 
 public class TelaPrecos implements ActionListener {
 	private JFrame telaPrecos;
+	private JComboBox<String> listaPrecos;
 	private JLabel titulo2 ; 
 	private JButton botaoBuscar2;
-	private JComboBox<String> listaPrecos;
+
 
 	public TelaPrecos (){
 		telaPrecos = new JFrame();

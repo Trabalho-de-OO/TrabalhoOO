@@ -82,6 +82,10 @@ public class TelaPrincipal implements ActionListener{
 //metodo main
 	public 	static void main(String[]args) {
 		TelaPrincipal tela = new TelaPrincipal();
+		TelaMarcas telaMarcas = new TelaMarcas();
+		TelaPrecos telaPrecos = new TelaPrecos();
+		TelaVeiculos telaVeiculos = new TelaVeiculos();
+		TelaVendas telaVendas = new TelaVendas();
 		
 		
 		
