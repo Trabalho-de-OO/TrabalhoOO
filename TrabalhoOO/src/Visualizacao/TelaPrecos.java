@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -26,7 +27,7 @@ public class TelaPrecos implements ActionListener {
 		telaPrecos = new JFrame();
 		telaPrecos.setBounds(483 ,159, 500 , 450);
 		telaPrecos.setLayout(new GridBagLayout());
-		telaPrecos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		telaPrecos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	
 		GridBagConstraints centralizador2 = new GridBagConstraints();
 		centralizador2.gridx = 0;
@@ -69,15 +70,11 @@ public class TelaPrecos implements ActionListener {
 	public static void main(String[] args) {
 		TelaPrecos telaPrecos = new TelaPrecos();
 	}
-
-	
-	
-	
-	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }

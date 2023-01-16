@@ -6,6 +6,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -24,7 +26,11 @@ public class TelaMarcas implements ActionListener {
 		telaMarcas = new JFrame();
 		telaMarcas.setBounds(483 ,159, 500 , 450);
 		telaMarcas.setLayout(new GridBagLayout());
-		telaMarcas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		telaMarcas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
+		
+		
+		
 	
 		GridBagConstraints centralizador = new GridBagConstraints();
 		centralizador.gridx = 0;
@@ -65,12 +71,16 @@ public class TelaMarcas implements ActionListener {
 	
 	public static void main(String[] args) {
 		TelaMarcas telaMarcas = new TelaMarcas();
+		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		
 		
 	}
+	
+
+
 
 }

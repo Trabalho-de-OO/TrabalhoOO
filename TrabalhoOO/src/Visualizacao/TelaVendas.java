@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -30,7 +31,7 @@ public class TelaVendas implements ActionListener {
 		telaVendas = new JFrame(); 
 		telaVendas.setBounds(483 ,159, 500 , 450);
 		telaVendas.setLayout(new GridBagLayout());
-		telaVendas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		telaVendas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		//Construtor para alinhar os itens 
 		GridBagConstraints centralizador3 = new GridBagConstraints();
 		centralizador3.gridx = 0;
@@ -109,4 +110,5 @@ public class TelaVendas implements ActionListener {
 		// TODO Auto-generated method stub
 
 	}
+
 }

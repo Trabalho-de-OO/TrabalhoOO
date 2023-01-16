@@ -15,20 +15,21 @@ import javax.swing.JPanel;
 
 
 public class TelaPrincipal implements ActionListener{
-	private JFrame telaPrincipal;
-	private JPanel painel1;
-	private JPanel painel2;
-	private JButton botaoPrecos;
-	private JButton botaoMarcas;
-	private JButton botaoVeiculos;
-	private JButton botaoVendas;
+	private static JFrame telaPrincipal;
+	private static JPanel painel1;
+	private static JPanel painel2;
+	private static JButton botaoPrecos;
+	private static JButton botaoMarcas;
+	private static JButton botaoVeiculos;
+	private static JButton botaoVendas;
+
 	
 	//Criando o corpo da Tela
 	public TelaPrincipal() {
 		//JFrame da TelaPrincipal
 		telaPrincipal = new JFrame("TelaPrincipal");
 		telaPrincipal.setBounds(383, 159, 600, 450);
-		telaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		
 		//painel de fundo
 		painel1 = new JPanel();
@@ -73,6 +74,7 @@ public class TelaPrincipal implements ActionListener{
 		painel2.add(botaoVeiculos);
 		painel2.add(Box.createVerticalStrut(5));
 		painel2.add(botaoVendas);
+		
 		telaPrincipal.add(painel1);
 		telaPrincipal.add(painel2,BorderLayout.WEST);
 		telaPrincipal.setVisible(true);
@@ -82,23 +84,30 @@ public class TelaPrincipal implements ActionListener{
 //metodo main
 	public 	static void main(String[]args) {
 		TelaPrincipal tela = new TelaPrincipal();
-		TelaMarcas telaMarcas = new TelaMarcas();
-		TelaPrecos telaPrecos = new TelaPrecos();
-		TelaVeiculos telaVeiculos = new TelaVeiculos();
-		TelaVendas telaVendas = new TelaVendas();
 		
-		
+		botaoMarcas.addActionListener(tela);
+		botaoPrecos.addActionListener(tela);
+		botaoVeiculos.addActionListener(tela);
+		botaoVendas.addActionListener(tela);
 		
 }
-
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-
+		Object src = e.getSource();
 		
-		
-		
+		if(src == botaoMarcas)
+			new TelaMarcas();
+		if (src == botaoPrecos)
+			new TelaPrecos();
+		if(src == botaoVeiculos)
+			new TelaVeiculos();
+		if(src == botaoVendas)
+			new TelaVendas();	
+	
+	
 	}
 
+	
 }

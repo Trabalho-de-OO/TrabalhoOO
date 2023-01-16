@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -36,7 +37,7 @@ public class TelaVeiculos implements ActionListener {
 		telaVeiculos = new JFrame();
 		telaVeiculos.setBounds(483 ,159, 500 , 550);
 		telaVeiculos.setLayout(new GridBagLayout());
-		telaVeiculos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		telaVeiculos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		GridBagConstraints centralizador2 = new GridBagConstraints();
 		centralizador2.gridx = 0;
@@ -163,7 +164,7 @@ public class TelaVeiculos implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-
 	}
+
 
 }
