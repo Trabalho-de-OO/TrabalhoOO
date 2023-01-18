@@ -95,16 +95,18 @@ public class Veiculo {
 @Override
 
 public String toString(){
-	return "VEICULO" + " " +
-"|" + "NomeVeiculo:"+ nomeVeiculo +
-"|"	+ "Ano :" + ano + 
-"|" + "Cor :" + cor + 
-"|" + "Numero final da placa :"+ finalPlaca + 
-"|" + "Numero de Portas :" + numPortas + 
-"|" + "Preco do Carro :" + preco +
-"|" + "Kms Rodados:" + quilometragem +
-"|"	+ "Categoria : " + categoria +
-"|" + "Marca : " + marca;
+	return"\n" + "--VEICULO--\n" 
+		 + "NOME DO VEICULO : " + nomeVeiculo + "\n"
+		 + "ANO : " + ano + "\n"
+		 + "COR : " + cor + "\n" 
+		 + "FINAL PLACA : " + finalPlaca + "\n"
+		 + "NUMERO DE PORTAS : " + numPortas + "\n"
+		 + "PRECO : " + preco + "\n" 
+		 + "QUILOMETRAGEM : " + quilometragem + "\n"
+		 + "CATEGORIA : " + categoria + "\n"
+		 + "MARCA : " + marca + "\n";
+		 
+		
 	
 }
 

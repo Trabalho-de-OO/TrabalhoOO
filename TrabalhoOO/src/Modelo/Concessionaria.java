@@ -11,7 +11,8 @@ public class Concessionaria {
 
 
 
-	public Concessionaria(String nome, int capacidade, int numVendedores, String endConcessionaria,
+	public Concessionaria(String nome, int capacidade, int numVendedores,
+			String endConcessionaria,
 			ArrayList<Veiculo> listaVeiculos) {
 		super();
 		this.nome = nome;
@@ -71,12 +72,12 @@ public class Concessionaria {
 
 	@Override
 	public String toString() {
-		return "CONCESSIONARIA"  + " " + 
-				"|"	+ "Nome da Concessionaria:" + " " + nome +
-				"|"	+ "Capacidade de Veiculos :" + " " + capacidade + 
-				"|"	+"Numero de Vendedores :" + " " + numVendedores +
-				"|" +"Endereco Concessionaria" + " " + endConcessionaria + 
-				"|" + "Lista de Veiculos no estabelecimente: " + listaVeiculos;
+		return 	 "--CONCESSIONARIA--\n" 
+			   + "NOME DA CONCESSIONARIA : " + nome + "\n"  
+			   + "CAPACIDADE DE VEICULOS : " + capacidade + "\n" 
+			   + "NUMERO DE VENDEDORES : "   + numVendedores + "\n" 
+			   + "ENDERECO CONCESSIONARIA : " + endConcessionaria + "\n"   
+			   + "LISTA DE VEICULOS NO ESTABELECIMENTO : "+ listaVeiculos + "\n" + "\n" ;
 	}
 
 }

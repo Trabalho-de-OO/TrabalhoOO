@@ -22,7 +22,7 @@ public class TelaVeiculos implements ActionListener {
 	private JLabel valorVeiculo;
 	private JLabel quilometragemVeiculo;
 	private JLabel marcaVeiculo;
-	private JLabel categoriaVeiculo;
+	private JLabel categoriaVeiculo;	
 	private JTextField entrada1;
 	private JTextField entrada2;
 	private JTextField entrada3;
@@ -30,12 +30,13 @@ public class TelaVeiculos implements ActionListener {
 	private JTextField entrada5;
 	private JTextField entrada6;
 	private JTextField entrada7;
-	private JTextField entrada8;
+	private JTextField entrada8;	
 	private JButton botaoCadastrar;
+	
 	public TelaVeiculos() {
 		//
 		telaVeiculos = new JFrame();
-		telaVeiculos.setBounds(483 ,159, 500 , 550);
+		telaVeiculos.setBounds(483 ,159, 500 , 570);
 		telaVeiculos.setLayout(new GridBagLayout());
 		telaVeiculos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
@@ -55,13 +56,15 @@ public class TelaVeiculos implements ActionListener {
 		quilometragemVeiculo = new JLabel("Quilometragem");
 		marcaVeiculo = new JLabel("Marca");
 		categoriaVeiculo = new JLabel("Categoria");
+	
 
 		//JTextField
 		Dimension tamanhoEntradas = new Dimension(200, 20);
+		
 		entrada1 = new JTextField();
 		entrada1.setPreferredSize(tamanhoEntradas);
 		entrada1.setMaximumSize(tamanhoEntradas);
-		entrada1.setMinimumSize(tamanhoEntradas);
+		
 		
 		entrada2 = new JTextField();
 		entrada2.setPreferredSize(tamanhoEntradas);
@@ -71,37 +74,36 @@ public class TelaVeiculos implements ActionListener {
 		entrada3 = new JTextField();
 		entrada3.setPreferredSize(tamanhoEntradas);
 		entrada3.setMaximumSize(tamanhoEntradas);
-		entrada3.setMinimumSize(tamanhoEntradas);
+		
 		
 		entrada4 = new JTextField();
 		entrada4.setPreferredSize(tamanhoEntradas);
 		entrada4.setMaximumSize(tamanhoEntradas);
-		entrada4.setMinimumSize(tamanhoEntradas);
+	
 		
 		entrada5 = new JTextField();
 		entrada5.setPreferredSize(tamanhoEntradas);
 		entrada5.setMaximumSize(tamanhoEntradas);
-		entrada5.setMinimumSize(tamanhoEntradas);
-		
+	
 		entrada6 = new JTextField();
 		entrada6.setPreferredSize(tamanhoEntradas);
 		entrada6.setMaximumSize(tamanhoEntradas);
-		entrada6.setMinimumSize(tamanhoEntradas);
+		
 		
 		entrada7 = new JTextField();
 		entrada7.setPreferredSize(tamanhoEntradas);
 		entrada7.setMaximumSize(tamanhoEntradas);
-		entrada7.setMinimumSize(tamanhoEntradas);
+		
 		
 		entrada8 = new JTextField();
 		entrada8.setPreferredSize(tamanhoEntradas);
 		entrada8.setMaximumSize(tamanhoEntradas);
-		entrada8.setMinimumSize(tamanhoEntradas);
+		
 		
 		botaoCadastrar = new JButton("Cadastrar");
 		botaoCadastrar.setPreferredSize(tamanhoEntradas);
 		botaoCadastrar.setMaximumSize(tamanhoEntradas);
-		botaoCadastrar.setMinimumSize(tamanhoEntradas);
+		
 		
 		//Centralizando os titulos e as entradas 
 		centralizador2.gridy = 0;
@@ -145,7 +147,6 @@ public class TelaVeiculos implements ActionListener {
 		centralizador2.gridy = 16;
 		telaVeiculos.add(entrada8,centralizador2);
 		
-
 		centralizador2.gridy = 17;
 		telaVeiculos.add(botaoCadastrar,centralizador2);
 		

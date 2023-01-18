@@ -32,14 +32,14 @@ public class Comprador extends Pessoa {
 		this.veiculoDesejado = veiculoDesejado;
 	}
 	public String toString() {
-		return "COMPRADOR"+ " " +
-				"|" +"Nome :" + nome + 
-				"|" + "Email :" + email + 
-				"|" + "Numero de Telefone :"+ telefone + 
-				"|" + "CPF : " + cpf + 
-				"|" + "Endereco :" + endereco +
-				"|" + "Valor Saldo :" + saldo +
-				"|" + "Carro Desejado :" + veiculoDesejado;
+		return "--COMPRADOR--\n"+ "NOME : "+ nome + "\n"
+			 + "EMAIL : " + email +"\n" 
+			 + "TELEFONE : " + telefone + "\n"
+			 + "CPF : " + cpf + "\n"
+			 + "ENDERECO : " + endereco + "\n"
+			 + "SALDO : " + saldo + "\n" 
+			 + "VEICULO DESEJADO : " + veiculoDesejado + "\n" + "\n"; 
+			
 
 	}
 }

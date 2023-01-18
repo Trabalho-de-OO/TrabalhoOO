@@ -7,7 +7,8 @@ public class Vendedor extends Pessoa{
 	public Vendedor() {
 		super();
 	}
-	public Vendedor(String nome, String email, int telefone, String cpf, String endereco,int comissao) {
+	public Vendedor(String nome, String email, int telefone, String cpf,
+			String endereco,int comissao) {
 		super();
 		this.nome = nome;
 		this.email = email;
@@ -25,13 +26,13 @@ public class Vendedor extends Pessoa{
 	@Override
 
 	public String toString() {
-		return "VENDEDOR" + " " +
-				"|"	+"Nome :" + nome + 
-				"|" + "Email :" + email + 
-				"|" + "Numero de Telefone :"+ telefone + 
-				"|" + "CPF : " + cpf + 
-				"|" + "Endereco :" + endereco +
-				"|" + "Valor Comissao: " + comissao; 
+		return  "\n" + "--VENDEDOR--\n" 
+				 + "NOME  : " + nome + "\n"
+				 + "EMAIL : " + email + "\n"
+				 + "TELEFONE : " + telefone + "\n" 
+				 + "CPF : " + cpf + "\n"
+				 + "ENDERECO : " + endereco + "\n"
+				 + "COMISSAO : " + comissao + "\n" + "\n";
 
 
 	}
