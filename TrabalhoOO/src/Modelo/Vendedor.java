@@ -17,6 +17,7 @@ public class Vendedor extends Pessoa{
 		this.endereco = endereco;
 		this.comissao = comissao;
 	}
+	
 	public int getComissao() {
 		return comissao;
 	}

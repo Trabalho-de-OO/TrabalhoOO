@@ -2,35 +2,36 @@ package Modelo;
 
 public class Venda {
 
-	private Vendedor vendedor;
-	private Veiculo veiculo;
+	private String vendedor;
+	private String veiculo;
 	private double precoVenda;
-	private Concessionaria localVenda;
+	private String localVenda;
 
-
-	public Venda( Vendedor vendedor, Veiculo veiculo,double precoVenda, Concessionaria localVenda) {
+	
+	
+	public Venda( String vendedor, String  veiculo, double precoVenda, String localVenda) {
 		this.vendedor = vendedor;
 		this.veiculo = veiculo;
 		this.precoVenda = precoVenda;
 		this.localVenda = localVenda;
 	}
 
-	public Vendedor getVendedor() {
+	public String getVendedor() {
 		return vendedor;
 	}
 
 
-	public void setVendedor(Vendedor vendedor) {
+	public void setVendedor(String vendedor) {
 		this.vendedor = vendedor;
 	}
 
 
-	public Veiculo getVeiculo() {
+	public String getVeiculo() {
 		return veiculo;
 	}
 
 
-	public void setVeiculo(Veiculo veiculo) {
+	public void setVeiculo(String veiculo) {
 		this.veiculo = veiculo;
 	}
 

@@ -1,25 +1,24 @@
 package Modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Concessionaria {
 	private String nome;
 	private int capacidade;
 	private int numVendedores;
 	private String endConcessionaria;
-	private ArrayList<Veiculo> listaVeiculos = new ArrayList<Veiculo>();
+	private List<Veiculo> listaVeiculos = new ArrayList<Veiculo>();
+	private int numeroVeiculos = 0;
 
 
-
-	public Concessionaria(String nome, int capacidade, int numVendedores,
-			String endConcessionaria,
-			ArrayList<Veiculo> listaVeiculos) {
+	public Concessionaria(String nome, int capacidade, int numVendedores,String endConcessionaria) {
 		super();
 		this.nome = nome;
 		this.capacidade = capacidade;
 		this.numVendedores = numVendedores;
 		this.endConcessionaria = endConcessionaria;
-		this.listaVeiculos = listaVeiculos;
+
 	}
 	
 	public String getNome() {
@@ -50,34 +49,29 @@ public class Concessionaria {
 		this.endConcessionaria = endConcessionaria;
 	}
 
-	public ArrayList<Veiculo> getListaVeiculos() {
+	public List<Veiculo> getListaVeiculos() {
 		return listaVeiculos;
 	}
 
-	public void setListaVeiculos(ArrayList<Veiculo> listaVeiculos) {
+	public void setListaVeiculos(List<Veiculo> listaVeiculos) {
 		this.listaVeiculos = listaVeiculos;
 	}
 
+	public int getNumeroVeiculos() {
+		return numeroVeiculos;
+	}
 
-	//Metodos
-	public void adicionarVeiculo(Veiculo veiculo){
-		listaVeiculos.add(veiculo);
-		
+	public void setNumeroVeiculos(int numeroVeiculos) {
+		this.numeroVeiculos = numeroVeiculos;
 	}
 	
-	public void removerViculo(Veiculo veiculo) {
-		this.listaVeiculos.remove(veiculo);
-			
-	}
-
 	@Override
 	public String toString() {
 		return 	 "--CONCESSIONARIA--\n" 
 			   + "NOME DA CONCESSIONARIA : " + nome + "\n"  
 			   + "CAPACIDADE DE VEICULOS : " + capacidade + "\n" 
 			   + "NUMERO DE VENDEDORES : "   + numVendedores + "\n" 
-			   + "ENDERECO CONCESSIONARIA : " + endConcessionaria + "\n"   
-			   + "LISTA DE VEICULOS NO ESTABELECIMENTO : "+ listaVeiculos + "\n" + "\n" ;
+			   + "ENDERECO CONCESSIONARIA : " + endConcessionaria + "\n" + "\n" ;
 	}
-
 }
+

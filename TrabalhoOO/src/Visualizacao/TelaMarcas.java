@@ -6,18 +6,17 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 
 public class TelaMarcas implements ActionListener {
 	private JFrame telaMarcas;
-	private JComboBox<String> listaCarros;
+	private JTextField buscarMarcas;
 	private JLabel titulo ; 
 	private JButton botaoBuscar;
 	
@@ -35,17 +34,14 @@ public class TelaMarcas implements ActionListener {
 		GridBagConstraints centralizador = new GridBagConstraints();
 		centralizador.gridx = 0;
 		centralizador.gridy = 0;
-		centralizador.insets = new Insets(10,10,10,10);
+		centralizador.insets = new Insets(5,5,5,5);
 		centralizador.anchor = GridBagConstraints.CENTER;
 		
 		Dimension tamanhoBotao2 = new Dimension(150,30);
-		listaCarros = new JComboBox<>();
-		listaCarros.setPreferredSize(tamanhoBotao2);
-		listaCarros.setMaximumSize(tamanhoBotao2);
-		listaCarros.setMinimumSize(tamanhoBotao2);
-		//Adição de item ao Combox
-		listaCarros.addItem("Fiat");
-		listaCarros.addItem("Ford");
+		buscarMarcas= new JTextField();
+		buscarMarcas.setPreferredSize(tamanhoBotao2);
+		buscarMarcas.setMaximumSize(tamanhoBotao2);
+		buscarMarcas.setMinimumSize(tamanhoBotao2);
 		
 		
 		titulo = new JLabel("Buscar por Marcas");
@@ -61,7 +57,7 @@ public class TelaMarcas implements ActionListener {
 		centralizador.gridy = 0;
 		telaMarcas.add(titulo,centralizador);
 		centralizador.gridy = 1;
-		telaMarcas.add(listaCarros,centralizador);
+		telaMarcas.add(buscarMarcas,centralizador);
 		centralizador.gridy = 2;
 		telaMarcas.add(botaoBuscar, centralizador);
 			
@@ -78,7 +74,7 @@ public class TelaMarcas implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		
-	}
+  }
 	
 
 

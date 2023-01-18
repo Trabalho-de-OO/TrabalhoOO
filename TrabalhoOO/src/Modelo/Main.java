@@ -23,25 +23,35 @@ public class Main {
 
 
 		//Lista de Veiculos
-		ArrayList<Veiculo> listaVeiculo = new ArrayList<Veiculo>();
+		ArrayList<Veiculo> lista = new ArrayList<Veiculo>();
+		
+		lista.add(audix6);
+		lista.add(ferrari);
+		
+		
+		
+		
 
 		//Concessionaria
-		Concessionaria orcaGama = new Concessionaria("Orca Gama", 200, 10, "Gama-DF" , listaVeiculo);
-		orcaGama.adicionarVeiculo(audix6);
-		orcaGama.adicionarVeiculo(ferrari);
+		Concessionaria orcaGama = new Concessionaria("Orca Gama", 200, 10, "Gama-DF");
 		
 		//Venda
-		Venda x = new Venda(neymar, audix6, 900.000, orcaGama);
+		Venda x = new Venda("neymar", "audix6", 900.000, "orcaGama");
 
+		Dados dados = new Dados()
+		
+	
+		System.out.print(dados);
+		/*
 		System.out.print(neymar);
 		System.out.print(renatoCariane);
 		System.out.print(orcaGama);
-		
+		*/
 
 
 
 
 
 
-	}
+  }
 }

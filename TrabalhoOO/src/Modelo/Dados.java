@@ -1,10 +1,9 @@
 package Modelo;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.util.ArrayList;
 
 public class Dados {
-	private  Comprador[] dadosComprador = new Comprador[100];
+	private  ArrayList<Comprador> dadosComprador = new ArrayList<>();
 	private int quantComprador = 0;
 	private Vendedor[] dadosVendedor = new Vendedor[100];
 	private int quantVendedor = 0;
@@ -13,26 +12,42 @@ public class Dados {
 	private Concessionaria[] dadosConcessionaria = new Concessionaria[100];
 	private int quantConcessionaria = 0;
 
-
-	public void fiiWithSomeData() {
-		Date d = Calendar.getInstance().getTime();
+	
+	
+	
+	 
+	/*
+	public void armazenarDados() {
 		
 		for( int i = 0; i < 2; i++) {
 
-			dadosComprador[i] = new Comprador("RenatoCariane",
-			"Renatin@gmailcom",554544,"032565525","Sao Paulo", 900.000,"Audi x6");
+
+			dadosComprador[i] = new Comprador("Nome Comprador" +i,
+			"Email Comprador" + i,00000 +i,"Cpf"+i , "Endereco Comprador" + i, 0.0 +i,"Veiculo Desejado"+i);
+			
+			dadosVendedor[i] = new Vendedor("Nome Vendedor","Email Vendedor",
+					00000 ,"Cpf","Endereco ",0);
+			
+			dadosVenda[i] = new Venda("Vendedor", "Veiculo", 0.0, "Local da Venda");
+			
+			dadosConcessionaria[i] = new Concessionaria("Nome Concessionaria", 200, 10, "Endereço da Venda");
+			
 
 		}
 		quantComprador = 2;
+		quantVendedor = 2;
+		quantVenda = 2;
+		quantConcessionaria = 2;
+	
 	}
+*/
 
-
-	public Comprador[] getDadosComprador() {
+	public ArrayList<Comprador> getDadosComprador() {
 		return dadosComprador;
 	}
 
 
-	public void setDadosComprador(Comprador[] dadosComprador) {
+	public void setDadosComprador(ArrayList<Comprador> dadosComprador) {
 		this.dadosComprador = dadosComprador;
 	}
 
@@ -106,4 +121,44 @@ public class Dados {
 		this.quantConcessionaria = quantConcessionaria;
 	}
 	
+	//Inserir dados 
+	/*
+	public void colocarDadosComprador(Comprador c, int pos) {
+		this.dadosComprador[pos] = c;
+		if(pos == quantComprador) quantComprador++;
+	}
+		public void colocarDadosVendedor(Vendedor v, int pos) {
+			this.dadosVendedor[pos] = v;
+			if(pos == quantVendedor) quantVendedor++;
+		
+		
+		}
+			public void colocarDadosVenda(Venda vd, int pos) {
+				this.dadosVenda[pos] = vd;
+				if(pos == quantVenda) quantVenda++;
+			}
+			
+			public void colocarDadosConcessionaria(Concessionaria cr, int pos) {
+					this.dadosConcessionaria[pos] = cr;
+					if(pos ==  quantConcessionaria) quantConcessionaria++;
+			}
+		*/
+	
+	
+	public void inserirDadosComprador(Comprador dadosComprador) {
+			
+	}
+	
+	public String toString() {
+		return "Dados : \n " 
+	+ "Comprador : " + dadosComprador 
+	+ "Vendedor : " + dadosVendedor
+	+ "Venda : " + dadosVenda 
+	+ "Concessionaria : " + dadosConcessionaria + "\n" + "\n";
+		
+	}
+		
+		          
+			
 }
+
