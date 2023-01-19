@@ -1,5 +1,7 @@
 package Modelo;
 
+import java.util.List;
+
 public class Veiculo {
 	private String nomeVeiculo;
 	private int ano;
@@ -92,6 +94,10 @@ public class Veiculo {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
+	
+
+	
+
 @Override
 
 public String toString(){

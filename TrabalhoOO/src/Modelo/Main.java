@@ -24,24 +24,24 @@ public class Main {
 
 		//Lista de Veiculos
 		ArrayList<Veiculo> lista = new ArrayList<Veiculo>();
-		
-		lista.add(audix6);
+	
 		lista.add(ferrari);
-		
-		
-		
+		lista.add(audix6);
 		
 
 		//Concessionaria
 		Concessionaria orcaGama = new Concessionaria("Orca Gama", 200, 10, "Gama-DF");
 		
+		
+		
 		//Venda
 		Venda x = new Venda("neymar", "audix6", 900.000, "orcaGama");
 
-		Dados dados = new Dados()
+		
+		orcaGama.buscarVeiculo(lista, audix6);
 		
 	
-		System.out.print(dados);
+		
 		/*
 		System.out.print(neymar);
 		System.out.print(renatoCariane);

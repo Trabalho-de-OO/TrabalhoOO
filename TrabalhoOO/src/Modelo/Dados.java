@@ -1,9 +1,9 @@
 package Modelo;
 
-import java.util.ArrayList;
+
 
 public class Dados {
-	private  ArrayList<Comprador> dadosComprador = new ArrayList<>();
+	private  Comprador[] dadosComprador = new Comprador[100];
 	private int quantComprador = 0;
 	private Vendedor[] dadosVendedor = new Vendedor[100];
 	private int quantVendedor = 0;
@@ -11,45 +11,6 @@ public class Dados {
 	private int quantVenda = 0;
 	private Concessionaria[] dadosConcessionaria = new Concessionaria[100];
 	private int quantConcessionaria = 0;
-
-	
-	
-	
-	 
-	/*
-	public void armazenarDados() {
-		
-		for( int i = 0; i < 2; i++) {
-
-
-			dadosComprador[i] = new Comprador("Nome Comprador" +i,
-			"Email Comprador" + i,00000 +i,"Cpf"+i , "Endereco Comprador" + i, 0.0 +i,"Veiculo Desejado"+i);
-			
-			dadosVendedor[i] = new Vendedor("Nome Vendedor","Email Vendedor",
-					00000 ,"Cpf","Endereco ",0);
-			
-			dadosVenda[i] = new Venda("Vendedor", "Veiculo", 0.0, "Local da Venda");
-			
-			dadosConcessionaria[i] = new Concessionaria("Nome Concessionaria", 200, 10, "Endereço da Venda");
-			
-
-		}
-		quantComprador = 2;
-		quantVendedor = 2;
-		quantVenda = 2;
-		quantConcessionaria = 2;
-	
-	}
-*/
-
-	public ArrayList<Comprador> getDadosComprador() {
-		return dadosComprador;
-	}
-
-
-	public void setDadosComprador(ArrayList<Comprador> dadosComprador) {
-		this.dadosComprador = dadosComprador;
-	}
 
 
 	public int getQuantComprador() {
@@ -120,9 +81,35 @@ public class Dados {
 	public void setQuantConcessionaria(int quantConcessionaria) {
 		this.quantConcessionaria = quantConcessionaria;
 	}
+
+	
+	public void armazenarDados() {
+		
+		for( int i = 0; i < 2; i++) {
+
+
+			dadosComprador[i] = new Comprador("Nome Comprador" +i,
+			"Email Comprador" + i,00000 +i,"Cpf"+i , "Endereco Comprador" + i, 0.0 +i,"Veiculo Desejado"+i);
+			
+			dadosVendedor[i] = new Vendedor("Nome Vendedor","Email Vendedor",
+					00000 ,"Cpf","Endereco ",0);
+			
+			dadosVenda[i] = new Venda("Vendedor", "Veiculo", 0.0, "Local da Venda");
+			
+			dadosConcessionaria[i] = new Concessionaria("Nome Concessionaria", 200, 10, "Endereço da Venda");
+			
+
+		}
+		quantComprador = 2;
+		quantVendedor = 2;
+		quantVenda = 2;
+		quantConcessionaria = 2;
+	
+	}
+
 	
 	//Inserir dados 
-	/*
+	
 	public void colocarDadosComprador(Comprador c, int pos) {
 		this.dadosComprador[pos] = c;
 		if(pos == quantComprador) quantComprador++;
@@ -142,13 +129,9 @@ public class Dados {
 					this.dadosConcessionaria[pos] = cr;
 					if(pos ==  quantConcessionaria) quantConcessionaria++;
 			}
-		*/
+		
 	
-	
-	public void inserirDadosComprador(Comprador dadosComprador) {
-			
-	}
-	
+
 	public String toString() {
 		return "Dados : \n " 
 	+ "Comprador : " + dadosComprador 
@@ -162,3 +145,7 @@ public class Dados {
 			
 }
 
+
+	
+	
+	

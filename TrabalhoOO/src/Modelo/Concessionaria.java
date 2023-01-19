@@ -20,7 +20,13 @@ public class Concessionaria {
 		this.endConcessionaria = endConcessionaria;
 
 	}
-	
+
+	public Concessionaria(List<Veiculo> listaVeiculos) {
+		this.listaVeiculos = listaVeiculos;
+	}
+
+
+
 	public String getNome() {
 		return nome;
 	}
@@ -41,7 +47,7 @@ public class Concessionaria {
 	public void setNumVendedores(int numVendedores) {
 		this.numVendedores = numVendedores;
 	}
-	
+
 	public String getEndConcessionaria() {
 		return endConcessionaria;
 	}
@@ -64,14 +70,29 @@ public class Concessionaria {
 	public void setNumeroVeiculos(int numeroVeiculos) {
 		this.numeroVeiculos = numeroVeiculos;
 	}
-	
+
+	public void buscarVeiculo( List<Veiculo> listaVeiculos, Veiculo veiculo) {
+
+		if(listaVeiculos.contains(veiculo) == true) {
+
+			System.out.format("Veiculo buscado foi : %s\n Ano : %d\n Numero Final da Placa : %d",
+					veiculo.getNomeVeiculo(), veiculo.getAno(), veiculo.getFinalPlaca());
+		} else {
+
+			System.out.print("--ERROR-- \n Nao ha esse veiculo na lista");
+		}
+
+	}
+
+
+
 	@Override
 	public String toString() {
 		return 	 "--CONCESSIONARIA--\n" 
-			   + "NOME DA CONCESSIONARIA : " + nome + "\n"  
-			   + "CAPACIDADE DE VEICULOS : " + capacidade + "\n" 
-			   + "NUMERO DE VENDEDORES : "   + numVendedores + "\n" 
-			   + "ENDERECO CONCESSIONARIA : " + endConcessionaria + "\n" + "\n" ;
+				+ "NOME DA CONCESSIONARIA : " + nome + "\n"  
+				+ "CAPACIDADE DE VEICULOS : " + capacidade + "\n" 
+				+ "NUMERO DE VENDEDORES : "   + numVendedores + "\n" 
+				+ "ENDERECO CONCESSIONARIA : " + endConcessionaria + "\n" + "\n" ;
 	}
 }
 
