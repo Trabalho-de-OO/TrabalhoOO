@@ -18,11 +18,14 @@ public class ControleDados {
 		this.dados = d;
 	}
 
+	
 	public ArrayList<Veiculo> getDadosVeiculo() {
 		return dados.getDadosVeiculo();
 	}
 	
-	
+	public ArrayList<Venda> getDadosVendas(){
+		return dados.getDadosVenda();
+	}
 }	
 
 

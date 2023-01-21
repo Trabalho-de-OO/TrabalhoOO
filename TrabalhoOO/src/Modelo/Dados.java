@@ -67,23 +67,23 @@ public class Dados{
 		//----------------------------------------------------------------------------------------------------------------
 
 		//dadosVeiculo1
-		dadosVeiculo.add(new Veiculo("Nome Veiculo1",0001 ,"Cor1", 1, 1, 1.0000, 
+		dadosVeiculo.add(new Veiculo("Veiculo1",0001 ,"Cor1", 1, 1, 1.0000, 
 				"01 km","Categoria1", "Marca1"));
 
 		//dadosVeiculo2
-		dadosVeiculo.add(new Veiculo("Nome Veiculo2",0002 ,"Cor2", 2, 2, 2.0000, 
+		dadosVeiculo.add(new Veiculo("Veiculo2",0002 ,"Cor2", 2, 2, 2.0000, 
 				"02 km","Categoria2", "Marca2"));
 
 		//dadosVeiculo3
-		dadosVeiculo.add(new Veiculo("Nome Veiculo3",0003 ,"Cor3", 3, 3, 3.0000, 
+		dadosVeiculo.add(new Veiculo("Veiculo3",0003 ,"Cor3", 3, 3, 3.0000, 
 				"03 km","Categoria3", "Marca3"));
 
 		//dadosVeiculo4
-		dadosVeiculo.add(new Veiculo("Nome Veiculo4",0004 ,"Cor4", 4, 4, 4.0000, 
+		dadosVeiculo.add(new Veiculo("Veiculo4",0004 ,"Cor4", 4, 4, 4.0000, 
 				"04 km","Categoria4", "Marca4"));
 
 		//dadosVeiculo5
-		dadosVeiculo.add(new Veiculo("Nome Veiculo5",0005 ,"Cor5", 5, 5, 5.0000, 
+		dadosVeiculo.add(new Veiculo("Veiculo5",0005 ,"Cor5", 5, 5, 5.0000, 
 				"05 km","Categoria5", "Marca5"));
 
 		//----------------------------------------------------------------------------------------------------

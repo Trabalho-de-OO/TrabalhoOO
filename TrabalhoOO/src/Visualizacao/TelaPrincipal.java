@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import Controle.ControleDados;
+
 
 public class TelaPrincipal implements ActionListener{
 	private static JFrame telaPrincipal;
@@ -22,7 +24,7 @@ public class TelaPrincipal implements ActionListener{
 	private static JButton botaoMarcas;
 	private static JButton botaoVeiculos;
 	private static JButton botaoVendas;
-
+	private ControleDados dados = new ControleDados();
 
 	//Criando o corpo da Tela
 	public TelaPrincipal() {
@@ -109,10 +111,10 @@ public class TelaPrincipal implements ActionListener{
 			new TelaPrecos();
 		
 		if(src == botaoVeiculos)
-			new TelaVeiculos();
+			new TelaCadastros().mostrarTela(dados, 1 );;
 			
 		if(src == botaoVendas)
-			new TelaVendas();	
+			new TelaCadastros().mostrarTela(dados, 2);;	
 
 
 	}
