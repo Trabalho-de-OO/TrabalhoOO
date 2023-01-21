@@ -1,171 +1,111 @@
+
 package Visualizacao;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.JList;
+import javax.swing.JPanel;
+
+import Controle.*;
+
 
 public class TelaVeiculos implements ActionListener {
-	private JFrame telaVeiculos;
-	private JLabel nomeVeiculo ;
-	private JLabel anoVeiculo;
-	private JLabel numeroFinalPlaca;
-	private JLabel numeroPortasVeiculo;
-	private JLabel valorVeiculo;
-	private JLabel quilometragemVeiculo;
-	private JLabel marcaVeiculo;
-	private JLabel categoriaVeiculo;	
-	private JTextField entrada1;
-	private JTextField entrada2;
-	private JTextField entrada3;
-	private JTextField entrada4;
-	private JTextField entrada5;
-	private JTextField entrada6;
-	private JTextField entrada7;
-	private JTextField entrada8;	
+	private JFrame telaVeiculo ;
+	private JPanel painelEsquerdo;
+	private JPanel painelCentral;
 	private JButton botaoCadastrar;
-	
+	private JButton botaoAtualizar;
+	private JLabel tituloCadastro ;
+	private JList<String> listaVeiculos;
+	private ControleDados dados = new ControleDados();
+
+
+
 	public TelaVeiculos() {
-		//
-		telaVeiculos = new JFrame();
-		telaVeiculos.setBounds(483 ,159, 500 , 570);
-		telaVeiculos.setLayout(new GridBagLayout());
-		telaVeiculos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		GridBagConstraints centralizador2 = new GridBagConstraints();
-		centralizador2.gridx = 0;
-		centralizador2.gridy = 0;
-		centralizador2.insets = new Insets(5,5,5,5);
-		centralizador2.anchor = GridBagConstraints.CENTER;
-		
-		//JLabels
-		
-		nomeVeiculo =  new JLabel("Nome do Veiculo");
-		anoVeiculo =  new JLabel("Ano");
-		numeroFinalPlaca = new JLabel("Placa-NumeroFinal");
-		numeroPortasVeiculo = new JLabel("Numero de Portas");
-		valorVeiculo = new JLabel("Valor");
-		quilometragemVeiculo = new JLabel("Quilometragem");
-		marcaVeiculo = new JLabel("Marca");
-		categoriaVeiculo = new JLabel("Categoria");
-	
 
-		//JTextField
-		Dimension tamanhoEntradas = new Dimension(200, 20);
-		
-		entrada1 = new JTextField();
-		entrada1.setPreferredSize(tamanhoEntradas);
-		entrada1.setMaximumSize(tamanhoEntradas);
-		
-		
-		entrada2 = new JTextField();
-		entrada2.setPreferredSize(tamanhoEntradas);
-		entrada2.setMaximumSize(tamanhoEntradas);
-		entrada2.setMinimumSize(tamanhoEntradas);
-		
-		entrada3 = new JTextField();
-		entrada3.setPreferredSize(tamanhoEntradas);
-		entrada3.setMaximumSize(tamanhoEntradas);
-		
-		
-		entrada4 = new JTextField();
-		entrada4.setPreferredSize(tamanhoEntradas);
-		entrada4.setMaximumSize(tamanhoEntradas);
-	
-		
-		entrada5 = new JTextField();
-		entrada5.setPreferredSize(tamanhoEntradas);
-		entrada5.setMaximumSize(tamanhoEntradas);
-	
-		entrada6 = new JTextField();
-		entrada6.setPreferredSize(tamanhoEntradas);
-		entrada6.setMaximumSize(tamanhoEntradas);
-		
-		
-		entrada7 = new JTextField();
-		entrada7.setPreferredSize(tamanhoEntradas);
-		entrada7.setMaximumSize(tamanhoEntradas);
-		
-		
-		entrada8 = new JTextField();
-		entrada8.setPreferredSize(tamanhoEntradas);
-		entrada8.setMaximumSize(tamanhoEntradas);
-		
-		
+		//JFrame
+		//Componentes do painel de opcoes
+		telaVeiculo = new JFrame();
+		telaVeiculo.setBounds(483 ,159, 500 , 450);	
+		telaVeiculo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+
+		painelEsquerdo = new JPanel();
+		painelEsquerdo.setBackground(Color.LIGHT_GRAY);
+		painelEsquerdo.setLayout(new BoxLayout(painelEsquerdo, BoxLayout.Y_AXIS));
+
+		Dimension tamanhoBotoes = new Dimension(150,40);
 		botaoCadastrar = new JButton("Cadastrar");
-		botaoCadastrar.setPreferredSize(tamanhoEntradas);
-		botaoCadastrar.setMaximumSize(tamanhoEntradas);
-		
-		
-		//Centralizando os titulos e as entradas 
-		centralizador2.gridy = 0;
-		telaVeiculos.add(nomeVeiculo,centralizador2);
-		centralizador2.gridy = 1;
-		telaVeiculos.add(entrada1,centralizador2);
-		
-		centralizador2.gridy = 3;
-		telaVeiculos.add(anoVeiculo,centralizador2);
-		centralizador2.gridy = 4;
-		telaVeiculos.add(entrada2,centralizador2);
-		
-		centralizador2.gridy = 5;
-		telaVeiculos.add(numeroFinalPlaca,centralizador2);
-		centralizador2.gridy = 6;
-		telaVeiculos.add(entrada3,centralizador2);
-		
-		centralizador2.gridy = 7;
-		telaVeiculos.add(numeroPortasVeiculo,centralizador2);
-		centralizador2.gridy = 8;
-		telaVeiculos.add(entrada4,centralizador2);
-		
-		centralizador2.gridy = 9;
-		telaVeiculos.add(valorVeiculo,centralizador2);
-		centralizador2.gridy = 10;
-		telaVeiculos.add(entrada5,centralizador2);
-		
-		centralizador2.gridy = 11;
-		telaVeiculos.add(quilometragemVeiculo,centralizador2);
-		centralizador2.gridy = 12;
-		telaVeiculos.add(entrada6,centralizador2);
-		
-		centralizador2.gridy = 13;
-		telaVeiculos.add(marcaVeiculo,centralizador2);
-		centralizador2.gridy = 14;
-		telaVeiculos.add(entrada7,centralizador2);
-		
-		
-		centralizador2.gridy = 15;
-		telaVeiculos.add(categoriaVeiculo,centralizador2);
-		centralizador2.gridy = 16;
-		telaVeiculos.add(entrada8,centralizador2);
-		
-		centralizador2.gridy = 17;
-		telaVeiculos.add(botaoCadastrar,centralizador2);
-		
-		telaVeiculos.setVisible(true);
-	} 
+		botaoCadastrar.setSize(tamanhoBotoes);
+		botaoCadastrar.setMaximumSize(tamanhoBotoes);
 
+		botaoAtualizar = new JButton("Atualizar");
+		botaoAtualizar.setSize(tamanhoBotoes);
+		botaoAtualizar.setMaximumSize(tamanhoBotoes);
+
+
+
+		//Componentes do painel central
+		painelCentral = new JPanel();
+		painelCentral.setBounds(333 ,159, 500 , 450);	
+		painelCentral.setLayout(new GridBagLayout());
+
+		// alinhador do Painel
+		GridBagConstraints alinhadorPainelCentral = new GridBagConstraints();
+		alinhadorPainelCentral.gridx = 0;
+		alinhadorPainelCentral.gridy = 0;
+		alinhadorPainelCentral.insets = new Insets(10,10,10,10);
+		alinhadorPainelCentral.anchor = GridBagConstraints.CENTER;
+
+		tituloCadastro = new JLabel("Alguns Veiculos Cadastrados");
+		tituloCadastro.setFont(new Font("Arial", Font.BOLD, 20));
+	
+		//JList
+		listaVeiculos = new JList<String>(new ControleVeiculo(dados).getListaVeiculo());
+		
+		
+		//adicao do painel de opcoes
+		painelEsquerdo.add(botaoCadastrar);
+		painelEsquerdo.add(Box.createVerticalStrut(10));
+		painelEsquerdo.add(botaoAtualizar);
+		painelEsquerdo.add(Box.createVerticalStrut(10));
+
+		//adicao do painel Central
+		alinhadorPainelCentral.gridy = 0;
+		painelCentral.add(tituloCadastro, alinhadorPainelCentral);
+		alinhadorPainelCentral.gridy = 1;
+		painelCentral.add(listaVeiculos, alinhadorPainelCentral);
+
+
+		telaVeiculo.add(painelEsquerdo, BorderLayout.WEST);
+		telaVeiculo.add(painelCentral);
+
+
+		telaVeiculo.setVisible(true);
+	}
+	
 	
 	public static void main(String[] args) {
-		TelaVeiculos telaVeiculos = new TelaVeiculos();
+		TelaVeiculos tela = new TelaVeiculos();
 	}
 
-
-
-
-
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
- }
+	public void actionPerformed(ActionEvent a) {
 
-
-}
+	}
+}	

@@ -26,7 +26,7 @@ public class Main {
 		ArrayList<Veiculo> lista = new ArrayList<Veiculo>();
 	
 		lista.add(ferrari);
-		lista.add(audix6);
+	
 		
 
 		//Concessionaria
@@ -36,9 +36,15 @@ public class Main {
 		
 		//Venda
 		Venda x = new Venda("neymar", "audix6", 900.000, "orcaGama");
-
+	
 		
-		orcaGama.buscarVeiculo(lista, audix6);
+		Dados dados1 = new Dados();
+		dados1.dadosProntos(); 
+		
+		System.out.print(dados1);
+		
+		
+		
 		
 	
 		

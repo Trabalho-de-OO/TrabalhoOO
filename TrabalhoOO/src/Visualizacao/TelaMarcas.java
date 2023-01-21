@@ -27,10 +27,6 @@ public class TelaMarcas implements ActionListener {
 		telaMarcas.setLayout(new GridBagLayout());
 		telaMarcas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		
-		
-		
-	
 		GridBagConstraints centralizador = new GridBagConstraints();
 		centralizador.gridx = 0;
 		centralizador.gridy = 0;
@@ -65,10 +61,6 @@ public class TelaMarcas implements ActionListener {
 		
 	}
 	
-	public static void main(String[] args) {
-		TelaMarcas telaMarcas = new TelaMarcas();
-		
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

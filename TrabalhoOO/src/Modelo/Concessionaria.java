@@ -10,7 +10,7 @@ public class Concessionaria {
 	private String endConcessionaria;
 	private List<Veiculo> listaVeiculos = new ArrayList<Veiculo>();
 	private int numeroVeiculos = 0;
-
+	private List<Veiculo> listaVeiculosProntos = new ArrayList<>();
 
 	public Concessionaria(String nome, int capacidade, int numVendedores,String endConcessionaria) {
 		super();
@@ -70,6 +70,10 @@ public class Concessionaria {
 	public void setNumeroVeiculos(int numeroVeiculos) {
 		this.numeroVeiculos = numeroVeiculos;
 	}
+	
+	
+	
+	
 
 	public void buscarVeiculo( List<Veiculo> listaVeiculos, Veiculo veiculo) {
 
