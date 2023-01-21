@@ -10,6 +10,8 @@ public class Dados{
 	private ArrayList<Veiculo> dadosVeiculo = new ArrayList<>();
 	private ArrayList<Venda> dadosVenda = new ArrayList<>();
 	private ArrayList<Concessionaria> dadosConcessionaria = new ArrayList<>();
+	private ArrayList<Veiculo> dadosMarcas = new ArrayList<>();
+	
 	
 
 
@@ -34,7 +36,7 @@ public class Dados{
 		}	
 
 	}
-
+	
 	//Getts e Setts
 	public ArrayList<Comprador> getDadosComprador() {
 		return dadosComprador;
@@ -65,6 +67,14 @@ public class Dados{
 	}
 	public void setDadosConcessionaria(ArrayList<Concessionaria> dadosConcessionaria) {
 		this.dadosConcessionaria = dadosConcessionaria;
+	}
+	
+	public ArrayList<Veiculo> getDadosMarcas() {
+		return dadosMarcas;
+	}
+
+	public void setDadosMarcas(ArrayList<Veiculo> dadosMarcas) {
+		this.dadosMarcas = dadosMarcas;
 	}
 
 	public void cadastrarVeiculo(Veiculo v, int posicao, Dados d) {

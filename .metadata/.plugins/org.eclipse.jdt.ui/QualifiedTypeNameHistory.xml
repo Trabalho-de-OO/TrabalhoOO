@@ -12,7 +12,6 @@
     <fullyQualifiedTypeName name="Modelo.Comprador"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
     <fullyQualifiedTypeName name="javax.swing.BoxLayout"/>
-    <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
     <fullyQualifiedTypeName name="java.awt.Dimension"/>
     <fullyQualifiedTypeName name="javax.swing.Box"/>
     <fullyQualifiedTypeName name="java.util.List"/>
@@ -24,4 +23,5 @@
     <fullyQualifiedTypeName name="Modelo.Venda"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="Modelo.Dados"/>
+    <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
 </qualifiedTypeNameHistroy>
