@@ -18,10 +18,10 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.awt.Font"/>
     <fullyQualifiedTypeName name="Controle.ControleDados"/>
-    <fullyQualifiedTypeName name="Modelo.Dados"/>
     <fullyQualifiedTypeName name="Modelo.Concessionaria"/>
     <fullyQualifiedTypeName name="javax.swing.ListSelectionModel"/>
     <fullyQualifiedTypeName name="javax.swing.JPanel"/>
     <fullyQualifiedTypeName name="Modelo.Venda"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="Modelo.Dados"/>
 </qualifiedTypeNameHistroy>

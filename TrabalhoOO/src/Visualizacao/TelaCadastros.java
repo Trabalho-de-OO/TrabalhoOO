@@ -23,37 +23,36 @@ import Controle.ControleVeiculo;
 import Controle.ControleVendas;
 
 public class TelaCadastros {
-	
+
 	private JFrame tela ;
 	private JPanel painelEsquerdo;
 	private JPanel painelCentral;
 	private JButton botaoCadastrar;
 	private JButton botaoAtualizar;
 	private JLabel tituloCadastro ;
-	private JList<String> listaVendas;
-	private JList<String> listaVeiculos;
+	private JList<String> listas;
 	private static ControleDados dados = new ControleDados();
 
-	
+
 	public void mostrarTela(ControleDados d, int op) {
 		dados = d;
-		
+
 		switch(op) {
-		
+
 		case 1:
 
 
 			//JFrame
-			//Componentes do painel de opcoes
 			tela = new JFrame();
 			tela.setBounds(483 ,159, 500 , 450);	
 			tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-
+			//Painel de Opcoes e seus componentes 
 			painelEsquerdo = new JPanel();
 			painelEsquerdo.setBackground(Color.LIGHT_GRAY);
 			painelEsquerdo.setLayout(new BoxLayout(painelEsquerdo, BoxLayout.Y_AXIS));
 
+			// Dimension para setar o tamanho dos botoes
 			Dimension tamanhoBotoes = new Dimension(150,40);
 			botaoCadastrar = new JButton("Cadastrar");
 			botaoCadastrar.setSize(tamanhoBotoes);
@@ -79,17 +78,13 @@ public class TelaCadastros {
 
 			tituloCadastro = new JLabel("Alguns Veiculos Cadastrados");
 			tituloCadastro.setFont(new Font("Arial", Font.BOLD, 20));
-		
+
 			//JList
-			listaVeiculos = new JList<String>(new ControleVeiculo(dados).getListaVeiculo());
-			
-			
-			
-			
-			listaVeiculos.setBounds(20, 50, 350, 120);
-			listaVeiculos.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-			listaVeiculos.setVisibleRowCount(10);
-			
+			listas = new JList<String>(new ControleVeiculo(dados).getListaVeiculo());
+			listas.setBounds(20, 50, 350, 120);
+			listas.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+			listas.setVisibleRowCount(10);
+
 			//adicao do painel de opcoes
 			painelEsquerdo.add(botaoCadastrar);
 			painelEsquerdo.add(Box.createVerticalStrut(10));
@@ -100,7 +95,7 @@ public class TelaCadastros {
 			alinhadorPainelCentral.gridy = 0;
 			painelCentral.add(tituloCadastro, alinhadorPainelCentral);
 			alinhadorPainelCentral.gridy = 1;
-			painelCentral.add(listaVeiculos, alinhadorPainelCentral);
+			painelCentral.add(listas, alinhadorPainelCentral);
 
 
 			tela.add(painelEsquerdo, BorderLayout.WEST);
@@ -108,23 +103,22 @@ public class TelaCadastros {
 
 
 			tela.setVisible(true);
-			break;
-			
-			
-		case 2:
-			
 
+			break;
+
+
+		case 2:
 			//JFrame
-			//Componentes do painel de opcoes
 			tela = new JFrame();
 			tela.setBounds(483 ,159, 500 , 450);	
 			tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-
+			//Painel de Opcoes e seus componentes 
 			painelEsquerdo = new JPanel();
 			painelEsquerdo.setBackground(Color.LIGHT_GRAY);
 			painelEsquerdo.setLayout(new BoxLayout(painelEsquerdo, BoxLayout.Y_AXIS));
 
+			// Dimension para setar o tamanho dos botoes
 			Dimension tamanhoBotoes2 = new Dimension(150,40);
 			botaoCadastrar = new JButton("Cadastrar");
 			botaoCadastrar.setSize(tamanhoBotoes2);
@@ -148,19 +142,15 @@ public class TelaCadastros {
 			alinhadorPainelCentral2.insets = new Insets(10,10,10,10);
 			alinhadorPainelCentral2.anchor = GridBagConstraints.CENTER;
 
-			tituloCadastro = new JLabel("Algumas Vendas");
+			tituloCadastro = new JLabel("Algumas Vendas Cadastradas");
 			tituloCadastro.setFont(new Font("Arial", Font.BOLD, 20));
-		
+
 			//JList
-			listaVendas = new JList<String>((new ControleVendas(dados).getListaVenda()));
-			
-			
-			
-			
-			listaVendas.setBounds(20, 50, 350, 120);
-			listaVendas.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-			listaVendas.setVisibleRowCount(10);
-			
+			listas = new JList<String>(new ControleVendas(dados).getListaVenda());
+			listas.setBounds(20, 50, 350, 120);
+			listas.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+			listas.setVisibleRowCount(10);
+
 			//adicao do painel de opcoes
 			painelEsquerdo.add(botaoCadastrar);
 			painelEsquerdo.add(Box.createVerticalStrut(10));
@@ -171,7 +161,7 @@ public class TelaCadastros {
 			alinhadorPainelCentral2.gridy = 0;
 			painelCentral.add(tituloCadastro, alinhadorPainelCentral2);
 			alinhadorPainelCentral2.gridy = 1;
-			painelCentral.add(listaVendas, alinhadorPainelCentral2);
+			painelCentral.add(listas, alinhadorPainelCentral2);
 
 
 			tela.add(painelEsquerdo, BorderLayout.WEST);
@@ -181,13 +171,13 @@ public class TelaCadastros {
 			tela.setVisible(true);
 			
 			break;
-			
-			default :
-				JOptionPane.showMessageDialog(null,"Opção não encontrada!", null, 
+
+		default :
+			JOptionPane.showMessageDialog(null,"Error", null, 
 					JOptionPane.ERROR_MESSAGE);
-			
+
 		}
-			
+
 	}
-	
+
 }
