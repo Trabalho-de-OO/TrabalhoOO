@@ -35,7 +35,7 @@ public class Main {
 		
 		
 		//Venda
-		Venda x = new Venda("neymar", "audix6", 900.000, "orcaGama");
+		Venda x = new Venda(0000,"neymar", "audix6", 900.000, "orcaGama");
 	
 		
 		Dados dados1 = new Dados();

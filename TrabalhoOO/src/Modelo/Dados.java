@@ -21,7 +21,7 @@ public class Dados{
 			dadosVeiculo.add(new Veiculo("Veiculo" + i, (0001)+i ,"Cor"+i, 1 +i, 1 +i, 0000.0 + i, 
 					"km"+i,"Categoria"+i, "Marca"+i));
 
-			dadosVenda.add(new Venda("Vendedor" +i, "Veiculo"+i,(0.5)+i, 
+			dadosVenda.add(new Venda(00000+i,"Vendedor" +i, "Veiculo"+i,(0.5)+i, 
 					"Local da Venda5"+i));
 
 			dadosComprador.add(new Comprador("Nome Comprador"+i,"Email Comprador"+i ,

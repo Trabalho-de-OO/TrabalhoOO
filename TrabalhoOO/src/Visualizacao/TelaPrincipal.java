@@ -20,8 +20,6 @@ public class TelaPrincipal implements ActionListener{
 	private static JFrame telaPrincipal;
 	private static JPanel painel1;
 	private static JPanel painel2;
-	private static JButton botaoPrecos;
-	private static JButton botaoMarcas;
 	private static JButton botaoVeiculos;
 	private static JButton botaoVendas;
 	private ControleDados dados = new ControleDados();
@@ -30,15 +28,10 @@ public class TelaPrincipal implements ActionListener{
 	public TelaPrincipal() {
 		//JFrame da TelaPrincipal
 		telaPrincipal = new JFrame("TelaPrincipal");
-		//telaPrincipal.setBounds(383, 159, 600, 450);
 		telaPrincipal.setSize(600,450);
-		
-		// centralizador da Tela
-		telaPrincipal.setLocationRelativeTo(null);
-		
-		// Set para não poder maximar a tela 
+		telaPrincipal.setBounds(383 ,159, 500 , 450); 
 		telaPrincipal.setResizable(false);
-
+		
 		//painel de fundo
 		painel1 = new JPanel();
 		painel1.setBounds(383, 159, 600, 450);
@@ -51,18 +44,7 @@ public class TelaPrincipal implements ActionListener{
 
 		//Colocando os botoes no mesmo tamanho
 		Dimension tamanhoBotao = new Dimension(100,30);
-
-		//Botão Preço
-		botaoPrecos= new JButton("Preços");
-		botaoPrecos.setPreferredSize(tamanhoBotao);
-		botaoPrecos.setMaximumSize(tamanhoBotao);
-		botaoPrecos.setMaximumSize(tamanhoBotao);
-		//Botão Marcas
-		botaoMarcas = new JButton("Marcas");
-		botaoMarcas.setPreferredSize(tamanhoBotao);
-		botaoMarcas.setMaximumSize(tamanhoBotao);
-		botaoMarcas.setMaximumSize(tamanhoBotao);
-
+		
 		//Botão Veiculos
 		botaoVeiculos= new JButton("Veiculos");
 		botaoVeiculos.setPreferredSize(tamanhoBotao);
@@ -73,12 +55,8 @@ public class TelaPrincipal implements ActionListener{
 		botaoVendas.setPreferredSize(tamanhoBotao);
 		botaoVendas.setMaximumSize(tamanhoBotao);
 		botaoVendas.setMaximumSize(tamanhoBotao);
-
+		
 		//Fazendo as devidas adicoes 
-		painel2.add(botaoMarcas);
-		painel2.add(Box.createVerticalStrut(5));
-		painel2.add(botaoPrecos);
-		painel2.add(Box.createVerticalStrut(5));
 		painel2.add(botaoVeiculos);
 		painel2.add(Box.createVerticalStrut(5));
 		painel2.add(botaoVendas);
@@ -93,22 +71,16 @@ public class TelaPrincipal implements ActionListener{
 	public 	static void main(String[]args) {
 		TelaPrincipal tela = new TelaPrincipal();
 
-		botaoMarcas.addActionListener(tela);
-		botaoPrecos.addActionListener(tela);
+		
 		botaoVeiculos.addActionListener(tela);
 		botaoVendas.addActionListener(tela);
 
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
 		Object src = e.getSource();
-
-		if(src == botaoMarcas)
-			new TelaMarcas();
-		if (src == botaoPrecos)
-			new TelaPrecos();
 		
 		if(src == botaoVeiculos)
 			new TelaCadastros().mostrarTela(dados, 1 );;
