@@ -4,12 +4,12 @@ public class Venda {
 	private int idVenda;
 	private String vendedor;
 	private String veiculo;
-	private double precoVenda;
+	private int precoVenda;
 	private String localVenda;
 
 	
 	
-	public Venda( int idVenda, String vendedor, String  veiculo, double precoVenda, 
+	public Venda( int idVenda, String vendedor, String  veiculo, int precoVenda, 
 			String localVenda) {
 		this.vendedor = vendedor;
 		this.veiculo = veiculo;
@@ -46,12 +46,12 @@ public class Venda {
 	}
 
 
-	public  double getPrecoVenda() {
+	public  int getPrecoVenda() {
 		return precoVenda;
 	}
 
 
-	public void setPrecoVenda(double precoVenda) {
+	public void setPrecoVenda(int precoVenda) {
 		this.precoVenda = precoVenda;
 	}
 	

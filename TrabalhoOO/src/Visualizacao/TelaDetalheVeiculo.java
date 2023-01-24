@@ -17,33 +17,22 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Controle.ControleDados;
+import Controle.ControleVeiculo;
+
 public class TelaDetalheVeiculo implements ActionListener {
 
 
 	private JFrame janelaDetalhe;
 	private JPanel painelEsquerdo;
 	private JPanel painelCentral;
-	private JTextField entrada;
-	private JTextField entrada2;
-	private JTextField entrada3;
-	private JTextField entrada4;
-	private JTextField entrada5;
-	private JTextField entrada6;
-	private JTextField entrada7;
-	private JTextField entrada8;
-	private JTextField entrada9;
-	private JLabel titulo;
-	private JLabel titulo2;
-	private JLabel titulo3;
-	private JLabel titulo4;
-	private JLabel titulo5;
-	private JLabel titulo6;
-	private JLabel titulo7;
-	private JLabel titulo8;
-	private JLabel titulo9;
-	private JButton botaoSalvar;
-	private JButton botaoExcluir;
-
+	private JTextField entrada,entrada2,entrada3,entrada4,entrada5,entrada6,entrada7,entrada8,entrada9;
+	private JLabel titulo, titulo2,titulo3,titulo4,titulo5,titulo6,titulo7,titulo8,titulo9;
+	private JButton botaoSalvar,botaoExcluir;
+	private ControleDados dados = new ControleDados();
+	
+	
+	
 	public TelaDetalheVeiculo() {
 		
 		//JFrame
@@ -172,6 +161,8 @@ public class TelaDetalheVeiculo implements ActionListener {
 				alinhamento.gridx = 1;
 				alinhamento.gridy = 8;
 				
+				botaoSalvar.addActionListener(this);
+				
 				painelCentral.add(entrada9,alinhamento);
 				
 				painelEsquerdo.add(botaoSalvar);
@@ -181,15 +172,17 @@ public class TelaDetalheVeiculo implements ActionListener {
 				
 				janelaDetalhe.add(painelCentral);
 				janelaDetalhe.add(painelEsquerdo, BorderLayout.WEST);
-				
+		
 				janelaDetalhe.setVisible(true);
 		
 	}
 		
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		Object src = e.getSource();
+			
 		
+
 	}
 
 }

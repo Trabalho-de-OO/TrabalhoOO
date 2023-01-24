@@ -1,4 +1,4 @@
-package Modelo;
+/*package Modelo;
 
 import java.util.ArrayList;
 
@@ -18,6 +18,8 @@ public class Main {
 		// Veiculos		
 		Veiculo audix6= new Veiculo("Audix6",2020 ,"Amarelo", 8, 4, 24.0000, 
 				"200 km","Sedan", "Audi");
+		
+		
 		Veiculo ferrari = new Veiculo("Ferrari",2020, "Branco", 0, 4, 21.000,
 				"300km", "Esporte", "ferrari");
 
@@ -26,23 +28,32 @@ public class Main {
 		ArrayList<Veiculo> lista = new ArrayList<Veiculo>();
 	
 		lista.add(ferrari);
-	
+		
+		
+
 		
 
 		//Concessionaria
 		Concessionaria orcaGama = new Concessionaria("Orca Gama", 200, 10, "Gama-DF");
 		
 		
+		orcaGama.buscarVeiculo(lista, audix6);
+		
 		
 		//Venda
 		Venda x = new Venda(0000,"neymar", "audix6", 900.000, "orcaGama");
 	
-		
+		/*
 		Dados dados1 = new Dados();
 		dados1.dadosProntos(); 
+		*/
 		
+		
+		
+	
+		/*
 		System.out.print(dados1);
-		
+		*/
 		
 		
 		
@@ -52,7 +63,7 @@ public class Main {
 		System.out.print(neymar);
 		System.out.print(renatoCariane);
 		System.out.print(orcaGama);
-		*/
+		
 
 
 
@@ -61,3 +72,4 @@ public class Main {
 
   }
 }
+*/

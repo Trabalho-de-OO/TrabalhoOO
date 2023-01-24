@@ -31,26 +31,19 @@ import Controle.ControleVendas;
 public class TelaCadastros implements ActionListener, ListSelectionListener{
 
 	private JFrame tela ;
-	private JPanel painelEsquerdo;
-	private JPanel painelCentral;
-	private JButton botaoCadastrarVeiculos;
-	private JButton botaoAtualizarVeiculos;
-	private JButton botaoBuscarMarcas;
-	private JButton botaoBuscarPrecos;
-	private JButton botaoCadastrarVendas;
-	private JButton botaoAtualizarVendas;
+	private JPanel painelEsquerdo,painelCentral;
+	private JButton botaoCadastrarVeiculos,botaoAtualizarVeiculos,
+	botaoBuscarMarcas, botaoBuscarPrecos, botaoCadastrarVendas,botaoAtualizarVendas;
 	private JComboBox<String> listaPrecos;
 	private JTextField entradaMarcas;
-	private JLabel tituloMarcas;
-	private JLabel tituloPrecos;
-	private JLabel tituloCadastro;
-	private JList<String> listasVeiculos;
-	private JList<String> listasVendas;
-	private static ControleDados dados = new ControleDados();
+	private JLabel tituloMarcas,tituloPrecos, tituloCadastro;
+	private JList<String> listasVeiculos, listasVendas;
+
+	private static ControleDados controleDados = new ControleDados();
 
 
-	public void mostrarTela(ControleDados d, int op) {
-		dados = d;
+	public void mostrarTela(ControleDados dados, int op) {
+		controleDados = dados;
 
 		switch(op) {
 
@@ -59,86 +52,74 @@ public class TelaCadastros implements ActionListener, ListSelectionListener{
 
 			//JFrame
 			tela = new JFrame();
-			tela.setBounds(483 ,159, 500 , 450);	
-			tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-			//Painel de Opcoes e seus componentes 
 			painelEsquerdo = new JPanel();
+			painelCentral = new JPanel();
+			botaoCadastrarVeiculos = new JButton("Cadastrar");
+			botaoAtualizarVeiculos = new JButton("Atualizar");
+			tituloMarcas = new JLabel("Buscar por Marcas");
+			entradaMarcas = new JTextField();
+			botaoBuscarMarcas = new JButton("Buscar");
+			tituloCadastro = new JLabel("Alguns Veiculos Cadastrados");
+			listasVeiculos = new JList<String>(new ControleVeiculo(controleDados).getListaVeiculosProntos());
+			
+			
+			tela.setBounds(483 ,159, 500 , 450);	
+			tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);		
 			painelEsquerdo.setBackground(Color.LIGHT_GRAY);
 			painelEsquerdo.setLayout(new BoxLayout(painelEsquerdo, BoxLayout.Y_AXIS));
 
-			// Dimension para setar o tamanho dos botoes
-			Dimension tamanhoBotoes = new Dimension(100,30);
-			botaoCadastrarVeiculos = new JButton("Cadastrar");
-			botaoCadastrarVeiculos.setSize(tamanhoBotoes);
-			botaoCadastrarVeiculos.setMaximumSize(tamanhoBotoes);
-			
-			botaoCadastrarVeiculos.addActionListener(this);
 			
 			
-			botaoAtualizarVeiculos = new JButton("Atualizar");
-			botaoAtualizarVeiculos.setSize(tamanhoBotoes);
-			botaoAtualizarVeiculos.setMaximumSize(tamanhoBotoes);
+		
 			botaoAtualizarVeiculos.addActionListener(this);
-
-
-			//Componentes do painel central
-			painelCentral = new JPanel();
+			
+		
+			
 			painelCentral.setBounds(333 ,159, 500 , 450);	
 			painelCentral.setLayout(new GridBagLayout());
 
-			// alinhador do Painel
+			Dimension tamanhoBotoes = new Dimension(100,30);
+			Dimension tamanhoEntrada = new Dimension(200,30);
 			GridBagConstraints alinhadorPainelCentral = new GridBagConstraints();
 			alinhadorPainelCentral.gridx = 0;
 			alinhadorPainelCentral.gridy = 0;
 			alinhadorPainelCentral.insets = new Insets(10,10,10,10);
 			alinhadorPainelCentral.anchor = GridBagConstraints.FIRST_LINE_START;
-
-			tituloCadastro = new JLabel("Alguns Veiculos Cadastrados");
+		
+			entradaMarcas.setPreferredSize(tamanhoEntrada);
+			entradaMarcas.setMaximumSize(tamanhoEntrada);
+			botaoBuscarMarcas.setPreferredSize(tamanhoBotoes);
+			botaoBuscarMarcas.setMaximumSize(tamanhoBotoes);
+			botaoCadastrarVeiculos.setSize(tamanhoBotoes);
+			botaoCadastrarVeiculos.setMaximumSize(tamanhoBotoes);
+			botaoAtualizarVeiculos.setSize(tamanhoBotoes);
+			botaoAtualizarVeiculos.setMaximumSize(tamanhoBotoes);
+			
 			tituloCadastro.setFont(new Font("Arial", Font.BOLD, 20));
-
-			//JList
-			listasVeiculos = new JList<String>(new ControleVeiculo(dados).getListaVeiculo());
+			listasVeiculos.setPreferredSize(new Dimension(270,100));
 			listasVeiculos.setBounds(20, 50, 350, 120);
 			listasVeiculos.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-			listasVeiculos.setVisibleRowCount(10);
+			
 
-			//adicao do painel de opcoes
 			painelEsquerdo.add(botaoCadastrarVeiculos);
 			painelEsquerdo.add(Box.createVerticalStrut(5));
 			painelEsquerdo.add(botaoAtualizarVeiculos);
 			painelEsquerdo.add(Box.createVerticalStrut(5));
 
-			Dimension tamanhoEntrada = new Dimension(200,30);
-			//Busca por Marcas
-			tituloMarcas = new JLabel("Buscar por Marcas");
-			entradaMarcas = new JTextField();
-			entradaMarcas.setPreferredSize(tamanhoEntrada);
-			entradaMarcas.setMaximumSize(tamanhoEntrada);
-			
-			
-			botaoBuscarMarcas = new JButton("Buscar");
-			botaoBuscarMarcas.setPreferredSize(tamanhoBotoes);
-			botaoBuscarMarcas.setMaximumSize(tamanhoBotoes);
-			
-			
-			//adicao do painel Central
 			alinhadorPainelCentral.gridy = 0;
 			painelCentral.add(tituloCadastro, alinhadorPainelCentral);
 			alinhadorPainelCentral.gridy = 1;
 			painelCentral.add(listasVeiculos, alinhadorPainelCentral);
-			
 			alinhadorPainelCentral.gridy = 3;
 			painelCentral.add(tituloMarcas,alinhadorPainelCentral);
-			
 			alinhadorPainelCentral.gridy = 4;
 			painelCentral.add(entradaMarcas,alinhadorPainelCentral);
-			
 			alinhadorPainelCentral.gridy = 5;
 			painelCentral.add(botaoBuscarMarcas,alinhadorPainelCentral);
-			
-			
-			
+
+
+			botaoCadastrarVeiculos.addActionListener(this);
+			listasVeiculos.addListSelectionListener(this);
 			tela.add(painelEsquerdo, BorderLayout.WEST);
 			tela.add(painelCentral);
 			tela.setVisible(true);
@@ -163,7 +144,7 @@ public class TelaCadastros implements ActionListener, ListSelectionListener{
 			botaoCadastrarVendas.setSize(tamanhoBotoes2);
 			botaoCadastrarVendas.setMaximumSize(tamanhoBotoes2);
 			botaoCadastrarVendas.addActionListener(this);
-			
+
 			botaoAtualizarVendas = new JButton("Atualizar");
 			botaoAtualizarVendas.setSize(tamanhoBotoes2);
 			botaoAtualizarVendas.setMaximumSize(tamanhoBotoes2);
@@ -186,7 +167,7 @@ public class TelaCadastros implements ActionListener, ListSelectionListener{
 			tituloCadastro.setFont(new Font("Arial", Font.BOLD, 20));
 
 			//JList
-			listasVendas = new JList<String>(new ControleVendas(dados).getListaVenda());
+			listasVendas = new JList<String>(new ControleVendas(controleDados).getListaVenda());
 			listasVendas.setBounds(20, 50, 350, 120);
 			listasVendas.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 			listasVendas.setVisibleRowCount(10);
@@ -196,7 +177,7 @@ public class TelaCadastros implements ActionListener, ListSelectionListener{
 			painelEsquerdo.add(Box.createVerticalStrut(5));
 			painelEsquerdo.add(botaoAtualizarVendas);
 			painelEsquerdo.add(Box.createVerticalStrut(5));
-			
+
 			Dimension tamanhoComboBox = new Dimension(200,30);
 			//Listagem de Marcas
 			tituloPrecos = new JLabel("Precos");
@@ -206,19 +187,19 @@ public class TelaCadastros implements ActionListener, ListSelectionListener{
 			listaPrecos.setMaximumSize(tamanhoComboBox);
 			listaPrecos.addItem("3.000,00 - 10.000,00");
 			listaPrecos.addItem("10.000,00 - 50.000,00");
-			
+
 			botaoBuscarPrecos = new JButton("Buscar");
 			botaoBuscarPrecos.setPreferredSize(tamanhoBotoes2);
 			botaoBuscarPrecos.setMaximumSize(tamanhoBotoes2);
-			
-			
-			
+
+
+
 			//adicao do painel Central
 			alinhadorPainelCentral2.gridy = 0;
 			painelCentral.add(tituloCadastro, alinhadorPainelCentral2);
 			alinhadorPainelCentral2.gridy = 1;
 			painelCentral.add(listasVendas, alinhadorPainelCentral2);
-			
+
 			alinhadorPainelCentral2.gridy = 3;
 			painelCentral.add(tituloPrecos,alinhadorPainelCentral2);
 			alinhadorPainelCentral2.gridy = 4;
@@ -227,12 +208,14 @@ public class TelaCadastros implements ActionListener, ListSelectionListener{
 			alinhadorPainelCentral2.gridy = 5;
 			painelCentral.add(botaoBuscarPrecos,alinhadorPainelCentral2);
 			
+			
+			listasVendas.addListSelectionListener(this);
 			tela.add(painelEsquerdo, BorderLayout.WEST);
 			tela.add(painelCentral);
 
 
 			tela.setVisible(true);
-			
+
 			break;
 
 		default :
@@ -242,36 +225,39 @@ public class TelaCadastros implements ActionListener, ListSelectionListener{
 		}
 
 	}
-	
 
-	
+
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		
+
 		if(src == botaoCadastrarVeiculos)
 			new TelaDetalheVeiculo();
-		
+
 		if(src == botaoCadastrarVendas)
 			new TelaDetalheVendas();
-		/*
-		if(src == botaoAtualizarVeiculos) {
-			listasVeiculos.setListData(new ControleVeiculo(dados).getListaVeiculo());			
-			listasVeiculos.updateUI();
-		}
-		
-		//
-		*/
-		
-		
+
+
+
 	}
 
 
 
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
-		// TODO Auto-generated method stub
+
+		Object src = e.getSource();
+		
+		if(e.getValueIsAdjusting() && src == listasVeiculos) {
+			new TelaDetalhes().mostrarTelaDetalhes(1,controleDados, this, listasVeiculos.getSelectedIndex());
+		}
+		
+		if(e.getValueIsAdjusting() && src == listasVendas) {
+			new TelaDetalhes().mostrarTelaDetalhes(2, controleDados, this, listasVendas.getSelectedIndex());
+		}
+		
+		
 		
 	}
-
 }

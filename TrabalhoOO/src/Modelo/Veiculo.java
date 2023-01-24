@@ -8,12 +8,15 @@ public class Veiculo {
 	private String cor;
 	private int finalPlaca;
 	private int numPortas;
-	private double preco;
+	private int preco;
 	private String quilometragem;
 	private String categoria;
 	private String marca;
 	
-	public Veiculo(String nomeVeiculo, int ano,String cor,int finalPlaca, int numPortas, Double preco,String quilometragem,String categoria, String marca) {
+	public Veiculo() {
+		
+	}
+	public Veiculo(String nomeVeiculo, int ano,String cor,int finalPlaca, int numPortas, int preco,String quilometragem,String categoria, String marca) {
 		this.nomeVeiculo = nomeVeiculo;
 		this.ano = ano;
 		this.cor = cor;
@@ -64,11 +67,11 @@ public class Veiculo {
 		this.numPortas = numPortas;
 	}
 
-	public double getPreco() {
+	public int getPreco() {
 		return preco;
 	}
 
-	public void setPreco(double preco) {
+	public void setPreco(int preco) {
 		this.preco = preco;
 	}
 

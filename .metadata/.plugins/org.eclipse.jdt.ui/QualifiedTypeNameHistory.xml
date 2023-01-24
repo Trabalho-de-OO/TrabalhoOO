@@ -21,7 +21,10 @@
     <fullyQualifiedTypeName name="javax.swing.ListSelectionModel"/>
     <fullyQualifiedTypeName name="javax.swing.JPanel"/>
     <fullyQualifiedTypeName name="Modelo.Venda"/>
-    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="Modelo.Dados"/>
     <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="Visualizacao.TelaDetalheVeiculo"/>
+    <fullyQualifiedTypeName name="java.awt.Event"/>
+    <fullyQualifiedTypeName name="java.awt.event.MouseAdapter"/>
 </qualifiedTypeNameHistroy>

@@ -22,7 +22,7 @@ public class TelaDetalheVendas implements ActionListener{
 	private JFrame janelaDetalhe;
 	private JPanel painelEsquerdo;
 	private JPanel painelCentral;
-	private JTextField entrada;
+	private JTextField entrada1;
 	private JTextField entrada2;
 	private JTextField entrada3;
 	private JTextField entrada4;
@@ -63,9 +63,9 @@ public class TelaDetalheVendas implements ActionListener{
 		
 		Dimension tamanhoEntrada = new Dimension(100,20);
 		//Entradas
-		entrada = new JTextField();
-		entrada.setPreferredSize(tamanhoEntrada);
-		entrada.setMaximumSize(tamanhoEntrada);
+		entrada1 = new JTextField();
+		entrada1.setPreferredSize(tamanhoEntrada);
+		entrada1.setMaximumSize(tamanhoEntrada);
 		entrada2 = new JTextField();
 		entrada2.setPreferredSize(tamanhoEntrada);
 		entrada2.setMaximumSize(tamanhoEntrada);
@@ -101,7 +101,7 @@ public class TelaDetalheVendas implements ActionListener{
 		painelCentral.add(titulo,alinhamento);
 		alinhamento.gridx =1;
 		alinhamento.gridy = 0;
-		painelCentral.add(entrada,alinhamento);
+		painelCentral.add(entrada1,alinhamento);
 		alinhamento.gridx = 0;
 		alinhamento.gridy = 1;
 		painelCentral.add(titulo2,alinhamento);

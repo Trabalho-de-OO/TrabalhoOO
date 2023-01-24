@@ -17,7 +17,7 @@ public class ControleVendas {
 		String[] listaVenda = new String[vendas.size()];
 		int i;
 		for(i = 0; i < vendas.size(); i++) {
-			listaVenda[i] = (" " + vendas.get(i).getVendedor());
+			listaVenda[i] = (" " + vendas.get(i).getVendedor() + "-------" + vendas.get(i).getPrecoVenda());
 		}
 		return listaVenda;
 	}

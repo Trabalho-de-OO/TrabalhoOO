@@ -18,10 +18,8 @@ import Controle.ControleDados;
 
 public class TelaPrincipal implements ActionListener{
 	private static JFrame telaPrincipal;
-	private static JPanel painel1;
-	private static JPanel painel2;
-	private static JButton botaoVeiculos;
-	private static JButton botaoVendas;
+	private static JPanel painel1, painel2;
+	private static JButton botaoVeiculos, botaoVendas;
 	private ControleDados dados = new ControleDados();
 
 	//Criando o corpo da Tela
@@ -31,7 +29,7 @@ public class TelaPrincipal implements ActionListener{
 		telaPrincipal.setSize(600,450);
 		telaPrincipal.setBounds(383 ,159, 500 , 450); 
 		telaPrincipal.setResizable(false);
-		
+			
 		//painel de fundo
 		painel1 = new JPanel();
 		painel1.setBounds(383, 159, 600, 450);
@@ -66,7 +64,8 @@ public class TelaPrincipal implements ActionListener{
 		telaPrincipal.setVisible(true);
 
 	}
-
+	
+	
 	//metodo main
 	public 	static void main(String[]args) {
 		TelaPrincipal tela = new TelaPrincipal();
@@ -76,6 +75,7 @@ public class TelaPrincipal implements ActionListener{
 		botaoVendas.addActionListener(tela);
 
 	}
+	
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
