@@ -74,5 +74,15 @@ public class Venda {
 	}
 
 
-
+	public void cadastrarVenda(Venda venda) {
+		
+	}
+	
+	public void removerVenda(Venda venda) {
+		
+	}
+	
 }
+
+
+

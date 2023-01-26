@@ -14,8 +14,11 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import Controle.ControleDados;
 
 public class TelaDetalheVendas implements ActionListener{
 	
@@ -34,11 +37,11 @@ public class TelaDetalheVendas implements ActionListener{
 	private JLabel titulo4;
 	private JLabel titulo5;
 	
-	private JButton botaoSalvarVendas;
+	private JButton botaoSalvar;
 	private JButton botaoExcluirVendas;
-	
-	
-	
+	private String [] dadosVenda;
+	private int posicao;
+	private ControleDados dados = new ControleDados();
 	public TelaDetalheVendas() {
 		
 		janelaDetalhe = new JFrame();
@@ -89,9 +92,9 @@ public class TelaDetalheVendas implements ActionListener{
 		
 		Dimension tamanhoBotao = new Dimension(100,30);
 		//Botoes
-		botaoSalvarVendas = new JButton("Salvar");
-		botaoSalvarVendas.setPreferredSize(tamanhoBotao);
-		botaoSalvarVendas.setMaximumSize(tamanhoBotao);
+		botaoSalvar = new JButton("Salvar");
+		botaoSalvar.setPreferredSize(tamanhoBotao);
+		botaoSalvar.setMaximumSize(tamanhoBotao);
 		botaoExcluirVendas = new JButton("Excluir");
 		botaoExcluirVendas.setPreferredSize(tamanhoBotao);
 		botaoExcluirVendas.setMaximumSize(tamanhoBotao);
@@ -127,7 +130,8 @@ public class TelaDetalheVendas implements ActionListener{
 		alinhamento.gridy = 4;
 		painelCentral.add(entrada5,alinhamento);
 		
-		painelEsquerdo.add(botaoSalvarVendas);
+		botaoSalvar.addActionListener(this);
+		painelEsquerdo.add(botaoSalvar);
 		painelEsquerdo.add(Box.createVerticalStrut(5));
 		painelEsquerdo.add(botaoExcluirVendas);
 		painelEsquerdo.add(Box.createVerticalStrut(5));
@@ -140,11 +144,51 @@ public class TelaDetalheVendas implements ActionListener{
 		
 		
 	}
+	public void sucessoCadastro(){
+
+		JOptionPane.showMessageDialog(null, "Dados Cadastrados com Sucesso", null,
+				JOptionPane.INFORMATION_MESSAGE);
+		janelaDetalhe.dispose();
+	}
+
+	public void erroCadastro() {
+		JOptionPane.showMessageDialog(null, "Erro ao Cadastrar", null,
+				JOptionPane.ERROR_MESSAGE);
+
+
+
+	}
 		
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		Object src = e.getSource();
+		if(src == botaoSalvar) {
+
+			try {
+
+				boolean resultado;
+
+				dadosVenda= new String[6];
+				dadosVenda[0] = Integer.toString(posicao);
+				dadosVenda[1] = entrada1.getText(); 
+				dadosVenda[2] = entrada2.getText();
+				dadosVenda[3] = entrada3.getText();
+				dadosVenda[4] = entrada4.getText();
+				dadosVenda[5] = entrada5.getText();
+				resultado = dados.cadastrarVenda(dadosVenda);
+				if(resultado == true) {
+					sucessoCadastro();
+				}else {
+					erroCadastro();
+				}
+
+			}catch(Exception exe) {
+
+			}
+
+		}
 	}
+	
+
 
 }

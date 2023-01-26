@@ -1,18 +1,20 @@
 package Controle;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import Modelo.Venda;
 
 public class ControleVendas {
 	
-	private List<Venda> vendas ;
+	private ArrayList<Venda> vendas ;
 	
-	
-	public ControleVendas(ControleDados dados) {
-		vendas = dados.getDadosVendas();
+	public ControleVendas() {
+		
 	}
 	
+	public ControleVendas(ControleDados dados) {
+		vendas = dados.getDadosListaVenda();
+	}
 	public String[] getListaVenda() {
 		String[] listaVenda = new String[vendas.size()];
 		int i;
@@ -21,6 +23,17 @@ public class ControleVendas {
 		}
 		return listaVenda;
 	}
-	
-
+	/*
+	public boolean cadastrarVendas(int idVenda, String vendedor, String veiculo, int precoVenda,String localVenda) {
+		
+		if(idVenda > 0 && vendedor  != null && vendedor.length() > 0 &&  veiculo != null && veiculo.length() > 0 &&
+				precoVenda > 0 && localVenda != null && localVenda.length() >0) {
+		
+		Venda venda = new Venda(idVenda, vendedor, veiculo,precoVenda, localVenda);
+		venda.cadastrarVenda(venda);
+		return true;
+		}
+		
+		return false;
+	}*/
 }

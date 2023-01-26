@@ -9,20 +9,20 @@ public class Veiculo {
 	private int finalPlaca;
 	private int numPortas;
 	private int preco;
-	private String quilometragem;
+	private int quilometragem;
 	private String categoria;
 	private String marca;
 	
 	public Veiculo() {
 		
 	}
-	public Veiculo(String nomeVeiculo, int ano,String cor,int finalPlaca, int numPortas, int preco,String quilometragem,String categoria, String marca) {
+	public Veiculo(String nomeVeiculo, int ano, String cor,int finalPlaca, int numPortas,int preco, int quilometragem,String categoria, String marca) {
 		this.nomeVeiculo = nomeVeiculo;
 		this.ano = ano;
 		this.cor = cor;
 		this.finalPlaca = finalPlaca;
 		this.numPortas = numPortas;
-		this.preco= preco;
+		this.preco = preco;
 		this.quilometragem = quilometragem;		
 		this.categoria = categoria;
 		this.marca = marca;
@@ -75,11 +75,11 @@ public class Veiculo {
 		this.preco = preco;
 	}
 
-	public String getQuilometragem() {
+	public int getQuilometragem() {
 		return quilometragem;
 	}
 
-	public void setQuilometragem(String quilometragem) {
+	public void setQuilometragem(int quilometragem) {
 		this.quilometragem = quilometragem;
 	}
 	
@@ -98,7 +98,11 @@ public class Veiculo {
 		this.marca = marca;
 	}
 	
+	public void cadastrarVeiculo(Veiculo veiculo) {
+	}
 
+	public void removerVeiculo(Veiculo veiculo) {
+	}
 	
 
 @Override

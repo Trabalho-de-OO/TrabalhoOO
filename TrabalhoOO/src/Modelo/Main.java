@@ -1,13 +1,39 @@
-/*package Modelo;
+package Modelo;
 
 import java.util.ArrayList;
 
 
 public class Main {
 
-	public static void main(String[]args) {
+	
+		public static void main(String[] args) {
+		
 
-		// Vendedor
+			/*dadosVeiculo[6].matches("\\d\\d\\d\\d\\d\\d\\d") && dadosVeiculo[7].matches("\\d\\d\\d\\d\\d\\d")){
+		*/
+			boolean ano = "9999".matches("\\d{4}");
+			System.out.println(ano);
+			
+			boolean finalPlaca = "4".matches("\\d");
+			System.out.println(finalPlaca);
+			boolean numPortas = "3".matches("[2-4]");
+			System.out.println(numPortas);
+			
+			boolean preco= "37000".matches("[1-9][0-9]{3,6}");
+			System.out.println(preco);
+			
+			boolean quilometragem = "9999".matches("[0-9][0-9]{0,4}");
+			System.out.println(quilometragem);
+			
+			boolean idVenda = "10230".matches("\\d{5}");
+			System.out.println(idVenda);
+			
+			boolean precoVenda = "1000".matches("[1-9][0-9]{3,6}");
+			System.out.print(precoVenda);
+	}	
+}	//	
+
+/*		// Vendedor
 		Vendedor neymar = new Vendedor("Neymar","Neymarzinn@gmail.com",556565,"013154486","Sao Paulo",5);
 
 		// Comprador
@@ -73,3 +99,4 @@ public class Main {
   }
 }
 */
+

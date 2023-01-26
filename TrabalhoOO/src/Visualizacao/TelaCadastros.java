@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -38,10 +39,13 @@ public class TelaCadastros implements ActionListener, ListSelectionListener{
 	private JTextField entradaMarcas;
 	private JLabel tituloMarcas,tituloPrecos, tituloCadastro;
 	private JList<String> listasVeiculos, listasVendas;
-
+	private  DefaultListModel<String> listModel;
 	private static ControleDados controleDados = new ControleDados();
-
-
+	private ControleVeiculo controleVeiculo = new ControleVeiculo();
+	private ControleVendas controleVenda = new ControleVendas();
+	private String[] dadosVeiculo;
+	private String [] dadosProntos; 
+	
 	public void mostrarTela(ControleDados dados, int op) {
 		controleDados = dados;
 
@@ -60,8 +64,8 @@ public class TelaCadastros implements ActionListener, ListSelectionListener{
 			entradaMarcas = new JTextField();
 			botaoBuscarMarcas = new JButton("Buscar");
 			tituloCadastro = new JLabel("Alguns Veiculos Cadastrados");
-			listasVeiculos = new JList<String>(new ControleVeiculo(controleDados).getListaVeiculosProntos());
 			
+			listasVeiculos = new JList<String>(new ControleVeiculo(controleDados).getListaVeiculosProntos());
 			
 			tela.setBounds(483 ,159, 500 , 450);	
 			tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);		
@@ -70,8 +74,7 @@ public class TelaCadastros implements ActionListener, ListSelectionListener{
 
 			
 			
-		
-			botaoAtualizarVeiculos.addActionListener(this);
+	
 			
 		
 			
@@ -117,7 +120,8 @@ public class TelaCadastros implements ActionListener, ListSelectionListener{
 			alinhadorPainelCentral.gridy = 5;
 			painelCentral.add(botaoBuscarMarcas,alinhadorPainelCentral);
 
-
+			
+			botaoAtualizarVeiculos.addActionListener(this);
 			botaoCadastrarVeiculos.addActionListener(this);
 			listasVeiculos.addListSelectionListener(this);
 			tela.add(painelEsquerdo, BorderLayout.WEST);
@@ -231,15 +235,17 @@ public class TelaCadastros implements ActionListener, ListSelectionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-
+		int i;
 		if(src == botaoCadastrarVeiculos)
 			new TelaDetalheVeiculo();
 
 		if(src == botaoCadastrarVendas)
 			new TelaDetalheVendas();
-
-
-
+		
+	
+		
+		
+		
 	}
 
 
@@ -250,11 +256,11 @@ public class TelaCadastros implements ActionListener, ListSelectionListener{
 		Object src = e.getSource();
 		
 		if(e.getValueIsAdjusting() && src == listasVeiculos) {
-			new TelaDetalhes().mostrarTelaDetalhes(1,controleDados, this, listasVeiculos.getSelectedIndex());
+			new TelaDetalhesDadosProntos().mostrarTelaDetalhes(1,controleDados, this, listasVeiculos.getSelectedIndex());
 		}
 		
 		if(e.getValueIsAdjusting() && src == listasVendas) {
-			new TelaDetalhes().mostrarTelaDetalhes(2, controleDados, this, listasVendas.getSelectedIndex());
+			new TelaDetalhesDadosProntos().mostrarTelaDetalhes(2, controleDados, this, listasVendas.getSelectedIndex());
 		}
 		
 		
