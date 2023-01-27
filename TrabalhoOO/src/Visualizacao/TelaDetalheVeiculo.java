@@ -34,7 +34,7 @@ public class TelaDetalheVeiculo implements ActionListener {
 	private ControleDados dados = new ControleDados();
 	private String[] dadosVeiculo;
 	private int posicao;
-
+	private int codVeiculo = 0;
 	public TelaDetalheVeiculo() {
 
 		//JFrame
@@ -213,8 +213,14 @@ public class TelaDetalheVeiculo implements ActionListener {
 
 				ControleVeiculo controleVeiculo = new ControleVeiculo();
 				
-				res = controleVeiculo.cadastrarVeiculo(entrada1.getText(), ano, entrada3.getText(), finalPlaca, numPortas, preco, 
+				if(this.codVeiculo == 0) {
+						res = controleVeiculo.cadastrarVeiculo(entrada1.getText(), ano, entrada3.getText(), finalPlaca, numPortas, preco, 
 				quilometragem, entrada8.getText(), entrada9.getText());
+				}else {
+					
+					res = controleVeiculo.mudarVeiculo(this.codVeiculo ,entrada1.getText(), ano, entrada3.getText(), finalPlaca, numPortas, preco, 
+							quilometragem, entrada8.getText(), entrada9.getText());
+				}
 				
 				if(res == true) {
 					sucessoCadastro();

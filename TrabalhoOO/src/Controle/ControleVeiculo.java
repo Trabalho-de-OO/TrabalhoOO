@@ -50,6 +50,22 @@ public class ControleVeiculo {
 		return new Veiculo().consultarVeiculo(marca);
 		
 	}
+	public boolean mudarVeiculo(int codVeiculo,String nomeVeiculo, int ano, String cor, int finalPlaca,
+			int numPortas, int preco, int  quilometragem, String categoria, String marca) throws ExceptionDAO{
+		
+		if(nomeVeiculo != null && nomeVeiculo.length() > 0 && ano > 0 && cor != null && cor.length() >0 &&
+				 finalPlaca > 0 && numPortas > 1 && preco > 0 &&  quilometragem > 0
+				&& categoria != null && categoria.length() > 0 && marca!= null && marca.length() > 0) {
+		
+			Veiculo veiculo = new Veiculo(nomeVeiculo, ano, cor, finalPlaca,numPortas,preco,quilometragem,
+				categoria, marca);
+		veiculo.setCodVeiculo(codVeiculo);
+		veiculo.mudarVeiculo(veiculo);
+		return true;
+		}
+		return false;
+	}
+	
 	
 	
 	public String[] getListaVeiculosProntos() {

@@ -260,6 +260,28 @@ public class TelaCadastros implements ActionListener, ListSelectionListener{
 				Logger.getLogger(TelaCadastros.class.getName()).log(Level.SEVERE , null, e);
 			}
 		}
+	
+		public void tabelaVeiculoClick(java.awt.event.MouseEvent evt) {
+			
+			if(evt.getClickCount() == 2) {
+				Integer codVeiculo = (Integer) veiculosTable.getModel().getValueAt(veiculosTable.getSelectedRow(), 0);
+				Integer nomeVeiculo= (String) veiculosTable.getModel().getValueAt(veiculosTable.getSelectedRow(), 1);
+				Integer ano = (Integer) veiculosTable.getModel().getValueAt(veiculosTable.getSelectedRow(), 2);
+				Integer cor = (String) veiculosTable.getModel().getValueAt(veiculosTable.getSelectedRow(), 3);
+				Integer finalPlaca = (Integer) veiculosTable.getModel().getValueAt(veiculosTable.getSelectedRow(), 4);
+				Integer numPortas = (Integer) veiculosTable.getModel().getValueAt(veiculosTable.getSelectedRow(), 5);
+				Integer preco = (Integer) veiculosTable.getModel().getValueAt(veiculosTable.getSelectedRow(), 6);
+				Integer quilometragem = (Integer) veiculosTable.getModel().getValueAt(veiculosTable.getSelectedRow(), 7);
+				Integer categoria = (String) veiculosTable.getModel().getValueAt(veiculosTable.getSelectedRow(), 8);
+				Integer marca = (String) veiculosTable.getModel().getValueAt(veiculosTable.getSelectedRow(), 9);
+			
+			
+			
+			}
+			
+			
+			
+		}
 		
 		public static void main(String[] args) {
 				TelaCadastros tela = new TelaCadastros();

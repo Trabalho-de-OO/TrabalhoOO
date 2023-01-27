@@ -127,9 +127,9 @@ public class Veiculo {
 		return new VeiculoDAO().consultarVeiculo(marca);
 	}
 
-	public void removerVeiculo(Veiculo veiculo) {
+	public void mudarVeiculo(Veiculo veiculo) throws ExceptionDAO {
+		 new VeiculoDAO().mudarVeiculo(veiculo);
 	}
-	
 
 @Override
 

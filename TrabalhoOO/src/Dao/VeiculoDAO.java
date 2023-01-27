@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.mysql.cj.jdbc.ClientPreparedStatement;
+
 import Modelo.Veiculo;
 
 public class VeiculoDAO {
@@ -100,5 +102,49 @@ public class VeiculoDAO {
 				
 			}
 		return listaVeiculos;
+	}
+	
+	
+	public void mudarVeiculo(Veiculo veiculo) throws ExceptionDAO {
+		String sql = "Update VEICULO set nomeveiculo = ?, ano = ?, cor = ? finalPlaca = ?,"
+				+ "numPorta =? , preco = ? , categoria = ?, marca =? ";
+		PreparedStatement pStatement = null;
+		Connection connection = null;
+		
+		try {
+			
+			connection = new ConnectionMVC().getConnection();
+			pStatement = connection.prepareStatement(sql);
+			pStatement.setString(1, veiculo.getNomeVeiculo());
+			pStatement.setInt(2, veiculo.getAno());
+			pStatement.setString(3, veiculo.getCor());
+			pStatement.setInt(4, veiculo.getFinalPlaca());
+			pStatement.setInt(5, veiculo.getNumPortas());
+			pStatement.setInt(6, veiculo.getPreco());
+			pStatement.setInt(7, veiculo.getQuilometragem());
+			pStatement.setString(8, veiculo.getCategoria());
+			pStatement.setString(9, veiculo.getMarca());
+			pStatement.setInt(10, veiculo.getCodVeiculo());
+			pStatement.execute();
+			
+		}catch(SQLException e) {
+			throw new ExceptionDAO("Erro ao modoficar Veiculo" + e);
+		}finally {
+			try {
+				if(pStatement != null) {pStatement.close();}
+				
+			}catch(SQLException e ) {
+				
+				throw new ExceptionDAO("Erro ao fechar o pStatemente: " + e);
+			}
+			
+		}
+			try {
+				if(connection!=null) {connection.close();}
+				
+			}catch(SQLException e) {
+				throw new ExceptionDAO("Erro ao fechar a conexao" + e);
+				
+			}
 	}
 }
