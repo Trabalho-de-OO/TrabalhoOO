@@ -1,6 +1,8 @@
 package Modelo;
 
 public class Venda {
+	
+	private int codVenda;
 	private int idVenda;
 	private String vendedor;
 	private String veiculo;

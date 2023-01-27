@@ -161,6 +161,8 @@ public class TelaDetalheVendas implements ActionListener{
 		
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
+		/*
 		Object src = e.getSource();
 		if(src == botaoSalvar) {
 
@@ -186,7 +188,7 @@ public class TelaDetalheVendas implements ActionListener{
 
 			}
 
-		}
+		}*/
 	}
 	
 

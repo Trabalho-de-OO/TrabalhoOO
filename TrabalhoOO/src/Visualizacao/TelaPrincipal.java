@@ -69,7 +69,7 @@ public class TelaPrincipal implements ActionListener{
 	//metodo main
 	public 	static void main(String[]args) {
 		TelaPrincipal tela = new TelaPrincipal();
-
+		
 		
 		botaoVeiculos.addActionListener(tela);
 		botaoVendas.addActionListener(tela);

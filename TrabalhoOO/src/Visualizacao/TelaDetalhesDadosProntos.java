@@ -308,8 +308,8 @@ public class TelaDetalhesDadosProntos implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Object src = e.getSource();
-
+	Object src = e.getSource();
+/*
 		if(src == botaoSalvarVeiculo) {
 			if(opcao == 0) {	
 				try {
@@ -343,7 +343,6 @@ public class TelaDetalhesDadosProntos implements ActionListener {
 				}
 
 			}
-
 
 			if(src == botaoExcluirVeiculo) {
 				boolean resultado;
@@ -387,6 +386,6 @@ public class TelaDetalhesDadosProntos implements ActionListener {
 				}
 
 			}
-		}
+		}*/
 	}
 }  

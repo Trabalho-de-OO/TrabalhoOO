@@ -68,7 +68,7 @@ public class ControleDados {
 
 	}
 	 */
-
+/*
 
 	public boolean cadastrarVeiculo(String [] dadosVeiculo) {
 
@@ -102,7 +102,7 @@ public class ControleDados {
 	}
 	
 	
-
+*/
 
 	
 	public boolean removerVeiculo(int posicao) {

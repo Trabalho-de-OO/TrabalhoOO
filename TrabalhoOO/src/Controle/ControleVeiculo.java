@@ -1,7 +1,8 @@
 package Controle;
+import java.util.ArrayList;
 import java.util.List;
 
-
+import Dao.ExceptionDAO;
 import Modelo.Veiculo;
 
 public class ControleVeiculo {
@@ -27,13 +28,13 @@ public class ControleVeiculo {
 		this.veiculo = veiculo;
 	}
 
-	/*
+	
 	public boolean cadastrarVeiculo(String nomeVeiculo, int ano, String cor, int finalPlaca,
-			int numPortas, int preco, String quilometragem, String categoria, String marca) {
+			int numPortas, int preco, int  quilometragem, String categoria, String marca) throws ExceptionDAO{
 		
-		if(nomeVeiculo != null && nomeVeiculo.length() > 0 && cor!= null && cor.length() >0 &&
-				 finalPlaca > 0 && numPortas > 0 && preco > 0 && quilometragem!= null && quilometragem.length() >0
-				&& categoria != null && categoria.length() > 0 && marca!= null && marca.length() > 0 ) {
+		if(nomeVeiculo != null && nomeVeiculo.length() > 0 && ano > 0 && cor != null && cor.length() >0 &&
+				 finalPlaca > 0 && numPortas > 1 && preco > 0 &&  quilometragem > 0
+				&& categoria != null && categoria.length() > 0 && marca!= null && marca.length() > 0) {
 		
 		Veiculo veiculo = new Veiculo(nomeVeiculo, ano, cor, finalPlaca,numPortas,preco,quilometragem,
 				categoria, marca);
@@ -44,8 +45,12 @@ public class ControleVeiculo {
 		return false;
 	}
 	
+	public ArrayList<Veiculo> consultarVeiculo(String marca) throws ExceptionDAO{
+		
+		return new Veiculo().consultarVeiculo(marca);
+		
+	}
 	
-*/
 	
 	public String[] getListaVeiculosProntos() {
 		String[] listaVeiculo = new String[veiculosProntos.size()];

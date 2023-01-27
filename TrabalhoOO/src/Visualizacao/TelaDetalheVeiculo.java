@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 
 import Controle.ControleDados;
 import Controle.ControleVeiculo;
+import Dao.ExceptionDAO;
 
 public class TelaDetalheVeiculo implements ActionListener {
 
@@ -197,38 +198,43 @@ public class TelaDetalheVeiculo implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		/*
+		
 		int ano = Integer.parseInt(entrada2.getText());
 		int finalPlaca = Integer.parseInt(entrada4.getText());
 		int numPortas = Integer.parseInt(entrada5.getText());
+		int quilometragem = Integer.parseInt(entrada7.getText());
 		int preco = Integer.parseInt(entrada6.getText());
-		*/
-		/*	
+		
+			
 		if(src == botaoSalvar) {
 
 			boolean res;
 			try {
 
 				ControleVeiculo controleVeiculo = new ControleVeiculo();
+				
 				res = controleVeiculo.cadastrarVeiculo(entrada1.getText(), ano, entrada3.getText(), finalPlaca, numPortas, preco, 
-						entrada7.getText(), entrada8.getText(), entrada9.getText());
-
+				quilometragem, entrada8.getText(), entrada9.getText());
+				
 				if(res == true) {
-
 					sucessoCadastro();
+					
 				}else {
 					erroCadastro();
 				}
-
-
-			}catch(Exception exe){
-
-
+			}catch(NumberFormatException exe){
+				erroCadastro();
+				
+			}catch(NullPointerException exe2) {
+				erroCadastro();
+				
+			} catch (ExceptionDAO e1) {
+				e1.printStackTrace();
 			}
 
 
 		}
-		 */
+		/* 
 		if(src == botaoSalvar) {
 
 			try {
@@ -257,7 +263,7 @@ public class TelaDetalheVeiculo implements ActionListener {
 
 			}
 
-		}
+		}*/
 
 	}
 }

@@ -1,8 +1,12 @@
 package Modelo;
 
-import java.util.List;
+import java.util.ArrayList;
+
+import Dao.ExceptionDAO;
+import Dao.VeiculoDAO;
 
 public class Veiculo {
+	private int codVeiculo;
 	private String nomeVeiculo;
 	private int ano;
 	private String cor;
@@ -13,10 +17,14 @@ public class Veiculo {
 	private String categoria;
 	private String marca;
 	
+	
+	
 	public Veiculo() {
-		
 	}
-	public Veiculo(String nomeVeiculo, int ano, String cor,int finalPlaca, int numPortas,int preco, int quilometragem,String categoria, String marca) {
+	
+	public Veiculo(String nomeVeiculo, int ano, String cor,int finalPlaca,
+			int numPortas,int preco, int quilometragem,String categoria, String marca) {
+	
 		this.nomeVeiculo = nomeVeiculo;
 		this.ano = ano;
 		this.cor = cor;
@@ -27,6 +35,14 @@ public class Veiculo {
 		this.categoria = categoria;
 		this.marca = marca;
 	}
+	public int getCodVeiculo() {
+		return codVeiculo;
+	}
+	
+	public void setCodVeiculo(int codVeiculo) {
+		this.codVeiculo = codVeiculo;
+	}
+	
 	
 	public String getNomeVeiculo() {
 		return nomeVeiculo;		
@@ -97,8 +113,18 @@ public class Veiculo {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
+	// cadastro e remover 
 	
-	public void cadastrarVeiculo(Veiculo veiculo) {
+	
+	
+	public void cadastrarVeiculo(Veiculo veiculo) throws ExceptionDAO{
+		
+	new VeiculoDAO().cadastrarVeiculo(veiculo);
+	
+	}
+	
+	public ArrayList<Veiculo> consultarVeiculo(String marca) throws ExceptionDAO{
+		return new VeiculoDAO().consultarVeiculo(marca);
 	}
 
 	public void removerVeiculo(Veiculo veiculo) {
