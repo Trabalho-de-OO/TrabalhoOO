@@ -19,6 +19,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import Controle.ControleDados;
+import Controle.ControleVendas;
+import Dao.ExceptionDAO;
 
 public class TelaDetalheVendas implements ActionListener{
 	
@@ -42,6 +44,8 @@ public class TelaDetalheVendas implements ActionListener{
 	private String [] dadosVenda;
 	private int posicao;
 	private ControleDados dados = new ControleDados();
+	private int codVenda= 0;
+	
 	public TelaDetalheVendas() {
 		
 		janelaDetalhe = new JFrame();
@@ -161,34 +165,38 @@ public class TelaDetalheVendas implements ActionListener{
 		
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		/*
 		Object src = e.getSource();
+		
+		int idVenda = Integer.parseInt(entrada1.getText());
+		int precoVenda= Integer.parseInt(entrada4.getText());
+		
 		if(src == botaoSalvar) {
 
+			boolean res;
 			try {
 
-				boolean resultado;
-
-				dadosVenda= new String[6];
-				dadosVenda[0] = Integer.toString(posicao);
-				dadosVenda[1] = entrada1.getText(); 
-				dadosVenda[2] = entrada2.getText();
-				dadosVenda[3] = entrada3.getText();
-				dadosVenda[4] = entrada4.getText();
-				dadosVenda[5] = entrada5.getText();
-				resultado = dados.cadastrarVenda(dadosVenda);
-				if(resultado == true) {
+				ControleVendas controleVenda= new ControleVendas();
+				res = controleVenda.cadastrarVendas(idVenda, entrada2.getText(), entrada3.getText(), precoVenda, entrada5.getText());
+						
+				if(res == true) {
 					sucessoCadastro();
+					
 				}else {
 					erroCadastro();
 				}
-
-			}catch(Exception exe) {
-
+			}catch(NumberFormatException exe){
+				erroCadastro();
+				
+			}catch(NullPointerException exe2) {
+				erroCadastro();
+				
+			} catch (ExceptionDAO e1) {
+				e1.printStackTrace();
 			}
 
-		}*/
+
+		}
+			
 	}
 	
 

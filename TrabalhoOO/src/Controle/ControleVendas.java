@@ -2,6 +2,7 @@ package Controle;
 
 import java.util.ArrayList;
 
+import Dao.ExceptionDAO;
 import Modelo.Venda;
 
 public class ControleVendas {
@@ -23,8 +24,8 @@ public class ControleVendas {
 		}
 		return listaVenda;
 	}
-	/*
-	public boolean cadastrarVendas(int idVenda, String vendedor, String veiculo, int precoVenda,String localVenda) {
+	
+	public boolean cadastrarVendas(int idVenda, String vendedor, String veiculo, int precoVenda,String localVenda) throws ExceptionDAO {
 		
 		if(idVenda > 0 && vendedor  != null && vendedor.length() > 0 &&  veiculo != null && veiculo.length() > 0 &&
 				precoVenda > 0 && localVenda != null && localVenda.length() >0) {
@@ -35,5 +36,9 @@ public class ControleVendas {
 		}
 		
 		return false;
-	}*/
+	}
+	
+	public void mudarVenda() {
+		
+	}
 }

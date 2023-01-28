@@ -15,7 +15,6 @@
     <fullyQualifiedTypeName name="Modelo.Concessionaria"/>
     <fullyQualifiedTypeName name="javax.swing.ListSelectionModel"/>
     <fullyQualifiedTypeName name="javax.swing.JPanel"/>
-    <fullyQualifiedTypeName name="Modelo.Venda"/>
     <fullyQualifiedTypeName name="Modelo.Dados"/>
     <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
     <fullyQualifiedTypeName name="Visualizacao.TelaDetalheVeiculo"/>
@@ -39,9 +38,12 @@
     <fullyQualifiedTypeName name="Modelo.Veiculo"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
-    <fullyQualifiedTypeName name="java.util.logging.Logger"/>
-    <fullyQualifiedTypeName name="java.util.logging.Level"/>
+    <fullyQualifiedTypeName name="Modelo.Venda"/>
     <fullyQualifiedTypeName name="Dao.ExceptionDAO"/>
+    <fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
+    <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
     <fullyQualifiedTypeName name="java.awt.Event"/>
     <fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
+    <fullyQualifiedTypeName name="java.util.logging.Logger"/>
+    <fullyQualifiedTypeName name="java.util.logging.Level"/>
 </qualifiedTypeNameHistroy>

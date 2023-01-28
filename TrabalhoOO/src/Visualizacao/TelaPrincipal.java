@@ -63,7 +63,7 @@ public class TelaPrincipal implements ActionListener{
 		telaPrincipal.add(painel2,BorderLayout.WEST);
 		telaPrincipal.setVisible(true);
 
-	}
+	}	
 	
 	
 	//metodo main
@@ -83,10 +83,10 @@ public class TelaPrincipal implements ActionListener{
 		Object src = e.getSource();
 		
 		if(src == botaoVeiculos)
-			new TelaCadastros().mostrarTela(dados, 1 );;
+			new TelaVeiculo();
 			
 		if(src == botaoVendas)
-			new TelaCadastros().mostrarTela(dados, 2);;	
+			new TelaCadastroVenda();	
 
 		
 			

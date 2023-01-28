@@ -8,6 +8,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -22,20 +24,29 @@ import Controle.ControleDados;
 import Controle.ControleVeiculo;
 import Dao.ExceptionDAO;
 
-public class TelaDetalheVeiculo implements ActionListener {
+public class TelaCadastrarVeiculo implements ActionListener {
 
 
 	private JFrame janelaDetalhe;
 	private JPanel painelEsquerdo;
 	private JPanel painelCentral;
-	private JTextField entrada1,entrada2,entrada3,entrada4,entrada5,entrada6,entrada7,entrada8,entrada9;
+	private JTextField entrada1 = new JTextField("");
+	private JTextField entrada2  = new JTextField("");
+	private JTextField entrada3  = new JTextField("");
+	private JTextField entrada4  = new JTextField("");
+	private JTextField entrada5  = new JTextField("");
+	private JTextField entrada6  = new JTextField("");
+	private JTextField entrada7  = new JTextField("");
+	private JTextField entrada8  = new JTextField("");
+	private JTextField entrada9  = new JTextField("");
 	private JLabel titulo, titulo2,titulo3,titulo4,titulo5,titulo6,titulo7,titulo8,titulo9;
 	private JButton botaoSalvar, botaoExcluir;
 	private ControleDados dados = new ControleDados();
 	private String[] dadosVeiculo;
 	private int posicao;
 	private int codVeiculo = 0;
-	public TelaDetalheVeiculo() {
+
+	public void mostrarTela(){
 
 		//JFrame
 		janelaDetalhe = new JFrame();
@@ -60,31 +71,31 @@ public class TelaDetalheVeiculo implements ActionListener {
 
 		Dimension tamanhoEntrada = new Dimension(100,20);
 		//Entradas
-		entrada1 = new JTextField();
+
 		entrada1.setPreferredSize(tamanhoEntrada);
 		entrada1.setMaximumSize(tamanhoEntrada);
-		entrada2 = new JTextField();
+
 		entrada2.setPreferredSize(tamanhoEntrada);
 		entrada2.setMaximumSize(tamanhoEntrada);
-		entrada3 = new JTextField();
+
 		entrada3.setPreferredSize(tamanhoEntrada);
 		entrada3.setMaximumSize(tamanhoEntrada);
-		entrada4 = new JTextField();
+
 		entrada4.setPreferredSize(tamanhoEntrada);
 		entrada4.setMaximumSize(tamanhoEntrada);
-		entrada5 = new JTextField();
+
 		entrada5.setPreferredSize(tamanhoEntrada);
 		entrada5.setMaximumSize(tamanhoEntrada);
-		entrada6 = new JTextField();
+
 		entrada6.setPreferredSize(tamanhoEntrada);
 		entrada6.setMaximumSize(tamanhoEntrada);
-		entrada7 = new JTextField();
+
 		entrada7.setPreferredSize(tamanhoEntrada);
 		entrada7.setMaximumSize(tamanhoEntrada);
-		entrada8 = new JTextField();
+
 		entrada8.setPreferredSize(tamanhoEntrada);
 		entrada8.setMaximumSize(tamanhoEntrada);
-		entrada9 = new JTextField();
+
 		entrada9.setPreferredSize(tamanhoEntrada);
 		entrada9.setMaximumSize(tamanhoEntrada);
 
@@ -108,7 +119,8 @@ public class TelaDetalheVeiculo implements ActionListener {
 		botaoExcluir = new JButton("Excluir");
 		botaoExcluir.setPreferredSize(tamanhoBotao);
 		botaoExcluir.setMaximumSize(tamanhoBotao);
-		
+		botaoExcluir.addActionListener(null);;
+
 		alinhamento.gridx = 0;
 		alinhamento.gridy = 0;
 		painelCentral.add(titulo,alinhamento);
@@ -194,82 +206,105 @@ public class TelaDetalheVeiculo implements ActionListener {
 
 
 	}
+	
+	public void sucessoDeletar(){
+
+		JOptionPane.showMessageDialog(null, "Dados deletados com Sucesso", null,
+				JOptionPane.INFORMATION_MESSAGE);
+		janelaDetalhe.dispose();
+	}
+	
+	public void erroDeletar() {
+		JOptionPane.showMessageDialog(null, "Erro ao Deletar", null,
+				JOptionPane.ERROR_MESSAGE);
+
+
+
+	}
+	
+	public void buscarVeiculo(Integer codVeiculo, String nomeVeiculo, Integer ano , 
+			String cor, Integer finalPlaca, Integer numPortas, Integer preco,
+			Integer quilometragem, String categoria , String marca) {
+		this.codVeiculo = codVeiculo;
+		this.entrada1.setText(nomeVeiculo); 
+		this.entrada2.setText(ano.toString());
+		this.entrada3.setText(cor);
+		this.entrada4.setText(finalPlaca.toString());
+		this.entrada5.setText(numPortas.toString());
+		this.entrada6.setText(preco.toString());
+		this.entrada7.setText(quilometragem.toString());
+		this.entrada8.setText(categoria);
+		this.entrada9.setText(marca);
+
+	}
+
+	public void apagarVeiculo(java.awt.event.ActionEvent evt) {
+		
+		boolean res;
+		ControleVeiculo controleVeiculo = new ControleVeiculo();
+		try {
+			res = controleVeiculo.apagarVeiculo(this.codVeiculo);
+			if(res) {
+				sucessoDeletar();
+			}else
+				erroDeletar();
+			
+		} catch (ExceptionDAO e) {
+			Logger.getLogger(TelaCadastrarVeiculo.class.getName()).log(Level.SEVERE, null, e);
+		}
+		
+	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		
+
 		int ano = Integer.parseInt(entrada2.getText());
 		int finalPlaca = Integer.parseInt(entrada4.getText());
 		int numPortas = Integer.parseInt(entrada5.getText());
 		int quilometragem = Integer.parseInt(entrada7.getText());
 		int preco = Integer.parseInt(entrada6.getText());
-		
-			
+
+
 		if(src == botaoSalvar) {
 
 			boolean res;
 			try {
 
 				ControleVeiculo controleVeiculo = new ControleVeiculo();
-				
+
 				if(this.codVeiculo == 0) {
-						res = controleVeiculo.cadastrarVeiculo(entrada1.getText(), ano, entrada3.getText(), finalPlaca, numPortas, preco, 
-				quilometragem, entrada8.getText(), entrada9.getText());
+					res = controleVeiculo.cadastrarVeiculo(entrada1.getText(), ano, entrada3.getText(), finalPlaca, numPortas, preco, 
+							quilometragem, entrada8.getText(), entrada9.getText());
 				}else {
-					
+
 					res = controleVeiculo.mudarVeiculo(this.codVeiculo ,entrada1.getText(), ano, entrada3.getText(), finalPlaca, numPortas, preco, 
 							quilometragem, entrada8.getText(), entrada9.getText());
 				}
-				
+
 				if(res == true) {
 					sucessoCadastro();
-					
+
 				}else {
 					erroCadastro();
 				}
 			}catch(NumberFormatException exe){
 				erroCadastro();
-				
+
 			}catch(NullPointerException exe2) {
 				erroCadastro();
-				
+
 			} catch (ExceptionDAO e1) {
 				e1.printStackTrace();
 			}
 
 
 		}
-		/* 
-		if(src == botaoSalvar) {
-
-			try {
-
-				boolean resultado;
-
-				dadosVeiculo = new String[10];
-				dadosVeiculo[0] = Integer.toString(posicao);
-				dadosVeiculo[1] = entrada1.getText(); 
-				dadosVeiculo[2] = entrada2.getText();
-				dadosVeiculo[3] = entrada3.getText();
-				dadosVeiculo[4] = entrada4.getText();
-				dadosVeiculo[5] = entrada5.getText();
-				dadosVeiculo[6] = entrada6.getText();
-				dadosVeiculo[7] = entrada7.getText();
-				dadosVeiculo[8] = entrada8.getText();
-				dadosVeiculo[9] = entrada9.getText();
-				resultado = dados.cadastrarVeiculo(dadosVeiculo);
-				if(resultado == true) {
-					sucessoCadastro();
-				}else {
-					erroCadastro();
-				}
-
-			}catch(Exception exe) {
-
-			}
-
-		}*/
+		
+	if(src == botaoExcluir) {
+		apagarVeiculo(e);
+	}	
 
 	}
 }

@@ -131,6 +131,9 @@ public class Veiculo {
 		 new VeiculoDAO().mudarVeiculo(veiculo);
 	}
 
+	public void apagarVeiculo(Veiculo veiculo) throws ExceptionDAO {
+		 new VeiculoDAO().apagarVeiculo(veiculo);
+	}
 @Override
 
 public String toString(){

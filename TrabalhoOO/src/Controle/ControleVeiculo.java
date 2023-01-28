@@ -33,7 +33,7 @@ public class ControleVeiculo {
 			int numPortas, int preco, int  quilometragem, String categoria, String marca) throws ExceptionDAO{
 		
 		if(nomeVeiculo != null && nomeVeiculo.length() > 0 && ano > 0 && cor != null && cor.length() >0 &&
-				 finalPlaca > 0 && numPortas > 1 && preco > 0 &&  quilometragem > 0
+				 finalPlaca >= 0 && numPortas > 1 && preco > 3000 &&  quilometragem >= 0
 				&& categoria != null && categoria.length() > 0 && marca!= null && marca.length() > 0) {
 		
 		Veiculo veiculo = new Veiculo(nomeVeiculo, ano, cor, finalPlaca,numPortas,preco,quilometragem,
@@ -54,7 +54,7 @@ public class ControleVeiculo {
 			int numPortas, int preco, int  quilometragem, String categoria, String marca) throws ExceptionDAO{
 		
 		if(nomeVeiculo != null && nomeVeiculo.length() > 0 && ano > 0 && cor != null && cor.length() >0 &&
-				 finalPlaca > 0 && numPortas > 1 && preco > 0 &&  quilometragem > 0
+				 finalPlaca >= 0 && numPortas > 1 && preco > 3000 &&  quilometragem >= 0
 				&& categoria != null && categoria.length() > 0 && marca!= null && marca.length() > 0) {
 		
 			Veiculo veiculo = new Veiculo(nomeVeiculo, ano, cor, finalPlaca,numPortas,preco,quilometragem,
@@ -64,6 +64,22 @@ public class ControleVeiculo {
 		return true;
 		}
 		return false;
+	}
+	
+	public boolean apagarVeiculo(int codVeiculo) throws ExceptionDAO {
+		if(codVeiculo == 0) {
+			return false;
+			
+		}else {
+			Veiculo veiculo = new Veiculo();
+			veiculo.setCodVeiculo(codVeiculo);
+			veiculo.apagarVeiculo(veiculo);
+			return true;
+		}
+		
+		
+		
+		
 	}
 	
 	

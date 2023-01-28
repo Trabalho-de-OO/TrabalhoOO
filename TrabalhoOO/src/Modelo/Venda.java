@@ -1,5 +1,8 @@
 package Modelo;
 
+import Dao.ExceptionDAO;
+import Dao.VendaDAO;
+
 public class Venda {
 	
 	private int codVenda;
@@ -8,6 +11,10 @@ public class Venda {
 	private String veiculo;
 	private int precoVenda;
 	private String localVenda;
+	
+	public Venda() {
+		
+	}
 
 	
 	
@@ -19,7 +26,13 @@ public class Venda {
 		this.localVenda = localVenda;
 	}
 	
-	
+	public int getCodVenda() {
+		return codVenda;
+	}
+	public void setCodVenda(int codVenda) {
+		this.codVenda = codVenda;
+	}
+
 	public int getIdVenda() {
 		return idVenda;
 	}
@@ -64,6 +77,16 @@ public class Venda {
 	public void setLocalVenda(String localVenda) {
 		this.localVenda = localVenda;
 	}
+	
+
+	public void cadastrarVenda(Venda venda) throws ExceptionDAO{
+		
+	new VendaDAO().cadastrarVenda(venda);
+	
+	}
+	
+	
+	
 
 
 	@Override
@@ -76,10 +99,6 @@ public class Venda {
 	}
 
 
-	public void cadastrarVenda(Venda venda) {
-		
-	}
-	
 	public void removerVenda(Venda venda) {
 		
 	}

@@ -1,5 +1,5 @@
 package Visualizacao;
-
+/*
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import Controle.*;
+
 
 public class TelaDetalhesDadosProntos implements ActionListener {
 	private JFrame janelaDetalhe;
@@ -309,7 +310,7 @@ public class TelaDetalhesDadosProntos implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	Object src = e.getSource();
-/*
+
 		if(src == botaoSalvarVeiculo) {
 			if(opcao == 0) {	
 				try {
@@ -386,6 +387,8 @@ public class TelaDetalhesDadosProntos implements ActionListener {
 				}
 
 			}
-		}*/
+		}
 	}
 }  
+
+*/
