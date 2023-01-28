@@ -152,7 +152,7 @@ public class VeiculoDAO {
 	public void apagarVeiculo(Veiculo veiculo) throws ExceptionDAO{
 
 
-		String sql ="";
+		String sql ="Delete From VEICULO where codVeiculo = ?";
 		PreparedStatement pStatement = null;
 		Connection connection = null;
 
@@ -161,6 +161,7 @@ public class VeiculoDAO {
 			pStatement = connection.prepareStatement(sql);
 			pStatement.setInt(1, veiculo.getCodVeiculo());
 			pStatement.execute();
+			
 		}catch(SQLException e) {
 			throw new ExceptionDAO("Erro ao deletar" + e);
 		} finally{

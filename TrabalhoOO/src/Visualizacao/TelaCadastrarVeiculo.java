@@ -27,9 +27,9 @@ import Dao.ExceptionDAO;
 public class TelaCadastrarVeiculo implements ActionListener {
 
 
-	private JFrame janelaDetalhe;
-	private JPanel painelEsquerdo;
-	private JPanel painelCentral;
+	private JFrame janelaDetalhe = new JFrame();
+	private JPanel painelEsquerdo = new JPanel();
+	private JPanel painelCentral = new JPanel();
 	private JTextField entrada1 = new JTextField("");
 	private JTextField entrada2  = new JTextField("");
 	private JTextField entrada3  = new JTextField("");
@@ -39,38 +39,37 @@ public class TelaCadastrarVeiculo implements ActionListener {
 	private JTextField entrada7  = new JTextField("");
 	private JTextField entrada8  = new JTextField("");
 	private JTextField entrada9  = new JTextField("");
-	private JLabel titulo, titulo2,titulo3,titulo4,titulo5,titulo6,titulo7,titulo8,titulo9;
-	private JButton botaoSalvar, botaoExcluir;
+	private JLabel titulo = new JLabel("Nome :" );
+	private JLabel titulo2 = new JLabel("Ano : ") ;
+	private JLabel titulo3 = new JLabel("Cor :");
+	private JLabel titulo4 = new JLabel("Final da Placa : ");
+	private JLabel titulo5 = new JLabel("Numero de Portas : ");
+	private JLabel titulo6 = new JLabel("Preco : ");
+	private JLabel titulo7 = new JLabel("Km : ");
+	private JLabel titulo8 = new JLabel("Categoria : ");
+	private JLabel titulo9  = new JLabel("Marca : ");
+	private JButton botaoSalvar = new JButton("Salvar");
+	private JButton botaoExcluir = new JButton("Excluir");
 	private ControleDados dados = new ControleDados();
 	private String[] dadosVeiculo;
 	private int posicao;
 	private int codVeiculo = 0;
 
 	public void mostrarTela(){
-
-		//JFrame
-		janelaDetalhe = new JFrame();
 		janelaDetalhe.setBounds(573 ,159, 500 , 450);
-
-
 		GridBagConstraints alinhamento = new GridBagConstraints();
 		alinhamento.gridx = 0;
 		alinhamento.gridy = 0;
 		alinhamento.insets = new Insets(3,3,3,3);
 		alinhamento.anchor = GridBagConstraints.FIRST_LINE_START;
-
-		painelEsquerdo = new JPanel();
 		painelEsquerdo.setBackground(Color.LIGHT_GRAY);
 		painelEsquerdo.setLayout(new BoxLayout(painelEsquerdo, BoxLayout.Y_AXIS));
 
-		painelCentral = new JPanel();
+		
 		painelCentral.setBounds(333 ,159, 500 , 450);	
 		painelCentral.setLayout(new GridBagLayout());
 
-
-
 		Dimension tamanhoEntrada = new Dimension(100,20);
-		//Entradas
 
 		entrada1.setPreferredSize(tamanhoEntrada);
 		entrada1.setMaximumSize(tamanhoEntrada);
@@ -100,26 +99,16 @@ public class TelaCadastrarVeiculo implements ActionListener {
 		entrada9.setMaximumSize(tamanhoEntrada);
 
 
-		//Titulo
-		titulo =  new JLabel("Nome :");
-		titulo2 = new JLabel("Ano :");
-		titulo3 = new JLabel("Cor :");
-		titulo4 = new JLabel("Final da Placa :");
-		titulo5 = new JLabel("Numero de Portas :");
-		titulo6 = new JLabel("Preco :");
-		titulo7 = new JLabel("Quilometragem :");
-		titulo8 = new JLabel("Categoria :");
-		titulo9 = new JLabel("Marca :");
 
 		Dimension tamanhoBotao = new Dimension(100,30);
 		//Botoes
-		botaoSalvar = new JButton("Salvar");
+		
 		botaoSalvar.setPreferredSize(tamanhoBotao);
 		botaoSalvar.setMaximumSize(tamanhoBotao);
-		botaoExcluir = new JButton("Excluir");
+	
 		botaoExcluir.setPreferredSize(tamanhoBotao);
 		botaoExcluir.setMaximumSize(tamanhoBotao);
-		botaoExcluir.addActionListener(null);;
+		
 
 		alinhamento.gridx = 0;
 		alinhamento.gridy = 0;
@@ -176,14 +165,12 @@ public class TelaCadastrarVeiculo implements ActionListener {
 		alinhamento.gridy = 8;
 
 		botaoSalvar.addActionListener(this);
-
+		botaoExcluir.addActionListener(this);
 		painelCentral.add(entrada9,alinhamento);
-
 		painelEsquerdo.add(botaoSalvar);
 		painelEsquerdo.add(Box.createVerticalStrut(5));
 		painelEsquerdo.add(botaoExcluir);
 		painelEsquerdo.add(Box.createVerticalStrut(5));
-
 		janelaDetalhe.add(painelCentral);
 		janelaDetalhe.add(painelEsquerdo, BorderLayout.WEST);
 
@@ -222,6 +209,20 @@ public class TelaCadastrarVeiculo implements ActionListener {
 
 	}
 	
+	public void limparTela(java.awt.event.ActionEvent evt) {
+		entrada1.setText("");
+		entrada2.setText("");
+		entrada3.setText("");
+		entrada4.setText("");
+		entrada5.setText("");
+		entrada6.setText("");
+		entrada7.setText("");
+		entrada8.setText("");
+		entrada9.setText("");
+		
+		
+	}
+	
 	public void buscarVeiculo(Integer codVeiculo, String nomeVeiculo, Integer ano , 
 			String cor, Integer finalPlaca, Integer numPortas, Integer preco,
 			Integer quilometragem, String categoria , String marca) {
@@ -244,10 +245,13 @@ public class TelaCadastrarVeiculo implements ActionListener {
 		ControleVeiculo controleVeiculo = new ControleVeiculo();
 		try {
 			res = controleVeiculo.apagarVeiculo(this.codVeiculo);
-			if(res) {
+			if(res == true) {
 				sucessoDeletar();
-			}else
+				
+			}else {
 				erroDeletar();
+			} 
+				
 			
 		} catch (ExceptionDAO e) {
 			Logger.getLogger(TelaCadastrarVeiculo.class.getName()).log(Level.SEVERE, null, e);
@@ -302,9 +306,12 @@ public class TelaCadastrarVeiculo implements ActionListener {
 
 		}
 		
-	if(src == botaoExcluir) {
-		apagarVeiculo(e);
-	}	
+		if(src == botaoExcluir) {
+			apagarVeiculo(e);
+			janelaDetalhe.dispose();
+		}
+		
+	
 
 	}
 }

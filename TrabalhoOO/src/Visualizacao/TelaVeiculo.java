@@ -42,7 +42,7 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 
 	private JFrame tela ;
 	private JPanel painelEsquerdo,painelCentral;
-	private JButton botaoCadastrarVeiculos,botaoAtualizarVeiculos,
+	private JButton botaoCadastrarVeiculos,
 	botaoBuscarMarcas, botaoBuscarPrecos, botaoCadastrarVendas,botaoAtualizarVendas;
 	private JComboBox<String> listaPrecos;
 	private JTextField entradaMarcas;
@@ -58,6 +58,14 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 	private Font padraoFonte = new Font("Bodoni MT Condensed", Font.PLAIN, 12);
 	private JPanel painelTable;
 	private TelaCadastrarVeiculo telaCadastroVeiculo= new TelaCadastrarVeiculo();
+	private DefaultTableModel model = new DefaultTableModel() {
+		@Override
+		public boolean isCellEditable(final int l, final int c) {
+			return false;
+		}
+
+
+	};
 	
 	public TelaVeiculo () {
 
@@ -66,7 +74,7 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 		painelCentral = new JPanel();
 		painelTable = new JPanel();
 		botaoCadastrarVeiculos = new JButton("Cadastrar");
-		botaoAtualizarVeiculos = new JButton("Atualizar");
+		
 		tituloMarcas = new JLabel("Buscar por Marcas");
 		entradaMarcas = new JTextField();
 		botaoBuscarMarcas = new JButton("Buscar");
@@ -113,8 +121,7 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 		botaoBuscarMarcas.setMaximumSize(tamanhoBotoes);
 		botaoCadastrarVeiculos.setSize(tamanhoBotoes);
 		botaoCadastrarVeiculos.setMaximumSize(tamanhoBotoes);
-		botaoAtualizarVeiculos.setSize(tamanhoBotoes);
-		botaoAtualizarVeiculos.setMaximumSize(tamanhoBotoes);
+	
 
 		tituloCadastro.setFont(new Font("Arial", Font.BOLD, 20));
 
@@ -122,8 +129,7 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 		painelTable.add(new JScrollPane(veiculosTable));
 		painelEsquerdo.add(botaoCadastrarVeiculos);
 		painelEsquerdo.add(Box.createVerticalStrut(5));
-		painelEsquerdo.add(botaoAtualizarVeiculos);
-		painelEsquerdo.add(Box.createVerticalStrut(5));
+		
 		botaoBuscarMarcas.addActionListener(this);
 		botaoCadastrarVeiculos.addActionListener(this);
 		painelCentral.add(tituloMarcas);
@@ -169,7 +175,8 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 	public void tabelaClick(java.awt.event.MouseEvent evt) {
 		
 		if(evt.getClickCount() == 2) {
-			Integer codVeiculo = (Integer) veiculosTable.getModel().getValueAt(veiculosTable.getSelectedRowCount() ,0);
+			
+			Integer codVeiculo = (Integer) veiculosTable.getModel().getValueAt(veiculosTable.getSelectedRow() ,0);
 			String nomeVeiculo = (String) veiculosTable.getModel().getValueAt(veiculosTable.getSelectedRow(), 1);
 			Integer ano = (Integer) veiculosTable.getModel().getValueAt(veiculosTable.getSelectedRow(), 2);
 			String cor = (String) veiculosTable.getModel().getValueAt(veiculosTable.getSelectedRow(), 3);
@@ -206,34 +213,6 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 	}
 
 
-
-	/*
-			try {
-				ArrayList<Veiculo> veiculos = new ControleVeiculo().consultarVeiculo(nome);
-
-				veiculos.forEach((Veiculo veiculo) -> {
-					model.addRow(new Object[] { veiculo.getCodVeiculo(),
-												veiculo.getNomeVeiculo(),
-												veiculo.getAno(),
-												veiculo.getCor(),
-												veiculo.getFinalPlaca(),
-												veiculo.getFinalPlaca(),
-												veiculo.getNumPortas(),
-												veiculo.getPreco(),
-												veiculo.getQuilometragem(),
-												veiculo.getCategoria(),
-												veiculo.getMarca()});
-				});
-					veiculosTable.setModel(model);
-
-					}catch(ExceptionDAO e1) {
-						Logger.getLogger(TelaCadastros.class.getName()).log(Level.SEVERE , null, e1);
-					}
-}
-
-
-
-	 */
 
 	
 	@Override
@@ -273,13 +252,5 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 	}
 	
 	//desabilitar q edição da Tabela
-	
-	public DefaultTableModel model = new DefaultTableModel() {
-		@Override
-		public boolean isCellEditable(final int l, final int c) {
-			return false;
-		}
 
-
-	};
 }
