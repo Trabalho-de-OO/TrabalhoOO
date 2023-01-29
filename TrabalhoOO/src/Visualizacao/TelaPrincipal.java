@@ -13,14 +13,16 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Controle.ControleDados;
+
 
 
 public class TelaPrincipal implements ActionListener{
 	private static JFrame telaPrincipal;
-	private static JPanel painel1, painel2;
-	private static JButton botaoVeiculos, botaoVendas;
-	private ControleDados dados = new ControleDados();
+	private static JPanel painel1 = new JPanel();;
+	private static JPanel painel2 = new JPanel(); ;
+	private static JButton botaoVeiculos = new JButton("Veiculos");; 
+	private static JButton botaoVendas = new JButton("Vendas");;
+
 
 	//Criando o corpo da Tela
 	public TelaPrincipal() {
@@ -31,11 +33,11 @@ public class TelaPrincipal implements ActionListener{
 		telaPrincipal.setResizable(false);
 			
 		//painel de fundo
-		painel1 = new JPanel();
+
 		painel1.setBounds(383, 159, 600, 450);
 
 		//painel cinza
-		painel2 = new JPanel();
+	
 		painel2.setBounds(0, 0, 300, 225);
 		painel2.setBackground(Color.LIGHT_GRAY);
 		painel2.setLayout(new BoxLayout(painel2, BoxLayout.Y_AXIS));
@@ -44,12 +46,11 @@ public class TelaPrincipal implements ActionListener{
 		Dimension tamanhoBotao = new Dimension(100,30);
 		
 		//Botão Veiculos
-		botaoVeiculos= new JButton("Veiculos");
 		botaoVeiculos.setPreferredSize(tamanhoBotao);
 		botaoVeiculos.setMaximumSize(tamanhoBotao);
 		botaoVeiculos.setMaximumSize(tamanhoBotao);
 		//Botão Vendas
-		botaoVendas = new JButton("Vendas");
+		
 		botaoVendas.setPreferredSize(tamanhoBotao);
 		botaoVendas.setMaximumSize(tamanhoBotao);
 		botaoVendas.setMaximumSize(tamanhoBotao);
@@ -63,7 +64,7 @@ public class TelaPrincipal implements ActionListener{
 		telaPrincipal.add(painel2,BorderLayout.WEST);
 		telaPrincipal.setVisible(true);
 
-	}	
+	}	                                                             
 	
 	
 	//metodo main
@@ -86,7 +87,7 @@ public class TelaPrincipal implements ActionListener{
 			new TelaVeiculo();
 			
 		if(src == botaoVendas)
-			new TelaCadastroVenda();	
+			new TelaVenda();	
 
 		
 			

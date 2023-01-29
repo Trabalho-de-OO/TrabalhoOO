@@ -8,6 +8,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -18,94 +20,77 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Controle.ControleDados;
-import Controle.ControleVendas;
+import Controle.ControleVeiculo;
+import Controle.ControleVenda;
 import Dao.ExceptionDAO;
 
-public class TelaDetalheVendas implements ActionListener{
+public class TelaCadastrarVenda implements ActionListener{
 	
-	private JFrame janelaDetalhe;
-	private JPanel painelEsquerdo;
-	private JPanel painelCentral;
-	private JTextField entrada1;
-	private JTextField entrada2;
-	private JTextField entrada3;
-	private JTextField entrada4;
-	private JTextField entrada5;
+	private JFrame janelaDetalhe = new JFrame();
+	private JPanel painelEsquerdo = new JPanel();
+	private JPanel painelCentral= new JPanel();
+	private JTextField entrada1 = new JTextField();
+	private JTextField entrada2  = new JTextField();
+	private JTextField entrada3  = new JTextField();
+	private JTextField entrada4  = new JTextField();
+
 	
-	private JLabel titulo;
-	private JLabel titulo2;
-	private JLabel titulo3;
-	private JLabel titulo4;
-	private JLabel titulo5;
-	
-	private JButton botaoSalvar;
-	private JButton botaoExcluirVendas;
-	private String [] dadosVenda;
-	private int posicao;
-	private ControleDados dados = new ControleDados();
+	private JLabel titulo1 = new JLabel("Nome Vendedor : ");
+	private JLabel titulo2 = new JLabel("Veiculo : ") ;
+	private JLabel titulo3 = new JLabel("Preço da Venda: ");
+	private JLabel titulo4 = new JLabel("Local da Venda :");
+
+	private JButton botaoSalvar = new JButton("Salvar");
+	private JButton botaoExcluirVendas  = new JButton("Excluir");
 	private int codVenda= 0;
 	
-	public TelaDetalheVendas() {
+	public void mostrarTela() {
 		
-		janelaDetalhe = new JFrame();
-		janelaDetalhe.setBounds(573 ,159, 500 , 450);	
 
-
+		janelaDetalhe.setBounds(573 ,159, 500 , 450);
+		
 		GridBagConstraints alinhamento = new GridBagConstraints();
 		alinhamento.gridx = 0;
 		alinhamento.gridy = 0;
-		alinhamento.insets = new Insets(10,10,10,10);
-		alinhamento.anchor = GridBagConstraints.CENTER;
-		
-		painelEsquerdo = new JPanel();
+		alinhamento.insets = new Insets(3,3,3,3);
+		alinhamento.anchor = GridBagConstraints.FIRST_LINE_START;
 		painelEsquerdo.setBackground(Color.LIGHT_GRAY);
 		painelEsquerdo.setLayout(new BoxLayout(painelEsquerdo, BoxLayout.Y_AXIS));
 
-		painelCentral = new JPanel();
+		
 		painelCentral.setBounds(333 ,159, 500 , 450);	
 		painelCentral.setLayout(new GridBagLayout());
-		
-		
-		
+
 		Dimension tamanhoEntrada = new Dimension(100,20);
-		//Entradas
-		entrada1 = new JTextField();
+
 		entrada1.setPreferredSize(tamanhoEntrada);
 		entrada1.setMaximumSize(tamanhoEntrada);
-		entrada2 = new JTextField();
+
 		entrada2.setPreferredSize(tamanhoEntrada);
 		entrada2.setMaximumSize(tamanhoEntrada);
-		entrada3 = new JTextField();
+
 		entrada3.setPreferredSize(tamanhoEntrada);
 		entrada3.setMaximumSize(tamanhoEntrada);
-		entrada4 = new JTextField();
+
 		entrada4.setPreferredSize(tamanhoEntrada);
 		entrada4.setMaximumSize(tamanhoEntrada);
-		entrada5 = new JTextField();
-		entrada5.setPreferredSize(tamanhoEntrada);
-		entrada5.setMaximumSize(tamanhoEntrada);
-		
 
-		//Titulo
-		titulo =  new JLabel("ID Venda");
-		titulo2 = new JLabel("Vendedor");
-		titulo3 = new JLabel("Veiculo");
-		titulo4 = new JLabel("Preco da Venda");
-		titulo5 = new JLabel("Local Venda");
-		
+
+	
+
+
 		Dimension tamanhoBotao = new Dimension(100,30);
-		//Botoes
-		botaoSalvar = new JButton("Salvar");
+		
 		botaoSalvar.setPreferredSize(tamanhoBotao);
 		botaoSalvar.setMaximumSize(tamanhoBotao);
-		botaoExcluirVendas = new JButton("Excluir");
+	
 		botaoExcluirVendas.setPreferredSize(tamanhoBotao);
 		botaoExcluirVendas.setMaximumSize(tamanhoBotao);
 		
+
 		alinhamento.gridx = 0;
 		alinhamento.gridy = 0;
-		painelCentral.add(titulo,alinhamento);
+		painelCentral.add(titulo1,alinhamento);
 		alinhamento.gridx =1;
 		alinhamento.gridy = 0;
 		painelCentral.add(entrada1,alinhamento);
@@ -127,26 +112,36 @@ public class TelaDetalheVendas implements ActionListener{
 		alinhamento.gridx = 1;
 		alinhamento.gridy = 3;
 		painelCentral.add(entrada4,alinhamento);
-		alinhamento.gridx = 0;
-		alinhamento.gridy = 4;
-		painelCentral.add(titulo5,alinhamento);
-		alinhamento.gridx = 1;
-		alinhamento.gridy = 4;
-		painelCentral.add(entrada5,alinhamento);
+	
 		
 		botaoSalvar.addActionListener(this);
+		botaoExcluirVendas.addActionListener(this);
+		
 		painelEsquerdo.add(botaoSalvar);
 		painelEsquerdo.add(Box.createVerticalStrut(5));
 		painelEsquerdo.add(botaoExcluirVendas);
 		painelEsquerdo.add(Box.createVerticalStrut(5));
-		
 		janelaDetalhe.add(painelCentral);
 		janelaDetalhe.add(painelEsquerdo, BorderLayout.WEST);
-		
+
 		janelaDetalhe.setVisible(true);
+
 		
 		
 		
+	}
+
+	public void buscarVenda(Integer codVenda, String vendedor, String veiculo , Integer precoVenda, String localVenda) {
+		this.codVenda = codVenda;
+		this.entrada1.setText(vendedor); 
+		this.entrada2.setText(veiculo);
+		this.entrada3.setText(precoVenda.toString());
+		this.entrada4.setText(localVenda);
+
+
+	}
+	public static void main(String[] args) {
+		TelaCadastrarVenda tela = new TelaCadastrarVenda();
 	}
 	public void sucessoCadastro(){
 
@@ -166,39 +161,69 @@ public class TelaDetalheVendas implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		
-		int idVenda = Integer.parseInt(entrada1.getText());
-		int precoVenda= Integer.parseInt(entrada4.getText());
+		int precoVenda = Integer.parseInt(entrada3.getText());
 		
 		if(src == botaoSalvar) {
 
 			boolean res;
 			try {
+				ControleVenda controleVenda = new ControleVenda();
+				if(this.codVenda == 0) {
+					res = controleVenda.cadastrarVendas(entrada1.getText(), entrada2.getText(), precoVenda, entrada4.getText());
+				}
+				else {
 
-				ControleVendas controleVenda= new ControleVendas();
-				res = controleVenda.cadastrarVendas(idVenda, entrada2.getText(), entrada3.getText(), precoVenda, entrada5.getText());
-						
+					res = controleVenda.mudarVenda(this.codVenda,entrada1.getText(), entrada2.getText(), precoVenda, entrada4.getText());
+				}
+				
 				if(res == true) {
-					sucessoCadastro();
-					
+					JOptionPane.showMessageDialog(null, "Dados Cadastrados com Sucesso", null,
+							JOptionPane.INFORMATION_MESSAGE);
+					janelaDetalhe.dispose();
+
 				}else {
-					erroCadastro();
+					JOptionPane.showMessageDialog(null, "Erro ao Cadastrar", null,
+							JOptionPane.ERROR_MESSAGE);
 				}
 			}catch(NumberFormatException exe){
-				erroCadastro();
-				
+				JOptionPane.showMessageDialog(null, "Erro ao Cadastrar\n Os campos não foram Preenchidos", null,
+						JOptionPane.ERROR_MESSAGE);
+
 			}catch(NullPointerException exe2) {
-				erroCadastro();
-				
+				JOptionPane.showMessageDialog(null, "Erro ao Cadastrar\n Campo preenchido errado!", null,
+						JOptionPane.ERROR_MESSAGE);
 			} catch (ExceptionDAO e1) {
 				e1.printStackTrace();
 			}
 
 
 		}
+		if(src == botaoExcluirVendas) {
+			boolean res;
+			ControleVenda controleVenda = new ControleVenda();
+			try {
+				res = controleVenda.apagarVenda(this.codVenda);
+				if(res == true) {
+					JOptionPane.showMessageDialog(null, "Dados deletados com Sucesso", null,
+							JOptionPane.INFORMATION_MESSAGE);
+					janelaDetalhe.dispose();
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "Erro ao Deletar", null,
+							JOptionPane.ERROR_MESSAGE);
+				} 
+					
+				
+			} catch (ExceptionDAO e1) {
+				Logger.getLogger(TelaCadastrarVeiculo.class.getName()).log(Level.SEVERE, null, e);
+			}
+			
+		}
+			
+		}
 			
 	}
 	
 
 
-}
+

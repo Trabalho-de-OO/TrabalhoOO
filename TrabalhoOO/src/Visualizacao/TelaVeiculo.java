@@ -32,56 +32,29 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-import Controle.ControleDados;
+
 import Controle.ControleVeiculo;
-import Controle.ControleVendas;
+
 import Dao.ExceptionDAO;
 import Modelo.Veiculo;
 
 public class TelaVeiculo implements ActionListener, MouseListener{
 
-	private JFrame tela ;
-	private JPanel painelEsquerdo,painelCentral;
-	private JButton botaoCadastrarVeiculos,
-	botaoBuscarMarcas, botaoBuscarPrecos, botaoCadastrarVendas,botaoAtualizarVendas;
-	private JComboBox<String> listaPrecos;
-	private JTextField entradaMarcas;
-	private JLabel tituloMarcas,tituloPrecos, tituloCadastro;
-	//private JList<String> listasVeiculos, listasVendas;
-	//private  DefaultListModel<String> listModel;
-	private static ControleDados controleDados = new ControleDados();
-	//private ControleVeiculo controleVeiculo = new ControleVeiculo();
-	private ControleVendas controleVenda = new ControleVendas();
-	//private String[] dadosVeiculo;
-	//private String [] dadosProntos; 
+	private JFrame tela = new JFrame();
+	private JPanel painelEsquerdo = new JPanel();
+	private	JPanel painelCentral= new JPanel();
+	private JPanel painelTable = new JPanel();
+	private JButton botaoCadastrarVeiculos = new JButton("Cadastrar");
+	private JButton botaoBuscarMarcas = new JButton("Buscar");
+	private JTextField entradaMarcas = new JTextField();;
+	private JLabel tituloMarcas = new JLabel("Buscar por Marcas"); ;
 	private JTable veiculosTable;
-	private Font padraoFonte = new Font("Bodoni MT Condensed", Font.PLAIN, 12);
-	private JPanel painelTable;
+	private Font fonte = new Font("Bodoni MT Condensed", Font.PLAIN, 12);
 	private TelaCadastrarVeiculo telaCadastroVeiculo= new TelaCadastrarVeiculo();
-	private DefaultTableModel model = new DefaultTableModel() {
-		@Override
-		public boolean isCellEditable(final int l, final int c) {
-			return false;
-		}
-
-
-	};
 	
+
 	public TelaVeiculo () {
-
-		tela = new JFrame();
-		painelEsquerdo = new JPanel();
-		painelCentral = new JPanel();
-		painelTable = new JPanel();
-		botaoCadastrarVeiculos = new JButton("Cadastrar");
 		
-		tituloMarcas = new JLabel("Buscar por Marcas");
-		entradaMarcas = new JTextField();
-		botaoBuscarMarcas = new JButton("Buscar");
-		tituloCadastro = new JLabel("Alguns Veiculos Cadastrados");
-
-
-		//DefaultTableModel model = new DefaultTableModel();
 		model.addColumn("Código");
 		model.addColumn("Nome");
 		model.addColumn("Ano");
@@ -92,12 +65,10 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 		model.addColumn("Quilometragem");
 		model.addColumn("Categoria");
 		model.addColumn("Marca");
-		//model.addRow(new Object[] {"0202 ","Duster",2020,"Laranja",4,4,0,"Sedan","Renaut"});
-
 		veiculosTable = new JTable(model);
 		veiculosTable.setRowHeight(30);
-		//veiculosTable.getTableHeader().setFont(padraoFonte);
-		veiculosTable.setFont(padraoFonte);
+		veiculosTable.getTableHeader().setFont(new Font("Arial", Font.BOLD, 12));
+		veiculosTable.setFont(fonte);
 		veiculosTable.addMouseListener(this);
 
 		tela.setBounds(483 ,159, 650 , 550);	
@@ -107,7 +78,7 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 		painelCentral.setLayout(null);
 		entradaMarcas.setBounds(50,40,100,30);
 		tituloMarcas.setBounds(50,10,200,30);
-		painelTable.setBounds(50,70, 500,400);
+		painelTable.setBounds(50,70, 600,400);
 		painelCentral.setLayout(new FlowLayout());
 
 
@@ -122,10 +93,6 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 		botaoCadastrarVeiculos.setSize(tamanhoBotoes);
 		botaoCadastrarVeiculos.setMaximumSize(tamanhoBotoes);
 	
-
-		tituloCadastro.setFont(new Font("Arial", Font.BOLD, 20));
-
-
 		painelTable.add(new JScrollPane(veiculosTable));
 		painelEsquerdo.add(botaoCadastrarVeiculos);
 		painelEsquerdo.add(Box.createVerticalStrut(5));
@@ -144,34 +111,6 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 
 	}
 	
-	public void consultarVeiculo(java.awt.event.ActionEvent evt) {
-
-		String marca = entradaMarcas.getText();
-		DefaultTableModel model = (DefaultTableModel) veiculosTable.getModel();
-		model.setRowCount(0);
-		ControleVeiculo controle = new ControleVeiculo();
-
-		try {
-			ArrayList<Veiculo> veiculos = controle.consultarVeiculo(marca);
-
-			veiculos.forEach((Veiculo veiculo) -> {
-				model.addRow(new Object [] {veiculo.getCodVeiculo(),
-						veiculo.getNomeVeiculo(),
-						veiculo.getAno(),
-						veiculo.getCor(),
-						veiculo.getFinalPlaca(),
-						veiculo.getNumPortas(),
-						veiculo.getPreco(),
-						veiculo.getQuilometragem(),
-						veiculo.getCategoria(),
-						veiculo.getMarca()});
-			});
-			veiculosTable.setModel(model);
-
-		}catch(ExceptionDAO e) {
-			Logger.getLogger(TelaVeiculo.class.getName()).log(Level.SEVERE , null, e);
-		}
-	}
 	public void tabelaClick(java.awt.event.MouseEvent evt) {
 		
 		if(evt.getClickCount() == 2) {
@@ -203,11 +142,33 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 		if(src == botaoCadastrarVeiculos) {
 			new TelaCadastrarVeiculo().mostrarTela();
 		}
-		if(src == botaoCadastrarVendas) {
-			new TelaDetalheVendas();
-		}
+	
 		if(src == botaoBuscarMarcas) {
-			consultarVeiculo(e);
+			String marca = entradaMarcas.getText();
+			DefaultTableModel model = (DefaultTableModel) veiculosTable.getModel();
+			model.setRowCount(0);
+			ControleVeiculo controle = new ControleVeiculo();
+
+			try {
+				ArrayList<Veiculo> veiculos = controle.consultarVeiculo(marca);
+
+				veiculos.forEach((Veiculo veiculo) -> {
+					model.addRow(new Object [] {veiculo.getCodVeiculo(),
+					veiculo.getNomeVeiculo(),
+					veiculo.getAno(),
+					veiculo.getCor(),
+					veiculo.getFinalPlaca(),
+					veiculo.getNumPortas(),
+					veiculo.getPreco(),
+					veiculo.getQuilometragem(),
+					veiculo.getCategoria(),
+					veiculo.getMarca()});
+				});
+				veiculosTable.setModel(model);
+
+			}catch(ExceptionDAO e1) {
+				Logger.getLogger(TelaVeiculo.class.getName()).log(Level.SEVERE , null, e);
+			}
 		}
 
 	}
@@ -224,10 +185,8 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 		tabelaClick(e);
 		
 	}
+}
 	
-		
-		
-	}
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -245,12 +204,19 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	
 	//desabilitar q edição da Tabela
+	private DefaultTableModel model = new DefaultTableModel() {
+		@Override
+		public boolean isCellEditable(final int l, final int c) {
+			return false;
+		}
+	};
 
 }

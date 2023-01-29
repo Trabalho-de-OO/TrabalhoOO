@@ -1,12 +1,14 @@
 package Modelo;
 
+import java.util.ArrayList;
+
 import Dao.ExceptionDAO;
+import Dao.VeiculoDAO;
 import Dao.VendaDAO;
 
 public class Venda {
 	
 	private int codVenda;
-	private int idVenda;
 	private String vendedor;
 	private String veiculo;
 	private int precoVenda;
@@ -16,9 +18,7 @@ public class Venda {
 		
 	}
 
-	
-	
-	public Venda( int idVenda, String vendedor, String  veiculo, int precoVenda, 
+	public Venda( String vendedor, String  veiculo, int precoVenda, 
 			String localVenda) {
 		this.vendedor = vendedor;
 		this.veiculo = veiculo;
@@ -31,14 +31,6 @@ public class Venda {
 	}
 	public void setCodVenda(int codVenda) {
 		this.codVenda = codVenda;
-	}
-
-	public int getIdVenda() {
-		return idVenda;
-	}
-
-	public void setIdVenda(int idVenda) {
-		this.idVenda = idVenda;
 	}
 
 	public String getVendedor() {
@@ -84,8 +76,21 @@ public class Venda {
 	new VendaDAO().cadastrarVenda(venda);
 	
 	}
+	public ArrayList<Venda> consultarVenda(String vendedor) throws ExceptionDAO{
+		return new VendaDAO().consultarVenda(vendedor);
+	}	
 	
 	
+	
+	public void mudarVenda(Venda venda) throws ExceptionDAO{
+		new VendaDAO().mudarVenda(venda);
+	}
+	
+public void apagarVenda(Venda venda) throws ExceptionDAO{
+	
+	new VendaDAO().apagarVenda(venda);
+	
+}	
 	
 
 
@@ -98,10 +103,6 @@ public class Venda {
 				 + "LOCAL DA VENDA: " + localVenda + "\n";
 	}
 
-
-	public void removerVenda(Venda venda) {
-		
-	}
 	
 }
 

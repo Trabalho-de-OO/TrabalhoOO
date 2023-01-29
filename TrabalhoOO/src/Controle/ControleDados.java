@@ -1,3 +1,4 @@
+/*
 package Controle;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,8 +68,8 @@ public class ControleDados {
 
 
 	}
-	 */
-/*
+	 
+
 
 	public boolean cadastrarVeiculo(String [] dadosVeiculo) {
 
@@ -102,7 +103,7 @@ public class ControleDados {
 	}
 	
 	
-*/
+
 
 	
 	public boolean removerVeiculo(int posicao) {
@@ -118,3 +119,4 @@ public class ControleDados {
 	}
 
 }	
+*/

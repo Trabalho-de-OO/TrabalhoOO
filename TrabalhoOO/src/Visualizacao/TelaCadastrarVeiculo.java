@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Controle.ControleDados;
+
 import Controle.ControleVeiculo;
 import Dao.ExceptionDAO;
 
@@ -31,12 +31,12 @@ public class TelaCadastrarVeiculo implements ActionListener {
 	private JPanel painelEsquerdo = new JPanel();
 	private JPanel painelCentral = new JPanel();
 	private JTextField entrada1 = new JTextField("");
-	private JTextField entrada2  = new JTextField("");
+	private JTextField entrada2  = new JTextField("0");
 	private JTextField entrada3  = new JTextField("");
-	private JTextField entrada4  = new JTextField("");
-	private JTextField entrada5  = new JTextField("");
-	private JTextField entrada6  = new JTextField("");
-	private JTextField entrada7  = new JTextField("");
+	private JTextField entrada4  = new JTextField("0");
+	private JTextField entrada5  = new JTextField("0");
+	private JTextField entrada6  = new JTextField("0");
+	private JTextField entrada7  = new JTextField("0");
 	private JTextField entrada8  = new JTextField("");
 	private JTextField entrada9  = new JTextField("");
 	private JLabel titulo = new JLabel("Nome :" );
@@ -50,13 +50,12 @@ public class TelaCadastrarVeiculo implements ActionListener {
 	private JLabel titulo9  = new JLabel("Marca : ");
 	private JButton botaoSalvar = new JButton("Salvar");
 	private JButton botaoExcluir = new JButton("Excluir");
-	private ControleDados dados = new ControleDados();
-	private String[] dadosVeiculo;
-	private int posicao;
 	private int codVeiculo = 0;
 
 	public void mostrarTela(){
+		
 		janelaDetalhe.setBounds(573 ,159, 500 , 450);
+		
 		GridBagConstraints alinhamento = new GridBagConstraints();
 		alinhamento.gridx = 0;
 		alinhamento.gridy = 0;
@@ -101,7 +100,6 @@ public class TelaCadastrarVeiculo implements ActionListener {
 
 
 		Dimension tamanhoBotao = new Dimension(100,30);
-		//Botoes
 		
 		botaoSalvar.setPreferredSize(tamanhoBotao);
 		botaoSalvar.setMaximumSize(tamanhoBotao);
@@ -178,51 +176,6 @@ public class TelaCadastrarVeiculo implements ActionListener {
 
 	}
 
-
-	public void sucessoCadastro(){
-
-		JOptionPane.showMessageDialog(null, "Dados Cadastrados com Sucesso", null,
-				JOptionPane.INFORMATION_MESSAGE);
-		janelaDetalhe.dispose();
-	}
-
-	public void erroCadastro() {
-		JOptionPane.showMessageDialog(null, "Erro ao Cadastrar", null,
-				JOptionPane.ERROR_MESSAGE);
-
-
-
-	}
-	
-	public void sucessoDeletar(){
-
-		JOptionPane.showMessageDialog(null, "Dados deletados com Sucesso", null,
-				JOptionPane.INFORMATION_MESSAGE);
-		janelaDetalhe.dispose();
-	}
-	
-	public void erroDeletar() {
-		JOptionPane.showMessageDialog(null, "Erro ao Deletar", null,
-				JOptionPane.ERROR_MESSAGE);
-
-
-
-	}
-	
-	public void limparTela(java.awt.event.ActionEvent evt) {
-		entrada1.setText("");
-		entrada2.setText("");
-		entrada3.setText("");
-		entrada4.setText("");
-		entrada5.setText("");
-		entrada6.setText("");
-		entrada7.setText("");
-		entrada8.setText("");
-		entrada9.setText("");
-		
-		
-	}
-	
 	public void buscarVeiculo(Integer codVeiculo, String nomeVeiculo, Integer ano , 
 			String cor, Integer finalPlaca, Integer numPortas, Integer preco,
 			Integer quilometragem, String categoria , String marca) {
@@ -238,27 +191,6 @@ public class TelaCadastrarVeiculo implements ActionListener {
 		this.entrada9.setText(marca);
 
 	}
-
-	public void apagarVeiculo(java.awt.event.ActionEvent evt) {
-		
-		boolean res;
-		ControleVeiculo controleVeiculo = new ControleVeiculo();
-		try {
-			res = controleVeiculo.apagarVeiculo(this.codVeiculo);
-			if(res == true) {
-				sucessoDeletar();
-				
-			}else {
-				erroDeletar();
-			} 
-				
-			
-		} catch (ExceptionDAO e) {
-			Logger.getLogger(TelaCadastrarVeiculo.class.getName()).log(Level.SEVERE, null, e);
-		}
-		
-	}
-
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -288,17 +220,21 @@ public class TelaCadastrarVeiculo implements ActionListener {
 				}
 
 				if(res == true) {
-					sucessoCadastro();
+					JOptionPane.showMessageDialog(null, "Dados Cadastrados com Sucesso", null,
+							JOptionPane.INFORMATION_MESSAGE);
+					janelaDetalhe.dispose();
 
 				}else {
-					erroCadastro();
+					JOptionPane.showMessageDialog(null, "Erro ao Cadastrar", null,
+							JOptionPane.ERROR_MESSAGE);
 				}
 			}catch(NumberFormatException exe){
-				erroCadastro();
+				JOptionPane.showMessageDialog(null, "Erro ao Cadastrar\n Os campos não foram Preenchidos", null,
+						JOptionPane.ERROR_MESSAGE);
 
 			}catch(NullPointerException exe2) {
-				erroCadastro();
-
+				JOptionPane.showMessageDialog(null, "Erro ao Cadastrar\n Campo preenchido errado!", null,
+						JOptionPane.ERROR_MESSAGE);
 			} catch (ExceptionDAO e1) {
 				e1.printStackTrace();
 			}
@@ -307,11 +243,26 @@ public class TelaCadastrarVeiculo implements ActionListener {
 		}
 		
 		if(src == botaoExcluir) {
-			apagarVeiculo(e);
-			janelaDetalhe.dispose();
+			boolean res;
+			ControleVeiculo controleVeiculo = new ControleVeiculo();
+			try {
+				res = controleVeiculo.apagarVeiculo(this.codVeiculo);
+				if(res == true) {
+					JOptionPane.showMessageDialog(null, "Dados deletados com Sucesso", null,
+							JOptionPane.INFORMATION_MESSAGE);
+					janelaDetalhe.dispose();
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "Erro ao Deletar", null,
+							JOptionPane.ERROR_MESSAGE);
+				} 
+					
+				
+			} catch (ExceptionDAO e1) {
+				Logger.getLogger(TelaCadastrarVeiculo.class.getName()).log(Level.SEVERE, null, e);
+			}
+			
 		}
 		
-	
-
 	}
 }
