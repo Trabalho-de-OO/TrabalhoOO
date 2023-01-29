@@ -58,8 +58,8 @@ public class Venda {
 	}
 
 
-	public void setPrecoVenda(int precoVenda) {
-		this.precoVenda = precoVenda;
+	public void setPrecoVenda(int  d) {
+		this.precoVenda = d;
 	}
 	
 	public String getLocalVenda() {

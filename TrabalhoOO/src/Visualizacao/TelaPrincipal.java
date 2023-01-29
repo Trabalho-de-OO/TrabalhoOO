@@ -11,19 +11,17 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-
-
 public class TelaPrincipal implements ActionListener{
-	private static JFrame telaPrincipal;
-	private static JPanel painel1 = new JPanel();;
-	private static JPanel painel2 = new JPanel(); ;
-	private static JButton botaoVeiculos = new JButton("Veiculos");; 
-	private static JButton botaoVendas = new JButton("Vendas");;
-
-
+	private  JFrame telaPrincipal;
+	private  JPanel painel1 = new JPanel();
+	private  JPanel painel2 = new JPanel(); 
+	private  JButton botaoVeiculos = new JButton("Veiculos"); 
+	private JButton botaoVendas = new JButton("Vendas");
+	
 	//Criando o corpo da Tela
 	public TelaPrincipal() {
 		//JFrame da TelaPrincipal
@@ -32,6 +30,7 @@ public class TelaPrincipal implements ActionListener{
 		telaPrincipal.setBounds(383 ,159, 500 , 450); 
 		telaPrincipal.setResizable(false);
 			
+		
 		//painel de fundo
 
 		painel1.setBounds(383, 159, 600, 450);
@@ -45,6 +44,9 @@ public class TelaPrincipal implements ActionListener{
 		//Colocando os botoes no mesmo tamanho
 		Dimension tamanhoBotao = new Dimension(100,30);
 		
+		
+		botaoVeiculos.addActionListener(this);
+		botaoVendas.addActionListener(this);
 		//Botão Veiculos
 		botaoVeiculos.setPreferredSize(tamanhoBotao);
 		botaoVeiculos.setMaximumSize(tamanhoBotao);
@@ -54,12 +56,14 @@ public class TelaPrincipal implements ActionListener{
 		botaoVendas.setPreferredSize(tamanhoBotao);
 		botaoVendas.setMaximumSize(tamanhoBotao);
 		botaoVendas.setMaximumSize(tamanhoBotao);
+	
 		
 		//Fazendo as devidas adicoes 
 		painel2.add(botaoVeiculos);
 		painel2.add(Box.createVerticalStrut(5));
 		painel2.add(botaoVendas);
-
+	
+	
 		telaPrincipal.add(painel1);
 		telaPrincipal.add(painel2,BorderLayout.WEST);
 		telaPrincipal.setVisible(true);
@@ -71,9 +75,7 @@ public class TelaPrincipal implements ActionListener{
 	public 	static void main(String[]args) {
 		TelaPrincipal tela = new TelaPrincipal();
 		
-		
-		botaoVeiculos.addActionListener(tela);
-		botaoVendas.addActionListener(tela);
+	
 
 	}
 	

@@ -52,6 +52,59 @@ public class VeiculoDAO {
 		}
 	}
 	
+	public ArrayList<Veiculo> consultarVeiculoPreco(int preco) throws ExceptionDAO{
+		String sql = "select * from VEICULO where preco like '%" + preco + "%' order by preco ";
+		
+		Connection connection = null;
+		PreparedStatement pStatement = null;
+		ArrayList<Veiculo> listaVeiculos = null;
+		
+		try {
+			
+			connection = new ConnectionMVC().getConnection();
+			pStatement = connection.prepareStatement(sql);
+			ResultSet rest = pStatement.executeQuery(sql);
+			
+			if(rest!= null) {
+				listaVeiculos= new ArrayList<Veiculo>();
+				while (rest.next()) {
+					Veiculo veiculo = new Veiculo();
+					veiculo.setCodVeiculo(rest.getInt("codVeiculo"));
+					veiculo.setNomeVeiculo(rest.getString("nomeveiculo"));
+					veiculo.setAno(rest.getInt("ano"));
+					veiculo.setCor(rest.getString("cor"));
+					veiculo.setFinalPlaca(rest.getInt("finalPlaca"));
+					veiculo.setNumPortas(rest.getInt("numPorta"));
+					veiculo.setPreco(rest.getInt("preco"));
+					veiculo.setQuilometragem(rest.getInt("quilometragem"));
+					veiculo.setCategoria(rest.getString("categoria"));
+					veiculo.setMarca(rest.getString("marca"));
+					listaVeiculos.add(veiculo);
+				}
+			}
+			
+			
+		}catch(SQLException e) {
+			throw new ExceptionDAO("Erro ao consultar Preço" + e);
+		}finally {
+			try {
+				if(pStatement != null) {pStatement.close();}
+				
+			}catch(SQLException e ) {
+				
+				throw new ExceptionDAO("Erro ao fechar o pStatemente: " + e);
+			}
+			
+		}
+			try {
+				if(connection!=null) {connection.close();}
+				
+			}catch(SQLException e) {
+				throw new ExceptionDAO("Erro ao fechar a conexao" + e);
+				
+			}
+		return listaVeiculos;
+	}
 	public ArrayList<Veiculo> consultarVeiculo(String marca) throws ExceptionDAO{
 		String sql = "select * from VEICULO where marca like '%" + marca + "%' order by marca ";
 		
@@ -105,6 +158,7 @@ public class VeiculoDAO {
 			}
 		return listaVeiculos;
 	}
+	
 	
 	
 	public void mudarVeiculo(Veiculo veiculo) throws ExceptionDAO {

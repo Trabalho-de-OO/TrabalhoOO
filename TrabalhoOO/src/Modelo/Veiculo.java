@@ -122,6 +122,9 @@ public class Veiculo {
 	new VeiculoDAO().cadastrarVeiculo(veiculo);
 	
 	}
+	public ArrayList<Veiculo> consultarVeiculoPreco(int preco) throws ExceptionDAO{
+		return new VeiculoDAO().consultarVeiculoPreco(preco);
+	}
 	
 	public ArrayList<Veiculo> consultarVeiculo(String marca) throws ExceptionDAO{
 		return new VeiculoDAO().consultarVeiculo(marca);

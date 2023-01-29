@@ -32,7 +32,7 @@ public class ControleVenda {
 
 		return false;
 	}
-	public ArrayList<Venda> consultarVendas(String vendedor) throws ExceptionDAO{
+	public ArrayList<Venda> consultarVendas( String vendedor) throws ExceptionDAO{
 		return new Venda().consultarVenda(vendedor);
 	}	
 

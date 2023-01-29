@@ -161,10 +161,10 @@ public class TelaCadastrarVeiculo implements ActionListener {
 		painelCentral.add(titulo9,alinhamento);
 		alinhamento.gridx = 1;
 		alinhamento.gridy = 8;
-
 		botaoSalvar.addActionListener(this);
 		botaoExcluir.addActionListener(this);
 		painelCentral.add(entrada9,alinhamento);
+		
 		painelEsquerdo.add(botaoSalvar);
 		painelEsquerdo.add(Box.createVerticalStrut(5));
 		painelEsquerdo.add(botaoExcluir);
@@ -191,6 +191,7 @@ public class TelaCadastrarVeiculo implements ActionListener {
 		this.entrada9.setText(marca);
 
 	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

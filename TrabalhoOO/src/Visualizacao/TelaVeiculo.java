@@ -46,8 +46,11 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 	private JPanel painelTable = new JPanel();
 	private JButton botaoCadastrarVeiculos = new JButton("Cadastrar");
 	private JButton botaoBuscarMarcas = new JButton("Buscar");
-	private JTextField entradaMarcas = new JTextField();;
-	private JLabel tituloMarcas = new JLabel("Buscar por Marcas"); ;
+	private JButton botaoBuscarPrecos = new JButton("Buscar");
+	private JTextField entradaMarcas = new JTextField();
+	private JTextField entradaPrecos = new JTextField("0");
+	private JLabel tituloMarcas = new JLabel("Buscar por Marcas"); 
+	private JLabel tituloPreco = new JLabel("Buscar por Preço"); ;
 	private JTable veiculosTable;
 	private Font fonte = new Font("Bodoni MT Condensed", Font.PLAIN, 12);
 	private TelaCadastrarVeiculo telaCadastroVeiculo= new TelaCadastrarVeiculo();
@@ -60,36 +63,43 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 		model.addColumn("Ano");
 		model.addColumn("Cor");
 		model.addColumn("FinalPlaca");
-		model.addColumn("numPortas");
+		model.addColumn("Portas");
 		model.addColumn("Preco");
-		model.addColumn("Quilometragem");
+		model.addColumn("kms");
 		model.addColumn("Categoria");
 		model.addColumn("Marca");
 		veiculosTable = new JTable(model);
-		veiculosTable.setRowHeight(30);
+
+		veiculosTable.setPreferredSize(new Dimension(700,400));
 		veiculosTable.getTableHeader().setFont(new Font("Arial", Font.BOLD, 12));
 		veiculosTable.setFont(fonte);
 		veiculosTable.addMouseListener(this);
 
-		tela.setBounds(483 ,159, 650 , 550);	
+		tela.setBounds(483 ,159, 600, 550);	
 		tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);		
 		painelEsquerdo.setBackground(Color.LIGHT_GRAY);
 		painelEsquerdo.setLayout(new BoxLayout(painelEsquerdo, BoxLayout.Y_AXIS));
 		painelCentral.setLayout(null);
 		entradaMarcas.setBounds(50,40,100,30);
+		entradaPrecos.setBounds(50,40,100,30);
 		tituloMarcas.setBounds(50,10,200,30);
-		painelTable.setBounds(50,70, 600,400);
+		tituloPreco.setBounds(50,10,200,30);
+		painelTable.setBounds(50,70, 800,400);
 		painelCentral.setLayout(new FlowLayout());
 
 
-		painelCentral.setBounds(333 ,159, 500 , 450);	
-		Dimension tamanhoBotoes = new Dimension(100,25);
+		painelCentral.setBounds(333 ,159, 800 , 450);	
+		Dimension tamanhoBotoes = new Dimension(100,30);
 		Dimension tamanhoEntrada = new Dimension(200,25);
 
 		entradaMarcas.setPreferredSize(tamanhoEntrada);
 		entradaMarcas.setMaximumSize(tamanhoEntrada);
+		entradaPrecos.setPreferredSize(tamanhoEntrada);
+		entradaPrecos.setMaximumSize(tamanhoEntrada);
 		botaoBuscarMarcas.setPreferredSize(tamanhoBotoes);
 		botaoBuscarMarcas.setMaximumSize(tamanhoBotoes);
+		botaoBuscarPrecos.setPreferredSize(tamanhoBotoes);
+		botaoBuscarPrecos.setMaximumSize(tamanhoBotoes);
 		botaoCadastrarVeiculos.setSize(tamanhoBotoes);
 		botaoCadastrarVeiculos.setMaximumSize(tamanhoBotoes);
 	
@@ -98,10 +108,14 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 		painelEsquerdo.add(Box.createVerticalStrut(5));
 		
 		botaoBuscarMarcas.addActionListener(this);
+		botaoBuscarPrecos.addActionListener(this);
 		botaoCadastrarVeiculos.addActionListener(this);
 		painelCentral.add(tituloMarcas);
 		painelCentral.add(entradaMarcas);
 		painelCentral.add(botaoBuscarMarcas);
+		painelCentral.add(tituloPreco);
+		painelCentral.add(entradaPrecos);
+		painelCentral.add(botaoBuscarPrecos);
 		painelCentral.add(painelTable);
 		tela.add(painelEsquerdo, BorderLayout.WEST);
 		tela.add(painelCentral);
@@ -169,6 +183,34 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 			}catch(ExceptionDAO e1) {
 				Logger.getLogger(TelaVeiculo.class.getName()).log(Level.SEVERE , null, e);
 			}
+		}
+		if(src == botaoBuscarPrecos) {
+			int preco= Integer.parseInt(entradaPrecos.getText());
+			DefaultTableModel model = (DefaultTableModel) veiculosTable.getModel();
+			model.setRowCount(0);
+			ControleVeiculo controle = new ControleVeiculo();
+
+			try {
+				ArrayList<Veiculo> veiculos = controle.consultarVeiculoPreco(preco);
+
+				veiculos.forEach((Veiculo veiculo) -> {
+					model.addRow(new Object [] {veiculo.getCodVeiculo(),
+					veiculo.getNomeVeiculo(),
+					veiculo.getAno(),
+					veiculo.getCor(),
+					veiculo.getFinalPlaca(),
+					veiculo.getNumPortas(),
+					veiculo.getPreco(),
+					veiculo.getQuilometragem(),
+					veiculo.getCategoria(),
+					veiculo.getMarca()});
+				});
+				veiculosTable.setModel(model);
+
+			}catch(ExceptionDAO e1) {
+				Logger.getLogger(TelaVeiculo.class.getName()).log(Level.SEVERE , null, e);
+			}
+			
 		}
 
 	}
