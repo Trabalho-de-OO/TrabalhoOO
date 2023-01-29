@@ -5,6 +5,13 @@ import java.util.List;
 import Dao.ExceptionDAO;
 import Modelo.Veiculo;
 
+/**
+ * A classe ControleVeiculo é reponsável por tratar os crud e interligar a Modelo com a Visualização
+ * 
+ * @author Doan Filho
+ * @since 2023
+ *
+ */
 public class ControleVeiculo {
 	
 	private Veiculo veiculo = new Veiculo();
@@ -20,7 +27,21 @@ public class ControleVeiculo {
 	}
 
 
-
+/**
+ * Cadastra o veiculo de acordo com as condições requeridas no if
+ * 
+ * @param nomeVeiculo
+ * @param ano
+ * @param cor
+ * @param finalPlaca
+ * @param numPortas
+ * @param preco
+ * @param quilometragem
+ * @param categoria
+ * @param marca
+ * @return boolean
+ * @throws ExceptionDAO
+ */
 
 	public boolean cadastrarVeiculo(String nomeVeiculo, int ano, String cor, int finalPlaca,
 			int numPortas, int preco, int  quilometragem, String categoria, String marca) throws ExceptionDAO{
@@ -37,13 +58,25 @@ public class ControleVeiculo {
 		}
 		return false;
 	}
-	
+	/**
+	 * Lista os Veiculos por marca  
+	 * 
+	 * @param marca
+	 * @return boolean
+	 * @throws ExceptionDAO
+	 */
 	public ArrayList<Veiculo> consultarVeiculo(String marca) throws ExceptionDAO{
 		
 		return new Veiculo().consultarVeiculo(marca);
 		
 	}
-
+/**
+ * Lista os Veiculos por preço 
+ * 
+ * @param preco
+ * @return veiculo
+ * @throws ExceptionDAO
+ */
 	public ArrayList<Veiculo> consultarVeiculoPreco(int preco) throws ExceptionDAO{
 		
 		return new Veiculo().consultarVeiculoPreco(preco);
@@ -64,7 +97,13 @@ public class ControleVeiculo {
 		}
 		return false;
 	}
-	
+	/**
+	 * 
+	 * @param codVeiculo
+	 * @return boolean
+	 * @throws ExceptionDAO
+	 * 3
+	 */
 	public boolean apagarVeiculo(int codVeiculo) throws ExceptionDAO {
 		if(codVeiculo == 0) {
 			return false;

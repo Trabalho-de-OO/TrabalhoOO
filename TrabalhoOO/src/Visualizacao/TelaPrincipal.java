@@ -22,6 +22,8 @@ public class TelaPrincipal implements ActionListener{
 	private  JButton botaoVeiculos = new JButton("Veiculos"); 
 	private JButton botaoVendas = new JButton("Vendas");
 	
+	
+	
 	//Criando o corpo da Tela
 	public TelaPrincipal() {
 		//JFrame da TelaPrincipal
