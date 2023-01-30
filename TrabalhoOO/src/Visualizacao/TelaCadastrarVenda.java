@@ -24,6 +24,11 @@ import Controle.ControleVeiculo;
 import Controle.ControleVenda;
 import Dao.ExceptionDAO;
 
+/*
+ * 
+ * Tela para cadastro de Vendas
+ */
+
 public class TelaCadastrarVenda implements ActionListener{
 	
 	private JFrame janelaDetalhe = new JFrame();
@@ -44,6 +49,11 @@ public class TelaCadastrarVenda implements ActionListener{
 	private JButton botaoExcluirVendas  = new JButton("Excluir");
 	private int codVenda= 0;
 	
+	
+	/*
+	 * Método para fazer a requisição da TelaCadastrarVenda
+	 * 
+	 */
 	public void mostrarTela() {
 		
 
@@ -130,6 +140,13 @@ public class TelaCadastrarVenda implements ActionListener{
 		
 		
 	}
+	
+	/**
+	 * 
+	 * Método para abrir uma noja janela com as entradas 
+	 * já preenchidas pelos dados cadastrados
+	 */
+	  
 
 	public void buscarVenda(Integer codVenda, String vendedor, String veiculo , Integer precoVenda, String localVenda) {
 		this.codVenda = codVenda;
@@ -140,24 +157,13 @@ public class TelaCadastrarVenda implements ActionListener{
 
 
 	}
-	public static void main(String[] args) {
-		TelaCadastrarVenda tela = new TelaCadastrarVenda();
-	}
-	public void sucessoCadastro(){
-
-		JOptionPane.showMessageDialog(null, "Dados Cadastrados com Sucesso", null,
-				JOptionPane.INFORMATION_MESSAGE);
-		janelaDetalhe.dispose();
-	}
-
-	public void erroCadastro() {
-		JOptionPane.showMessageDialog(null, "Erro ao Cadastrar", null,
-				JOptionPane.ERROR_MESSAGE);
-
-
-
-	}
-		
+	
+	/*
+	 * Método para dar ações para componentes
+	 * 
+	 */
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();

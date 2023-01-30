@@ -4,6 +4,14 @@ import java.util.ArrayList;
 
 import Dao.ExceptionDAO;
 import Dao.VeiculoDAO;
+/**
+ * Classe para representar veiculo que faz interação com a controle
+ * e com a classe DAO para requerir métodos relacionados ao banco de 
+ * dados
+ * 
+ * @author Doan Filho
+ * @since 2022
+ */
 
 public class Veiculo {
 	private int codVeiculo;
@@ -17,10 +25,26 @@ public class Veiculo {
 	private String categoria;
 	private String marca;
 	
-	
+	/**
+	 * Construtor vazio para requisições especificas
+	 */
 	
 	public Veiculo() {
 	}
+	
+	/**
+	 * Construtor com parâmetros para requisições
+	 * 
+	 * @param nomeVeiculo
+	 * @param ano
+	 * @param cor
+	 * @param finalPlaca
+	 * @param numPortas
+	 * @param preco
+	 * @param quilometragem
+	 * @param categoria
+	 * @param marca
+	 */
 	
 	public Veiculo(String nomeVeiculo, int ano, String cor,int finalPlaca,
 			int numPortas,int preco, int quilometragem,String categoria, String marca) {
@@ -115,24 +139,61 @@ public class Veiculo {
 	}
 	// cadastro e remover 
 	
-	
+	/**
+	 * Método para cadastrar um veiculo requerido pelo usuário
+	 * 
+	 * @param veiculo
+	 * @throws ExceptionDAO
+	 */
 	
 	public void cadastrarVeiculo(Veiculo veiculo) throws ExceptionDAO{
 		
 	new VeiculoDAO().cadastrarVeiculo(veiculo);
 	
 	}
+	
+	/**
+	 * Método para listar veiculos por determinado preço
+	 * 
+	 * @param preco
+	 * @return ArrayList
+	 * @throws ExceptionDAO
+	 */
 	public ArrayList<Veiculo> consultarVeiculoPreco(int preco) throws ExceptionDAO{
 		return new VeiculoDAO().consultarVeiculoPreco(preco);
 	}
+	/**
+	 * Método para listar veiculos por determinada marca
+	 * 
+	 * @param marca
+	 * @return ArrayList
+	 * @throws ExceptionDAO
+	 */
 	
 	public ArrayList<Veiculo> consultarVeiculo(String marca) throws ExceptionDAO{
 		return new VeiculoDAO().consultarVeiculo(marca);
 	}
+	
+	/**
+	 * Método para  a mudar veiculo no banco de acordo com o requerimento
+	 * do usuário
+	 * 
+	 * @param veiculo
+	 * @throws ExceptionDAO
+	 */
 
 	public void mudarVeiculo(Veiculo veiculo) throws ExceptionDAO {
 		 new VeiculoDAO().mudarVeiculo(veiculo);
 	}
+	
+	/**
+	 * Método para apagar veiculo no banco de dados de acordo com
+	 * o requerimento do usuário
+	 * 
+	 * 
+	 * @param veiculo
+	 * @throws ExceptionDAO
+	 */
 
 	public void apagarVeiculo(Veiculo veiculo) throws ExceptionDAO {
 		 new VeiculoDAO().apagarVeiculo(veiculo);

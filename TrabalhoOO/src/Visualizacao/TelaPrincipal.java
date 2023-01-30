@@ -13,7 +13,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+/*
+ * Tela principal que contém o método main
+ * 
+ */
 
 public class TelaPrincipal implements ActionListener{
 	private  JFrame telaPrincipal;
@@ -23,8 +26,7 @@ public class TelaPrincipal implements ActionListener{
 	private JButton botaoVendas = new JButton("Vendas");
 	
 	
-	
-	//Criando o corpo da Tela
+
 	public TelaPrincipal() {
 		//JFrame da TelaPrincipal
 		telaPrincipal = new JFrame("TelaPrincipal");
@@ -72,7 +74,12 @@ public class TelaPrincipal implements ActionListener{
 
 	}	                                                             
 	
-	
+	/**
+	 * Método main para instanciar a tela 
+	 * 
+	 * 
+	 * @param args
+	 */
 	//metodo main
 	public 	static void main(String[]args) {
 		TelaPrincipal tela = new TelaPrincipal();
@@ -81,7 +88,10 @@ public class TelaPrincipal implements ActionListener{
 
 	}
 	
-	
+/**
+ * Método para dar ações para os componentes
+ * 
+ */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 

@@ -1,5 +1,4 @@
 package Dao;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +9,21 @@ import com.mysql.cj.jdbc.ClientPreparedStatement;
 
 import Modelo.Veiculo;
 
+/**
+ * Classe para efetuar a comunicação de dados do Banco de dados
+ * com a modelo do Projeto
+ * 
+ * @author Doan Filho
+ *@since 2023
+ */
 public class VeiculoDAO {
+	/**
+	 * Método para cadastrar um novo veiculo passando uma Query 
+	 * para efetuar a solicitação para o banco
+	 * 
+	 * @param veiculo
+	 * @throws ExceptionDAO
+	 */
 
 	public void cadastrarVeiculo(Veiculo veiculo) throws ExceptionDAO{
 
@@ -51,6 +64,15 @@ public class VeiculoDAO {
 			}
 		}
 	}
+	
+	/**
+	 * Método para listar veiculos de acordo com o preço 
+	 * requerido
+	 * 
+	 * @param preco
+	 * @return ArrayList
+	 * @throws ExceptionDAO
+	 */
 	
 	public ArrayList<Veiculo> consultarVeiculoPreco(int preco) throws ExceptionDAO{
 		String sql = "select * from VEICULO where preco like '%" + preco + "%' order by preco ";
@@ -105,6 +127,14 @@ public class VeiculoDAO {
 			}
 		return listaVeiculos;
 	}
+	
+	/**
+	 * Método para listar veiculos de acordo com a marca
+	 * 
+	 * @param marca
+	 * @return ArrayList
+	 * @throws ExceptionDAO
+	 */
 	public ArrayList<Veiculo> consultarVeiculo(String marca) throws ExceptionDAO{
 		String sql = "select * from VEICULO where marca like '%" + marca + "%' order by marca ";
 		
@@ -159,6 +189,13 @@ public class VeiculoDAO {
 		return listaVeiculos;
 	}
 	
+	/**
+	 * Método para mudar o veiculo previamente cadastrado
+	 * no banco de acordo com o usuário
+	 * 
+	 * @param veiculo
+	 * @throws ExceptionDAO
+	 */
 	
 	
 	public void mudarVeiculo(Veiculo veiculo) throws ExceptionDAO {
@@ -202,6 +239,13 @@ public class VeiculoDAO {
 				
 			}
 	}
+	/**
+	 * Método para apagar o resgistro de veiculo
+	 * previamente cadastrado
+	 * 
+	 * @param veiculo
+	 * @throws ExceptionDAO
+	 */
 	
 	public void apagarVeiculo(Veiculo veiculo) throws ExceptionDAO{
 

@@ -38,6 +38,11 @@ import Controle.ControleVeiculo;
 import Dao.ExceptionDAO;
 import Modelo.Veiculo;
 
+/*
+ * Tela para Veiculo com a tebela de veiculos
+ * 
+ */
+
 public class TelaVeiculo implements ActionListener, MouseListener{
 
 	private JFrame tela = new JFrame();
@@ -124,6 +129,11 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 
 
 	}
+	/*
+	 * 
+	 * Método para instanciar uma nova tela com dados 
+	 * já preenchidos 
+	 */
 	
 	public void tabelaClick(java.awt.event.MouseEvent evt) {
 		
@@ -148,6 +158,10 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 		}
 	}
 	
+	/*
+	 * Método para dar ações ao componentes 
+	 * 
+	 */
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -215,7 +229,10 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 
 	}
 
-
+/*
+ * Método para dar ação ao click do mouse
+ * 
+ */
 
 	
 	@Override
@@ -225,6 +242,7 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 	
 	if(src == veiculosTable){
 		tabelaClick(e);
+		tela.dispose();
 		
 	}
 }
@@ -252,6 +270,11 @@ public class TelaVeiculo implements ActionListener, MouseListener{
 		
 		
 	}
+	
+	/*
+	 * Método para desativar a edição da tabela
+	 * 
+	 */
 	
 	//desabilitar q edição da Tabela
 	private DefaultTableModel model = new DefaultTableModel() {

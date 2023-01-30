@@ -1,5 +1,15 @@
 package Modelo;
 
+
+/**
+ * Classe abstrata para representar uma pessoa
+ * quer tem atributos herdados por comprador e vendedor
+ * 
+ * 
+ * @author Doan Filho
+ *@since 2022
+ */
+
 public class Pessoa {
 	//atributos
 		protected String nome ;
@@ -7,6 +17,10 @@ public class Pessoa {
 		protected int telefone;
 		protected String cpf;
 		protected String endereco;
+		
+		/**
+		 * Construtor vazio pois classe abstrata não pode ser instanciada
+		 */
 
 		public Pessoa() {
 			super();

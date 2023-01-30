@@ -3,6 +3,14 @@ package Modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * Classe para representar uma concessionária 
+ * 
+ * @author Doan Filho
+ *@since 2022
+ */
+
 public class Concessionaria {
 	private String nome;
 	private int capacidade;
@@ -11,6 +19,14 @@ public class Concessionaria {
 	private List<Veiculo> listaVeiculos = new ArrayList<Veiculo>();
 	private int numeroVeiculos = 0;
 	
+	/**
+	 * Construtor com parâmetros para requisições
+	 * 
+	 * @param nome
+	 * @param capacidade
+	 * @param numVendedores
+	 * @param endConcessionaria
+	 */
 
 	public Concessionaria(String nome, int capacidade, int numVendedores,String endConcessionaria) {
 		super();
@@ -74,7 +90,13 @@ public class Concessionaria {
 	
 	
 	
-
+/**
+ * Método para buscar veiculos em uma Lista de veiculos
+ * que a consessionaria contém
+ * 
+ * @param listaVeiculos
+ * @param veiculo
+ */
 	public void buscarVeiculo( List<Veiculo> listaVeiculos, Veiculo veiculo) {
 
 		if(listaVeiculos.contains(veiculo) == true) {

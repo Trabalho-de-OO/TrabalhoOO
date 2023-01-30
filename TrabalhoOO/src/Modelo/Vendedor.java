@@ -1,9 +1,23 @@
 package Modelo;
 
+/**
+ * 
+ * Classe para representar vendedor que herda 
+ * atributos de Pessoa 
+ * 
+ * @author Doan Filho
+ *
+ */
+
 public class Vendedor extends Pessoa{
 	//atributos vendedor
 	private int comissao;
 
+	/**
+	 * Construtor vazio para requisições especificas
+	 * 
+	 */
+	
 	public Vendedor() {
 		super();
 	}

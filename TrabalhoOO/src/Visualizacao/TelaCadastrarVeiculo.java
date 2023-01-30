@@ -24,6 +24,11 @@ import javax.swing.JTextField;
 import Controle.ControleVeiculo;
 import Dao.ExceptionDAO;
 
+
+/*
+ * 
+ * Tela para cadastro de veiculo
+ */
 public class TelaCadastrarVeiculo implements ActionListener {
 
 
@@ -51,7 +56,12 @@ public class TelaCadastrarVeiculo implements ActionListener {
 	private JButton botaoSalvar = new JButton("Salvar");
 	private JButton botaoExcluir = new JButton("Excluir");
 	private int codVeiculo = 0;
-
+	
+	
+	/*
+	 * Método para fazer a requisição da TelaCadastrarVeiculo
+	 * 
+	 */
 	public void mostrarTela(){
 		
 		janelaDetalhe.setBounds(573 ,159, 500 , 450);
@@ -175,6 +185,12 @@ public class TelaCadastrarVeiculo implements ActionListener {
 		janelaDetalhe.setVisible(true);
 
 	}
+	
+	/*
+	 * Método para abrir uma noja janela com as entradas 
+	 * já preenchidas pelos dados cadastrados
+	 * 
+	 */
 
 	public void buscarVeiculo(Integer codVeiculo, String nomeVeiculo, Integer ano , 
 			String cor, Integer finalPlaca, Integer numPortas, Integer preco,
@@ -191,6 +207,11 @@ public class TelaCadastrarVeiculo implements ActionListener {
 		this.entrada9.setText(marca);
 
 	}
+	/**
+	 * 
+	 * Método para dar ações para componentes
+	 * 
+	 */
 
 
 	@Override

@@ -37,6 +37,11 @@ import Dao.ExceptionDAO;
 import Modelo.Veiculo;
 import Modelo.Venda;
 
+/*
+ * Tela para Veiculo com a tebela de veiculos
+ * 
+ */
+
 public class TelaVenda  implements ActionListener, MouseListener{
 
 	private JFrame tela = new JFrame();
@@ -45,7 +50,6 @@ public class TelaVenda  implements ActionListener, MouseListener{
 	private JPanel painelTable = new JPanel();
 	private JButton botaoBuscarVendedor = new JButton("Buscar");
 	private JButton botaoCadastrarVenda = new JButton("Cadastrar");
-	//private JComboBox<String> comboBoxPreco = new JComboBox<String>();
 	private Font fonte = new Font("Bodoni MT Condensed", Font.PLAIN, 12);
 	private JTable vendaTable;
 	
@@ -75,13 +79,7 @@ public class TelaVenda  implements ActionListener, MouseListener{
 		painelCentral.setLayout(null);
 		painelTable.setBounds(50,70, 600,400);
 		painelCentral.setLayout(new FlowLayout());
-		/*
-		comboBoxPreco.addItem("3000 até 20.000");
-		comboBoxPreco.addItem("30.000 até 50.000");
-		comboBoxPreco.addItem("50.000 até 100.000");
-		comboBoxPreco.addItem("200.000 até 500.000");
-		comboBoxPreco.addItem("500.000 até 1.000.000");
-*/
+	
 
 		painelCentral.setBounds(333 ,159, 500 , 450);	
 		Dimension tamanhoBotoes = new Dimension(100,25);
@@ -109,37 +107,13 @@ public class TelaVenda  implements ActionListener, MouseListener{
 		tela.setVisible(true);
 		
 }
+		
 	
-
-
-	
-	public void consultarVenda(java.awt.event.ActionEvent evt) {
-		String vendedor = entradaPrecos.getText();
-		DefaultTableModel model = (DefaultTableModel) vendaTable.getModel();
-		model.setRowCount(0);
-		ControleVenda controle = new ControleVenda();
-		try {
-			ArrayList<Venda> vendas = controle.consultarVendas(vendedor);
-			vendas.forEach((Venda venda) ->{
-				model.addRow(new Object[] { venda.getCodVenda(),
-						venda.getVendedor(),
-						venda.getVeiculo(),
-						venda.getPrecoVenda(),
-						venda.getLocalVenda()});
-			}); vendaTable.setModel(model);
-			
-		}catch(NumberFormatException e2) {
-			JOptionPane.showMessageDialog(null, "Preencha o campo para verificar as preços", null,
-					JOptionPane.ERROR_MESSAGE);
-				
-			}catch(Exception e1) {
-				
-				
-				}
-		}
-	
-	
-	
+	/*
+	 * Método para instanciar outra tela com dados
+	 * já cadastrados
+	 * 
+	 */
 	
 public void tabelaClick(java.awt.event.MouseEvent evt) {
 		
@@ -153,6 +127,7 @@ public void tabelaClick(java.awt.event.MouseEvent evt) {
  			
 			this.telaCadastroVenda.buscarVenda(codVenda, vendedor, veiculo, precoVenda, localVenda);
 			this.telaCadastroVenda.mostrarTela();
+			this.tela.dispose();
 			
 		}
 	}
@@ -166,7 +141,28 @@ public void tabelaClick(java.awt.event.MouseEvent evt) {
 			new TelaCadastrarVenda().mostrarTela();
 		}
 		if(src == botaoBuscarVendedor) {
-				consultarVenda(e);
+			String vendedor = entradaPrecos.getText();
+			DefaultTableModel model = (DefaultTableModel) vendaTable.getModel();
+			model.setRowCount(0);
+			ControleVenda controle = new ControleVenda();
+			try {
+				ArrayList<Venda> vendas = controle.consultarVendas(vendedor);
+				vendas.forEach((Venda venda) ->{
+					model.addRow(new Object[] { venda.getCodVenda(),
+							venda.getVendedor(),
+							venda.getVeiculo(),
+							venda.getPrecoVenda(),
+							venda.getLocalVenda()});
+				}); vendaTable.setModel(model);
+				
+			}catch(NumberFormatException e2) {
+				JOptionPane.showMessageDialog(null, "Preencha o campo para verificar as preços", null,
+						JOptionPane.ERROR_MESSAGE);
+					
+				}catch(Exception e1) {
+					
+					
+					}
 			
 		}			
 		
@@ -175,7 +171,10 @@ public void tabelaClick(java.awt.event.MouseEvent evt) {
 	}
 
 	
-
+/**
+ * Método para dar ação ao click do mouse
+ * 
+ */
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -222,6 +221,10 @@ public void tabelaClick(java.awt.event.MouseEvent evt) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * Método para desabilitar a edição da tabela
+	 * 
+	 */
 	public DefaultTableModel model = new DefaultTableModel() {
 		
 		@Override 
@@ -230,12 +233,6 @@ public void tabelaClick(java.awt.event.MouseEvent evt) {
 		}
 	};
 
-	public void entradaNull() {
-		if(entradaPrecos == null) {
-			JOptionPane.showMessageDialog(null, "Preencha o campo para verificar as preços", null,
-					JOptionPane.ERROR_MESSAGE);
-			
-		}
-	}
+
 
 }

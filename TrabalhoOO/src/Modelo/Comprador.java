@@ -1,13 +1,39 @@
 package Modelo;
 
-
+/**
+ * Classe para representar um comprador quer herda atributos da 
+ * classe Pessoa 
+ * 
+ * @author Doan Filho
+ * @since 2022
+ */
 public class Comprador extends Pessoa {
 	private double saldo;
 	private String veiculoDesejado;
+	
+	/**
+	 *
+	 * Construtor vazio para requisições especificas
+	 * 
+	 */
 
 	public Comprador() {
 		super();
 	}
+	
+	/**
+	 * 
+	 * Construtor com parâmetros para requisições 
+	 * 
+	 * @param nome
+	 * @param email
+	 * @param telefone
+	 * @param cpf
+	 * @param endereco
+	 * @param saldo
+	 * @param veiculoDesejado
+	 */
+	
 	public Comprador(String nome, String email, int telefone, String cpf, String endereco,double saldo, String veiculoDesejado) {
 		super();
 		this.nome = nome;
@@ -31,6 +57,8 @@ public class Comprador extends Pessoa {
 	public void setVeiculoDesejado(String veiculoDesejado) {
 		this.veiculoDesejado = veiculoDesejado;
 	}
+	
+	
 	public String toString() {
 		return "--COMPRADOR--\n"+ "NOME : "+ nome + "\n"
 			 + "EMAIL : " + email +"\n" 
